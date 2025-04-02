@@ -2,27 +2,31 @@ package Model.Gioco;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Collection;
+import java.util.LinkedList;
+
 
 public class GiocoDAO implements GiocoDAOInterface{
 	
 	private static final String TABLE_NAME = "Gioco";
 	
-	public void doSave(GiocoBean gioco) {
+	public void doSave(GiocoBean gioco) throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps= null;
 		String query="INSERT INTO "+TABLE_NAME+"(Titolo,Descrizione,Immagine,Edizione,Prezzo,IVA,Sconto,Data_uscita) VALUES(?,?,?,?,?,?,?,?)";
 		try {
 			connection=ConnectionPool.getConnection();
 			ps= connection.prepareStatement(query);
-			ps.SetString(1,gioco.getTitolo());
-			ps.SetString(2,gioco.getDescrizione());
+			ps.setString(1, gioco.getTitolo());
+			ps.setString(2, gioco.getDescrizione());
 			ps.setString(3, gioco.getImmagine());
 			ps.setString(4, gioco.getEdizione());
-			ps.setFloat(5, gioco.getPrezzo());
-			ps.setFloat(6, gioco.getIva());
-			ps.setFloat(7, gioco.getSconto());
-			ps.setDate(5, gioco.getData());
+			ps.setDouble(5, gioco.getPrezzo());
+			ps.setDouble(6, gioco.getIva());
+			ps.setDouble(7, gioco.getSconto());
+			ps.setDate(8, gioco.getDataUscita());
 			
 			ps.executeUpdate();
 			connection.commit();
@@ -35,14 +39,14 @@ public class GiocoDAO implements GiocoDAOInterface{
 			}
 		}
 	}
-	public void doDelete(GiocoBean gioco) {
+	public void doDelete(int Id) throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps = null;
 		String query = "DELETE FROM "+TABLE_NAME+" WHERE Id=?";
 		try {
 			connection= ConnectionPool.getConnection();
 			ps=connection.prepareStatement(query);
-			ps.setInt(1, gioco.getId());
+			ps.setInt(1, Id);
 			
 			ps.executeUpdate();
 			connection.commit();
@@ -55,8 +59,77 @@ public class GiocoDAO implements GiocoDAOInterface{
 			}
 		}
 	}
-	public void doUpdate(GiocoBean gioco) {
+	public void doUpdate(GiocoBean gioco) throws SQLException{
 	}
-	public GiocoBean doRetrieveByKey(int id);
-	public Collection<GiocoBean> doRetrieveAll(String order);
+	
+	public GiocoBean doRetrieveByKey(int id) throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps = null;
+		GiocoBean bean = new GiocoBean();
+		String query = "SELECT * FROM "+TABLE_NAME+" WHERE Id=?";
+		try {
+			connection=ConnectionPool.getConnection();
+			ps=connection.prepareStatement(query);
+			ps.setInt(1, id);
+			
+			ResultSet result = ps.executeQuery();
+			while(result.next()) {
+				
+				bean.setTitolo(result.getString("Titolo"));
+				bean.setDescrizione(result.getString("Descrizione"));
+				bean.setImmagine(result.getString("Immagine"));
+				bean.setEdizione(result.getString("Edizione"));
+				bean.setPrezzo(result.getDouble("Prezzo"));
+				bean.setIva(result.getDouble("Iva"));
+				bean.setSconto(result.getDouble("Sconto"));
+				bean.setDataUscita(result.getDate("Data_uscita"));
+			}
+			connection.commit();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				ConnectionPool.releaseConnection(connection);
+			}
+		}return bean;
+	}
+	
+	public Collection<GiocoBean> doRetrieveAll(String order) throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps = null;
+		Collection<GiocoBean> giochi = new LinkedList<GiocoBean>();
+		String query = "SELECT * FROM "+TABLE_NAME;
+		try {
+			connection=ConnectionPool.getConnection();
+			if(order!=null && !order.equals("")) {
+				query+=" ORDER BY "+order;
+			}
+			ps=connection.prepareStatement(query);
+			
+			ResultSet result = ps.executeQuery();
+			while(result.next()) {
+				GiocoBean bean = new GiocoBean();
+				
+				bean.setTitolo(result.getString("Titolo"));
+				bean.setDescrizione(result.getString("Descrizione"));
+				bean.setImmagine(result.getString("Immagine"));
+				bean.setEdizione(result.getString("Edizione"));
+				bean.setPrezzo(result.getDouble("Prezzo"));
+				bean.setIva(result.getDouble("Iva"));
+				bean.setSconto(result.getDouble("Sconto"));
+				bean.setDataUscita(result.getDate("Data_uscita"));
+				giochi.add(bean);
+			}
+			connection.commit();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				ConnectionPool.releaseConnection(connection);
+			}
+		}
+		return giochi;
+	}
 }
