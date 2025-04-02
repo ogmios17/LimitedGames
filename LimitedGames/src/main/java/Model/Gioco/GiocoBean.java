@@ -1,5 +1,7 @@
 package Model.Gioco;
 
+import java.sql.Date;
+
 public class GiocoBean {
     private int id;
     private String titolo;
@@ -8,11 +10,12 @@ public class GiocoBean {
     private String edizione;
     private double prezzo;
     private double iva;
-    private String dataUscita;
+    private Date dataUscita;
+    private double sconto;
 
     public GiocoBean() {}
 
-    public GiocoBean(int id, String titolo, String immagine, String descrizione, String edizione, double prezzo, double iva, String dataUscita) {
+    public GiocoBean(int id, String titolo, String immagine, String descrizione, String edizione, double prezzo, double iva, Date dataUscita, double sconto) {
         this.id = id;
         this.titolo = titolo;
         this.immagine = immagine;
@@ -21,6 +24,7 @@ public class GiocoBean {
         this.prezzo = prezzo;
         this.iva = iva;
         this.dataUscita = dataUscita;
+        this.sconto=sconto;
     }
 
     public int getId() {
@@ -79,11 +83,19 @@ public class GiocoBean {
         this.iva = iva;
     }
 
-    public String getDataUscita() {
+    public Date getDataUscita() {
         return dataUscita;
     }
 
-    public void setDataUscita(String dataUscita) {
+    public void setDataUscita(Date dataUscita) {
         this.dataUscita = dataUscita;
+    }
+    
+    public double getSconto() {
+    	return sconto;
+    }
+    
+    public void setSconto(double sconto) {
+    	this.sconto=sconto;
     }
 }
