@@ -20,9 +20,10 @@ public class DriverManagerConnectionPool {
 	}
 	private static Connection createDBConnection() throws SQLException {
 		Connection newConnection = null;
+		String ip= "localhost";
 		String db = "LimitedGames";
-		String Username = "login";
-		String Password = "PSWD";
+		String username = "root";
+		String password = "passwordfortsw";
 		
 		newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ 3306+"/"+db+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
 	

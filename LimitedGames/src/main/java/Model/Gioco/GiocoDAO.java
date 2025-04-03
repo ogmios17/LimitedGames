@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import Connection_pool.DriverManagerConnectionPool;
+
 
 public class GiocoDAO implements GiocoDAOInterface{
 	
@@ -17,7 +19,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 		PreparedStatement ps= null;
 		String query="INSERT INTO "+TABLE_NAME+"(Titolo,Descrizione,Immagine,Edizione,Prezzo,IVA,Sconto,Data_uscita) VALUES(?,?,?,?,?,?,?,?)";
 		try {
-			connection=ConnectionPool.getConnection();
+			connection=DriverManagerConnectionPool.getConnection();
 			ps= connection.prepareStatement(query);
 			ps.setString(1, gioco.getTitolo());
 			ps.setString(2, gioco.getDescrizione());
@@ -35,7 +37,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 				if (ps != null)
 					ps.close();
 			} finally {
-				ConnectionPool.releaseConnection(connection);
+				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
 	}
@@ -44,7 +46,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 		PreparedStatement ps = null;
 		String query = "DELETE FROM "+TABLE_NAME+" WHERE Id=?";
 		try {
-			connection= ConnectionPool.getConnection();
+			connection= DriverManagerConnectionPool.getConnection();
 			ps=connection.prepareStatement(query);
 			ps.setInt(1, Id);
 			
@@ -55,7 +57,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 				if (ps != null)
 					ps.close();
 			} finally {
-				ConnectionPool.releaseConnection(connection);
+				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
 	}
@@ -68,7 +70,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 		GiocoBean bean = new GiocoBean();
 		String query = "SELECT * FROM "+TABLE_NAME+" WHERE Id=?";
 		try {
-			connection=ConnectionPool.getConnection();
+			connection=DriverManagerConnectionPool.getConnection();
 			ps=connection.prepareStatement(query);
 			ps.setInt(1, id);
 			
@@ -90,7 +92,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 				if (ps != null)
 					ps.close();
 			} finally {
-				ConnectionPool.releaseConnection(connection);
+				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}return bean;
 	}
@@ -101,7 +103,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 		Collection<GiocoBean> giochi = new LinkedList<GiocoBean>();
 		String query = "SELECT * FROM "+TABLE_NAME;
 		try {
-			connection=ConnectionPool.getConnection();
+			connection=DriverManagerConnectionPool.getConnection();
 			if(order!=null && !order.equals("")) {
 				query+=" ORDER BY "+order;
 			}
@@ -127,7 +129,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 				if (ps != null)
 					ps.close();
 			} finally {
-				ConnectionPool.releaseConnection(connection);
+				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
 		return giochi;
