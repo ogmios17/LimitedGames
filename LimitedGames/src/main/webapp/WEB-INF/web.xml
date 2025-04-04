@@ -9,4 +9,8 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet-mapping>
+    <servlet-name>Ctalogo.java</servlet-name>
+    <url-pattern>/giochi</url-pattern>
+  </servlet-mapping>
 </web-app>

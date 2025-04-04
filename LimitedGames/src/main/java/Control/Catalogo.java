@@ -17,7 +17,7 @@ import Model.Gioco.*;
 public class Catalogo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static GiocoDAO model;
+	private static GiocoDAO model = new GiocoDAO();
 	
     public Catalogo() {
     }
