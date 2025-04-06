@@ -12,10 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Model.Gioco.*;
 
-
-@WebServlet("/Catalogo")
+@WebServlet("/giochi")
 public class Catalogo extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	
 	private static GiocoDAO model = new GiocoDAO();
 	
@@ -24,6 +22,7 @@ public class Catalogo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		final GiocoDAO model = new GiocoDAO();
 		String action=request.getParameter("action");
 		try {
 			if(action != null) {
