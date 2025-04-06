@@ -77,6 +77,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 			ResultSet result = ps.executeQuery();
 			while(result.next()) {
 				
+				bean.setId(result.getInt("Id"));
 				bean.setTitolo(result.getString("Titolo"));
 				bean.setDescrizione(result.getString("Descrizione"));
 				bean.setImmagine(result.getString("Immagine"));
@@ -113,6 +114,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 			while(result.next()) {
 				GiocoBean bean = new GiocoBean();
 				
+				bean.setId(result.getInt("Id"));
 				bean.setTitolo(result.getString("Titolo"));
 				bean.setDescrizione(result.getString("Descrizione"));
 				bean.setImmagine(result.getString("Immagine"));
