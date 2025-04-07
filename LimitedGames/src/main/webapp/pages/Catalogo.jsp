@@ -39,8 +39,7 @@
     while(it.hasNext()){
     	GiocoBean g= (GiocoBean)it.next();
     %>
-    	
-        <img src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>"><br>
+        <img height=200 width=160 src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>"><br>
         <%= g.getTitolo() %> <%= g.getEdizione() %> Edition<br>
         <% if(g.getSconto()!=0) {%>
         <s><%=g.getPrezzo() %></s>

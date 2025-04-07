@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1" import="Model.Gioco.GiocoBean"%>
 <%@ include file="header.jsp" %>
 <% GiocoBean dettaglio=(GiocoBean)request.getAttribute("gioco"); %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <title>Dettaglio gioco</title>
 </head>
 <body>
