@@ -30,5 +30,3 @@ public class Cart {
 	}
 }
 
-
-INTERLINEA 1.5

@@ -7,8 +7,7 @@
     if(catalogo == null){
     	response.sendRedirect(request.getContextPath()+"/giochi");
     	return;
-    }
-    GiocoBean dettaglio=(GiocoBean)request.getAttribute("gioco");
+    }    
 %>
 
 <!DOCTYPE html>
@@ -60,31 +59,7 @@
     <p><em>Nessun gioco disponibile al momento.</em></p>
 <% } %>
 
-	<%
-		if (dettaglio != null) {
-	%>
-	<h1>Dettagli gioco:</h1><br>
-	<table border=1>
-		<tr>
-			<th>Titolo</th>
-			<th>Descrizione</th>
-			<th>Edizione</th>
-			<th>Prezzo</th>
-			<th>Sconto</th>
-			<th>IVA</th>
-			<th>Data di uscita</th>
-		</tr>
-		<tr>
-			<td><%= dettaglio.getTitolo()%></td>
-			<td><%= dettaglio.getDescrizione()%></td>
-			<td><%= dettaglio.getEdizione()%></td>
-			<td><%= dettaglio.getPrezzo()%></td>
-			<td><%= dettaglio.getSconto()%></td>
-			<td><%= dettaglio.getIva()%></td>
-			<td><%= dettaglio.getDataUscita()%></td>
-		</tr>
-	</table>
-	<% } %>
+
 	
 	<h2>Inserisci un nuovo gioco</h2>
 	<form action="<%= request.getContextPath() %>/giochi" method="post" enctype="multipart/form-data">

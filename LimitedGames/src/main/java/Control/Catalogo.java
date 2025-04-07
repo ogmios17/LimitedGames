@@ -37,6 +37,9 @@ public class Catalogo extends HttpServlet {
 					int id=Integer.parseInt(request.getParameter("id"));
 					request.removeAttribute("gioco");
 					request.setAttribute("gioco", model.doRetrieveByKey(id));
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/Dettagli.jsp");
+					dispatcher.forward(request, response);
+					return;
 				}
 				else if(action.equals("delete")) {
 					int id=Integer.parseInt(request.getParameter("id"));
