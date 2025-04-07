@@ -44,6 +44,8 @@ public class Catalogo extends HttpServlet {
 				else if(action.equals("delete")) {
 					int id=Integer.parseInt(request.getParameter("id"));
 					model.doDelete(id);
+					response.sendRedirect(request.getContextPath()+"/giochi");
+					return;
 				}else if(action.equals("insert")) {
 					Part filePart = request.getPart("immagine");
 					String nomeFile= filePart.getSubmittedFileName();

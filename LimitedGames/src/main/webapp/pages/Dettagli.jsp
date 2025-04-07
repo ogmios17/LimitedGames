@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="Model.Gioco.GiocoBean"%>
-
+<%@ include file="header.jsp" %>
 <% GiocoBean dettaglio=(GiocoBean)request.getAttribute("gioco"); %>
 <!DOCTYPE html>
 <html>
@@ -31,5 +31,6 @@
 		</tr>
 	</table>
 	<img src="<%= request.getContextPath() %>/images/<%= dettaglio.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= dettaglio.getTitolo() %>"><br>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

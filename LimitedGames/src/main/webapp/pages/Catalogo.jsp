@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="Model.Gioco.GiocoBean" %>
 <%@ page import="java.util.*" %>
+<%@ include file="header.jsp" %>
 
 <%
     Collection<?> catalogo = (Collection<?>) request.getAttribute("giochi");
@@ -90,6 +91,8 @@
 		<input type="submit" value="Add"><input type="reset" value="Reset">
 
 	</form>
+	
+	<%@include file="footer.jsp" %>
 
 
 
