@@ -5,7 +5,7 @@
 <%
     Collection<?> catalogo = (Collection<?>) request.getAttribute("giochi");
     if(catalogo == null){
-    	response.sendRedirect("./giochi");
+    	response.sendRedirect(request.getContextPath()+"/giochi");
     	return;
     }
     GiocoBean dettaglio=(GiocoBean)request.getAttribute("gioco");
@@ -21,7 +21,7 @@
 
 <h2>Catalogo Giochi</h2>
 
-<form action="./giochi" method="POST">
+<form action="<%= request.getContextPath() %>/giochi" method="POST">
     <label for="sort">Ordina per:</label>
     <select name="sort" id="sort">
         <option value="titolo">Titolo</option>
@@ -47,11 +47,11 @@
         <% } %>
         <%= String.format("%.2f",g.getPrezzo()-g.getPrezzo()*g.getSconto()/100) %> €<br>
             
-        <a href= "./giochi?action=read&id=<%=g.getId()%>">
+        <a href= "<%= request.getContextPath() %>/giochi?action=read&id=<%=g.getId()%>">
         	<button >Dettagli</button>
         </a>
 
-        <a href= "./giochi?action=delete&id=<%=g.getId()%>">
+        <a href= "<%= request.getContextPath() %>/giochi?action=delete&id=<%=g.getId()%>">
         	<button>Elimina</button>
         </a>
         <br/>
@@ -87,7 +87,7 @@
 	<% } %>
 	
 	<h2>Inserisci un nuovo gioco</h2>
-	<form action="./giochi" method="post" enctype="multipart/form-data">
+	<form action="<%= request.getContextPath() %>/giochi" method="post" enctype="multipart/form-data">
 	<!-- DA FARE AGGIUNTA DELLA PIATTAFORMA(Servono le entry nel db) -->
 		<input type="hidden" name="action" value="insert"> 
 		

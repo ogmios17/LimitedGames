@@ -58,6 +58,8 @@ public class Catalogo extends HttpServlet {
 						    inputStream.transferTo(outputStream);
 						}
 					model.doSave(bean);
+					response.sendRedirect(request.getContextPath()+"/giochi");
+					return;
 				}
 			}
 		}catch (SQLException e) {
@@ -69,7 +71,7 @@ public class Catalogo extends HttpServlet {
 		}catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 		}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Catalogo.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/Catalogo.jsp");
 		dispatcher.forward(request, response);
 	}
 
