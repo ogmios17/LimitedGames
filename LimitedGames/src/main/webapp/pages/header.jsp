@@ -7,6 +7,8 @@
 <title>Header</title>
 </head>
 <body>
-	<p>Header placeholder</p>
+	<a href="<%= request.getContextPath() %>/pages/Carrello.jsp">
+		<button>Visualizza carrello</button>
+	</a>
 </body>
 </html>

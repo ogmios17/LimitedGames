@@ -37,9 +37,9 @@
 			<td><%= dettaglio.getDataUscita()%></td>
 		</tr>
 	</table>
-	<form action="ShowDetails" method="post">
-	<Label for=dettagli>Seleziona la piattaforma</Label>
-		<select name="dettagli" id="dettagli">
+	<form action="./AggiungiGioco" method="post">
+	<Label for=piattaforma>Seleziona la piattaforma</Label>
+		<select name="piattaforma" id="piattaforma">
 			<% 
 				if(piattaforme!= null && !piattaforme.isEmpty()){
 					Iterator<?> it=piattaforme.iterator();
@@ -52,6 +52,9 @@
 				%>
 
 		</select>
+		<input type="hidden" name="id" value="<%=dettaglio.getId() %>">
+		<input type="submit" value="Aggiungi al carrello">
+		
 	</form>
 	
 	<%@ include file="footer.jsp" %>
