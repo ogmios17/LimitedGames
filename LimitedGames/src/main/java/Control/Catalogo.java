@@ -32,16 +32,9 @@ public class Catalogo extends HttpServlet {
 		final GiocoDAO model = new GiocoDAO();
 		String action=request.getParameter("action");
 		try {
-			if(action != null) {
-				if(action.equals("read")) {
-					int id=Integer.parseInt(request.getParameter("id"));
-					request.removeAttribute("gioco");
-					request.setAttribute("gioco", model.doRetrieveByKey(id));
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/Dettagli.jsp");
-					dispatcher.forward(request, response);
-					return;
-				}
-				else if(action.equals("delete")) {
+			if(action != null) {				
+				
+				if(action.equals("delete")) {
 					int id=Integer.parseInt(request.getParameter("id"));
 					model.doDelete(id);
 					response.sendRedirect(request.getContextPath()+"/giochi");

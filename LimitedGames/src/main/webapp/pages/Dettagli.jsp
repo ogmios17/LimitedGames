@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="ISO-8859-1" import="Model.Gioco.GiocoBean"%>
+    pageEncoding="ISO-8859-1" import="Model.Gioco.GiocoBean" import= "java.util.*" import= "Model.Gioco.StockBean"%>
 <%@ include file="header.jsp" %>
-<% GiocoBean dettaglio=(GiocoBean)request.getAttribute("gioco"); %>
+<% 
+	GiocoBean dettaglio=(GiocoBean)request.getAttribute("gioco"); 
+	Collection<?> piattaforme = (Collection<?>) request.getAttribute("piattaforme");
+    	if(piattaforme == null || dettaglio==null){
+    		response.sendRedirect(request.getContextPath()+"/ShowDetails?id="+dettaglio.getId());
+    		return;
+    	}  
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +16,7 @@
 </head>
 <body>
 	<h1>Dettagli gioco:</h1><br>
+	<img src="<%= request.getContextPath() %>/images/<%= dettaglio.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= dettaglio.getTitolo() %>">
 	<table border=1>
 		<tr>
 			<th>Titolo</th>
@@ -29,7 +37,23 @@
 			<td><%= dettaglio.getDataUscita()%></td>
 		</tr>
 	</table>
-	<img src="<%= request.getContextPath() %>/images/<%= dettaglio.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= dettaglio.getTitolo() %>"><br>
+	<form action="ShowDetails" method="post">
+	<Label for=dettagli>Seleziona la piattaforma</Label>
+		<select name="dettagli" id="dettagli">
+			<% 
+				if(piattaforme!= null && !piattaforme.isEmpty()){
+					Iterator<?> it=piattaforme.iterator();
+					while(it.hasNext()){
+						StockBean piattaforma=(StockBean)it.next();
+			%>
+				<option value= "<%=piattaforma.getPiattaforma() %>"><%=piattaforma.getPiattaforma() %></option>
+					<% }
+				}
+				%>
+
+		</select>
+	</form>
+	
 	<%@ include file="footer.jsp" %>
 </body>
 </html>

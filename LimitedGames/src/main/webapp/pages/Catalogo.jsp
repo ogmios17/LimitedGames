@@ -46,13 +46,15 @@
         <% } %>
         <%= String.format("%.2f",g.getPrezzo()-g.getPrezzo()*g.getSconto()/100) %> €<br>
             
-        <a href= "<%= request.getContextPath() %>/giochi?action=read&id=<%=g.getId()%>">
+        <a href= "<%= request.getContextPath() %>/ShowDetails?id=<%=g.getId()%>">
         	<button >Dettagli</button>
         </a>
 
         <a href= "<%= request.getContextPath() %>/giochi?action=delete&id=<%=g.getId()%>">
         	<button>Elimina</button>
         </a>
+        
+        <button>Aggiungi al carrello</button>
         <br/>
     <% } %>
 <% } else { %>
