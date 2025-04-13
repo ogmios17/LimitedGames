@@ -101,6 +101,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 	public Collection<GiocoBean> doRetrieveAll(String order) throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps = null;
+		GiocoBean bean = new GiocoBean();
 		Collection<GiocoBean> giochi = new LinkedList<GiocoBean>();
 		String query = "SELECT * FROM "+TABLE_NAME;
 		try {
@@ -112,7 +113,6 @@ public class GiocoDAO implements GiocoDAOInterface{
 			
 			ResultSet result = ps.executeQuery();
 			while(result.next()) {
-				GiocoBean bean = new GiocoBean();
 				
 				bean.setId(result.getInt("Id"));
 				bean.setTitolo(result.getString("Titolo"));
