@@ -104,6 +104,44 @@ public class AcquistoDAO {
 		}return bean;
 	}
 	
+	public Collection<AcquistoBean> doRetrieveByOrdine(int id)throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps = null;
+		Collection<AcquistoBean> acquisti = new LinkedList<AcquistoBean>();
+		String query = "SELECT * FROM "+TABLE_NAME+" WHERE IDOrdine = ?";
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			ps = connection.prepareStatement(query);
+			ps.setInt(1, id);
+			ResultSet result = ps.executeQuery();
+			while(result.next()) {		
+				
+				AcquistoBean bean = new AcquistoBean();				
+				bean.setIdAcquisto(result.getInt("IDAcquisto"));
+				bean.setIdGioco(result.getInt("IDGioco"));
+				bean.setIdOrdine(result.getInt("IDOrdine"));
+				bean.setQuantita(result.getInt("Quantita"));
+				bean.setData(result.getDate("DataAcquisto"));
+				bean.setTitolo(result.getString("Titolo"));
+				bean.setPrezzo(result.getFloat("Prezzo"));
+				bean.setIva(result.getFloat("IVA"));
+				bean.setEdizione(result.getString("Edizione"));
+				bean.setPiattaforma(result.getString("Piattaforma"));
+				
+				acquisti.add(bean);
+			}
+			
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}return acquisti;
+	}
+
+	
 	public Collection<AcquistoBean> doRetrieveAll(String order)throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps = null;
