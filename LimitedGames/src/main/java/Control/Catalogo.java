@@ -47,8 +47,8 @@ public class Catalogo extends HttpServlet {
 					bean.setDescrizione(request.getParameter("Descrizione"));
 					bean.setImmagine(nomeFile);
 					bean.setEdizione(request.getParameter("Edizione"));
-					bean.setPrezzo(Double.parseDouble(request.getParameter("Prezzo")));
-					bean.setIva(Double.parseDouble(request.getParameter("Iva")));
+					bean.setPrezzo(Float.parseFloat(request.getParameter("Prezzo")));
+					bean.setIva(Float.parseFloat(request.getParameter("Iva")));
 					bean.setSconto(0);
 					bean.setDataUscita(Date.valueOf(request.getParameter("Data")));
 					try (OutputStream outputStream = new FileOutputStream(request.getServletContext().getInitParameter("LIMITED_ROOT") + File.separator + "images"+ File.separator + nomeFile); 
