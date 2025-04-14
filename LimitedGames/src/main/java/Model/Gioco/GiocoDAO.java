@@ -82,9 +82,9 @@ public class GiocoDAO implements GiocoDAOInterface{
 				bean.setDescrizione(result.getString("Descrizione"));
 				bean.setImmagine(result.getString("Immagine"));
 				bean.setEdizione(result.getString("Edizione"));
-				bean.setPrezzo(result.getDouble("Prezzo"));
-				bean.setIva(result.getDouble("Iva"));
-				bean.setSconto(result.getDouble("Sconto"));
+				bean.setPrezzo(result.getFloat("Prezzo"));
+				bean.setIva(result.getFloat("Iva"));
+				bean.setSconto(result.getFloat("Sconto"));
 				bean.setDataUscita(result.getDate("Data_uscita"));
 			}
 			connection.commit();
@@ -118,9 +118,9 @@ public class GiocoDAO implements GiocoDAOInterface{
 				bean.setDescrizione(result.getString("Descrizione"));
 				bean.setImmagine(result.getString("Immagine"));
 				bean.setEdizione(result.getString("Edizione"));
-				bean.setPrezzo(result.getDouble("Prezzo"));
-				bean.setIva(result.getDouble("Iva"));
-				bean.setSconto(result.getDouble("Sconto"));
+				bean.setPrezzo(result.getFloat("Prezzo"));
+				bean.setIva(result.getFloat("Iva"));
+				bean.setSconto(result.getFloat("Sconto"));
 				bean.setDataUscita(result.getDate("Data_uscita"));
 				giochi.add(bean);
 			}

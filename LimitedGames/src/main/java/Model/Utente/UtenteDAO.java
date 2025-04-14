@@ -80,7 +80,7 @@ public class UtenteDAO {
 			ResultSet result = ps.executeQuery();
 			while(result.next()) {
 				bean.setUsername(result.getString("Username"));
-				bean.setPassword(result.getString("Password"));
+				bean.setPassword(result.getString("Pwd"));
 				bean.setNome(result.getString("Nome"));
 				bean.setCognome(result.getString("Cognome"));
 				bean.setEmail(result.getString("Email"));

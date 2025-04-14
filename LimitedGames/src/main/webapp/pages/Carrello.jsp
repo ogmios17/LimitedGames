@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%
+		session.setAttribute("username","ogham");
 		Cart cart=(Cart)session.getAttribute("cart");
 		if(cart==null || cart.isEmpty()){
 	%><h1>Carrello vuoto</h1>
@@ -33,8 +34,14 @@
 				<td><%=c.getGioco().getPrezzo() %></td>
 				<td><%=c.getQuantita() %></td>
 				<td><%=c.getGioco().getPrezzo()*c.getQuantita() %></td>
-				<td><a href= "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>"><button>-</button></a>
-		<%} }%>
+				<td><a href= "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>"><button>-</button></a></td>
+		<%} %>
+		</table>
+		<form action="<%= request.getContextPath()%>/EffettuaOrdine" method="POST">
+			<input type="submit" value="Effettua acquisto">
+		</form>
+		<%}%>
+		
 			
 	</table>
 </body>

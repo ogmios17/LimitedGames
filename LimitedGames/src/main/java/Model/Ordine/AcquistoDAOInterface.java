@@ -9,6 +9,7 @@ public interface AcquistoDAOInterface {
 	public void doDelete(int id)throws SQLException;
 	public void doUpdate(AcquistoBean acquisto)throws SQLException;
 	public AcquistoBean doRetrieveByKey(int id)throws SQLException;
+	public Collection<AcquistoBean> doRetrieveByOrdine(int id)throws SQLException;
 	public Collection<AcquistoBean> doRetrieveAll(String order)throws SQLException;
 	
 

@@ -10,5 +10,8 @@
 	<a href="<%= request.getContextPath() %>/pages/Carrello.jsp">
 		<button>Visualizza carrello</button>
 	</a>
+	<a href="<%= request.getContextPath() %>/pages/Ordini.jsp">
+		<button>Visualizza ordini</button>
+	</a>
 </body>
 </html>

@@ -8,14 +8,14 @@ public class GiocoBean {
     private String immagine;
     private String descrizione;
     private String edizione;
-    private double prezzo;
-    private double iva;
+    private float prezzo;
+    private float iva;
     private Date dataUscita;
-    private double sconto;
+    private float sconto;
 
     public GiocoBean() {}
 
-    public GiocoBean(int id, String titolo, String immagine, String descrizione, String edizione, double prezzo, double iva, Date dataUscita, double sconto) {
+    public GiocoBean(int id, String titolo, String immagine, String descrizione, String edizione, float prezzo, float iva, Date dataUscita, float sconto) {
         this.id = id;
         this.titolo = titolo;
         this.immagine = immagine;
@@ -67,19 +67,19 @@ public class GiocoBean {
         this.edizione = edizione;
     }
 
-    public double getPrezzo() {
+    public float getPrezzo() {
         return prezzo;
     }
 
-    public void setPrezzo(double prezzo) {
+    public void setPrezzo(float prezzo) {
         this.prezzo = prezzo;
     }
 
-    public double getIva() {
+    public float getIva() {
         return iva;
     }
 
-    public void setIva(double iva) {
+    public void setIva(float iva) {
         this.iva = iva;
     }
 
@@ -91,11 +91,11 @@ public class GiocoBean {
         this.dataUscita = dataUscita;
     }
     
-    public double getSconto() {
+    public float getSconto() {
     	return sconto;
     }
     
-    public void setSconto(double sconto) {
+    public void setSconto(float sconto) {
     	this.sconto=sconto;
     }
 }

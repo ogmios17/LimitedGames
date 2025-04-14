@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -14,15 +15,15 @@ public class OrdineDAO {
 	
 	private static final String TABLE_NAME = "Ordine";
 	
-	public void doSave(OrdineBean ordine)throws SQLException{
+	public int doSave(OrdineBean ordine)throws SQLException{
 		
 		Connection connection = null;
 		PreparedStatement ps = null;
 		String query = "INSERT INTO "+TABLE_NAME+
-				"(IDOrdine,Nome,Cognome,Via,CAP,Citta,Prezzo,Data_Ordine,Data_Conesegna,Username) VALUES(?,?,?,?,?,?,?,?,?,?)";
+				"(Nome,Cognome,Via,CAP,Citta,Prezzo,Data_Ordine,Data_Consegna,Username) VALUES(?,?,?,?,?,?,?,?,?)";
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
-			ps = connection.prepareStatement(query);
+			ps = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 			
 			ps.setString(1,ordine.getNome());
 			ps.setString(2,ordine.getCognome());
@@ -36,6 +37,12 @@ public class OrdineDAO {
 			
 			ps.executeUpdate();
 			connection.commit();
+			
+			ResultSet rs = ps.getGeneratedKeys();
+		    if (rs.next()) {
+		        return rs.getInt(1); 
+		    }
+		    return -1;
 		}finally {
 			try {
 				if (ps != null)
@@ -73,6 +80,43 @@ public class OrdineDAO {
 	public void doUpdate(OrdineBean ordine)throws SQLException{		
 	}
 	
+	public Collection<OrdineBean> doRetrieveByUsername(String username)throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps = null;
+		Collection<OrdineBean> ordini= new LinkedList<OrdineBean>();
+		String query = "SELECT * FROM "+TABLE_NAME+" WHERE Username = ?";
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			ps = connection.prepareStatement(query);
+			
+			ps.setString(1, username);
+			ResultSet result = ps.executeQuery();
+			connection.commit();
+			while(result.next()) {
+				OrdineBean bean = new OrdineBean();
+				bean.setId(result.getInt("IDOrdine"));
+				bean.setNome(result.getString("Nome"));
+				bean.setCognome(result.getString("Cognome"));
+				bean.setVia(result.getString("Via"));
+				bean.setCAP(result.getString("CAP"));
+				bean.setCitta(result.getString("Citta"));
+				bean.setPrezzo(result.getFloat("Prezzo"));
+				bean.setDataOrdine(result.getDate("Data_Ordine"));
+				bean.setDataConsegna(result.getDate("Data_Consegna"));
+				bean.setUsername(result.getString("Username"));
+				
+				ordini.add(bean);
+			}
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}return ordini;
+	}
+	
 	public OrdineBean doRetrieveByKey(int id)throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps = null;
@@ -106,6 +150,7 @@ public class OrdineDAO {
 			}
 		}return bean;
 	}
+	
 	public Collection<OrdineBean> doRetrieveAll(String order)throws SQLException{
 		Connection connection = null;
 		Collection<OrdineBean> ordini = new LinkedList<OrdineBean>();
