@@ -102,7 +102,6 @@ public class UtenteDAO {
 	public Collection<UtenteBean> doRetrieveAll(String order)throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps = null;
-		UtenteBean bean = new UtenteBean();
 		Collection<UtenteBean> utenti = new LinkedList<UtenteBean>();
 		String query = "SELECT * FROM "+TABLE_NAME;
 		try {
@@ -111,6 +110,7 @@ public class UtenteDAO {
 			
 			ResultSet result = ps.executeQuery();
 			while(result.next()) {
+				UtenteBean bean = new UtenteBean();
 				bean.setUsername(result.getString("Username"));
 				bean.setPassword(result.getString("Password"));
 				bean.setNome(result.getString("Nome"));
