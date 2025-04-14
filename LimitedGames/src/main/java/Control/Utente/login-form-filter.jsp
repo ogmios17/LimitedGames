@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Pagina Login</title>
 </head>
 <body>
-<form action="Login" method="post">
+<form action="LoginFilter" method="post">
 <fieldset>
-<legend>Login</legend>
+<legend>Login Filter Custom</legend>
 <label for="username">Login</label>
 <input id="username" type="text" name="username" placeholder="enter login"><br>
 
