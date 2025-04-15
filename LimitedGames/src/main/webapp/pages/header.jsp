@@ -13,5 +13,13 @@
 	<a href="<%= request.getContextPath() %>/pages/Ordini.jsp">
 		<button>Visualizza ordini</button>
 	</a>
+	
+	<a href="<%= request.getContextPath() %>/pages/admin/protected.jsp">
+		<button>Accedi da admin</button>
+	</a>
+	
+	<a href="<%= request.getContextPath() %>/pages/login-form.jsp">
+		<button>Effettua il login</button>
+	</a>
 </body>
 </html>
