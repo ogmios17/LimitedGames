@@ -9,7 +9,7 @@
 <body>
 	<h1>Ops...sembra esserci stato un errore. Niente paura, il nostro tecnico è già al lavoro
 	Intanto, ti ha preparato un piccolo pulsante per non perderti, scusa per l'inconvenienza!</h1>
-	<a href= "<%= request.getContextPath() %>/Catalogo.jsp">
+	<a href= "<%= request.getContextPath() %>/pages/Catalogo.jsp">
         	<button >Home page</button>
         </a>
 </body>

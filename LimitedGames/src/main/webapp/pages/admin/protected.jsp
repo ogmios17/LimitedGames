@@ -10,7 +10,7 @@
 <h1>Benvenuti nella pagina protetta</h1>
 Congratulazioni. Hai accesso ai documenti protetti.
 <br><br>
-<form action="Logout" method="get">
+<form action="<%= request.getContextPath()%>/Logout" method="get">
 <input type="submit" value="Logout"/>
 </form>
 </body>
