@@ -66,6 +66,8 @@ public class EffettuaOrdine extends HttpServlet {
 				acquisto.setTitolo(c.getGioco().getTitolo());
 				
 				acquistoModel.doSave(acquisto);
+				session.removeAttribute("cart");
+				response.sendRedirect("/LimitedGames/pages/OrdineEffettuato.jsp");
 			}
 		}catch (SQLException e) {
 			System.out.println("Error: "+e);

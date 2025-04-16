@@ -40,7 +40,8 @@ public class AggiungiGioco extends HttpServlet {
 			try {
 				GiocoBean game=model.doRetrieveByKey(Integer.parseInt(request.getParameter("id")));
 				String piattaforma = request.getParameter("piattaforma");
-				cart.addGame(new Cartable(game,1,piattaforma));
+				int quantita = Integer.parseInt(request.getParameter("quantita"));
+				cart.addGame(new Cartable(game,quantita,piattaforma));
 				session.setAttribute("cart", cart);
 			}catch (SQLException e) {
 				System.out.println("Errore: "+e);
