@@ -66,4 +66,3 @@ public UtenteBean checkLogin(String username, String hashPassword) throws Except
 	}
 	return utente;
 }}    //non ho idea del pechè io debba chiuderne due, ma se funziona, funziona...
-

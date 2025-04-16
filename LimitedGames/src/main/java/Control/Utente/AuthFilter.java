@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
+
 public class AuthFilter implements Filter{
 
 		public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)throws IOException, ServletException{
@@ -11,6 +12,8 @@ public class AuthFilter implements Filter{
 			HttpServletResponse hresponse = (HttpServletResponse) response;
 			
 			String loginURI = hrequest.getContextPath() + "/pages/admin";
+
+
 			boolean loginRequest = hrequest.getRequestURI().startsWith(loginURI);
 			
 			if(loginRequest) {
