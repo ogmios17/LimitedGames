@@ -7,6 +7,12 @@
 <title>Header</title>
 </head>
 <body>
+	<% 
+		String nome = (String)session.getAttribute("nome");
+		if(nome == null) nome = "guest";
+	%>
+	<p>Sei loggato come <%=nome %></p>
+
 	<a href="<%= request.getContextPath() %>/pages/Carrello.jsp">
 		<button>Visualizza carrello</button>
 	</a>

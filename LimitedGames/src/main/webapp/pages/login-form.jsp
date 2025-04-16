@@ -19,6 +19,12 @@
 <input type="submit" value="Login"/>
 <input type="reset" value="Reset"/>
 </fieldset>
+<% 
+	String failed=request.getParameter("failed");
+		if(failed!=null && failed.equals("true")){
+%>	
+	<p>Username e/o password errati</p>
+	<%} %>
 </form>
 	<a href="<%= request.getContextPath() %>/pages/Registrazione.jsp">Non sei registrato? Registrati!</a>
 </body>
