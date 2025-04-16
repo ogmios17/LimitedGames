@@ -1,10 +1,3 @@
-<%Boolean ruoliAdmin = (Boolean) session.getAttribute("ruoliAdmin");
-if ((ruoliAdmin == null) || (!ruoliAdmin.booleanValue())) {
-response.sendRedirect("./login-form.jsp");
-return;
-}
-%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>

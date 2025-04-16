@@ -7,7 +7,7 @@
 <title>Pagina Login</title>
 </head>
 <body>
-<form action="LoginFilter" method="post">
+<form action="<%= request.getContextPath() %>/login" method="post">
 <fieldset>
 <legend>Login Filter Custom</legend>
 <label for="username">Login</label>
@@ -20,5 +20,6 @@
 <input type="reset" value="Reset"/>
 </fieldset>
 </form>
+	<a href="<%= request.getContextPath() %>/pages/Registrazione.jsp">Non sei registrato? Registrati!</a>
 </body>
 </html>

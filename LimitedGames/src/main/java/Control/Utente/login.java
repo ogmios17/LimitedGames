@@ -28,34 +28,37 @@ public class login extends HttpServlet {
 			String hashPassword = toHash(password);
 			String redirectedPage;
 			try {
-				checkLogin(username, password);
+				checkLogin(username, hashPassword);
 				request.getSession().setAttribute("adminFilterRoles", true);
-				redirectedPage = "/";
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(redirectedPage);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/protected.jsp");
 				dispatcher.forward(request, response);
 			} catch (Exception e) {
 				request.getSession().setAttribute("adminFilterRoles", false);
 			    redirectedPage = "/login-form.jsp";
-			    response.sendRedirect(request.getContextPath() + redirectedPage);
+			    response.sendRedirect(request.getContextPath() +"/pages"+redirectedPage);
 			}
 			
 		}
 	}
 	
 	protected String toHash(String pwd) {
-		String hashString = null;
-		try {
-			java.security.MessageDigest digest = java.security.MessageDigest.getInstance("SHA-512");
-			byte[] hash = digest.digest(pwd.getBytes(StandardCharsets.UTF_8));
-			hashString = "";
-			for(int i=0; i<hash.length; i++) {
-				hashString += Integer.toHexString((hash[i] & 0xFF) | 0x100).toLowerCase().substring(1,3);
-			}
-		}catch(java.security.NoSuchAlgorithmException e){
-			e.printStackTrace();
-		}
-		return hashString;
+	    try {
+	        java.security.MessageDigest digest = java.security.MessageDigest.getInstance("SHA-512");
+	        byte[] hash = digest.digest(pwd.getBytes(StandardCharsets.UTF_8));
+
+	        StringBuilder hashString = new StringBuilder();
+	        for (byte b : hash) {
+	            hashString.append(String.format("%02x", b));
+	        }
+
+	        return hashString.toString();
+
+	    } catch (java.security.NoSuchAlgorithmException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
 	}
+
 	
 public void checkLogin(String username, String hashPassword) throws Exception{
 	
@@ -63,8 +66,13 @@ public void checkLogin(String username, String hashPassword) throws Exception{
 	UtenteBean utente;
 	
 	utente = model.doRetrieveByKey(username);
-	if(username.equals(utente.getUsername())&& hashPassword.equals(utente.getPassword())) {
-		//
-	} else throw new Exception("Login fallito");
+	
+	System.out.println(toHash(utente.getPassword())+"  "+ hashPassword);
+	if(username.equals(utente.getUsername())&& hashPassword.equals(toHash(utente.getPassword()))) {
+		System.out.println("matching");
+	} else {
+		System.out.println("Fallimento");
+		throw new Exception("Login fallito");		
+	}
 }}    //non ho idea del pechè io debba chiuderne due, ma se funziona, funziona...
 
