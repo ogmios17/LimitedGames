@@ -9,11 +9,11 @@
 <body>
 <form action="<%= request.getContextPath() %>/login" method="post">
 <fieldset>
-<legend>Login Filter Custom</legend>
-<label for="username">Login</label>
+<legend>Effettua il login</legend>
+<label for="username">Username</label>
 <input id="username" type="text" name="username" placeholder="enter login"><br>
 
-<label for="password">Login</label>
+<label for="password">Password</label>
 <input id="password" type="password" name="password" placeholder="enter password"><br>
 
 <input type="submit" value="Login"/>
