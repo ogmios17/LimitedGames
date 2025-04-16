@@ -100,3 +100,5 @@ INSERT INTO Stock (IDGioco, Piattaforma, Acquistati, Rimanenti) VALUES (18, 'Pla
 INSERT INTO Stock (IDGioco, Piattaforma, Acquistati, Rimanenti) VALUES (19, 'Playstation 5', 150, 35);
 INSERT INTO Stock (IDGioco, Piattaforma, Acquistati, Rimanenti) VALUES (20, 'Playstation 5', 180, 60);
 INSERT INTO Stock (IDGioco, Piattaforma, Acquistati, Rimanenti) VALUES (21, 'Playstation 5', 140, 25);
+
+INSERT INTO Utente (Username, pwd, nome, cognome, email, Via, CAP, Citta, Tipo) VALUES ('admin','9892772ec784c94bd5076945ba1badf67486b2a73e6ceacb4cad2b48a8f26e5bf0b004aa4ffb72d5ec540d66d09c4af8c9865cd62e0aa0a2fd3f9c85c69034a7','ogham','dellerba','mail@maila','a','b','agropoli','admin')
