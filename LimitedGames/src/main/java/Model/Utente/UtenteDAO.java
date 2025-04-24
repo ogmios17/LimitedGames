@@ -17,7 +17,7 @@ public class UtenteDAO {
 	public void doSave(UtenteBean utente)throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps = null;
-		String query = "INSERT INTO "+TABLE_NAME+"(Username,Pwd,Nome,Cognome,Email,Via,CAP,Citta,Tipo) VALUES (?,?,?,?,?,?,?,?,?) ";
+		String query = "INSERT INTO "+TABLE_NAME+"(Username,Pwd,Nome,Cognome,User,Via,CAP,Citta,Tipo) VALUES (?,?,?,?,?,?,?,?,?) ";
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
 			ps = connection.prepareStatement(query);
@@ -63,7 +63,29 @@ public class UtenteDAO {
 			}
 		}
 	}
-	public void doUpdate(UtenteBean utente)throws SQLException{		
+	public void doUpdate(UtenteBean utente)throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps =  null;
+		String query = "UPDATE "+TABLE_NAME+" SET  Pwd = ?, Nome = ?, Cognome =?, Via =?, CAP=?,Citta=? WHERE Username = ?";
+		
+		try {
+			ps.setString(1, utente.getPassword());
+			ps.setString(2, utente.getNome());
+			ps.setString(3, utente.getCognome());
+			ps.setString(5, utente.getVia());
+			ps.setString(6, utente.getCAP());
+			ps.setString(7, utente.getCitta());
+			ps.setString(8, utente.getUsername());
+			
+			ps.executeUpdate();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
 	}
 	
 	public UtenteBean doRetrieveByKey(String username)throws SQLException{

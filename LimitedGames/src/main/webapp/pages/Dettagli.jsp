@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="ISO-8859-1" import="Model.Gioco.GiocoBean" import= "java.util.*" import= "Model.Gioco.StockBean"%>
+    pageEncoding="UTF-8" import="Model.Gioco.GiocoBean" import= "java.util.*" import= "Model.Gioco.StockBean"%>
 <%@ include file="header.jsp" %>
 <% 
 	GiocoBean dettaglio=(GiocoBean)request.getAttribute("gioco"); 
@@ -53,7 +53,7 @@
 
 		</select>
 		<input type="hidden" name="id" value="<%=dettaglio.getId() %>">
-		<label for="quantita">Quantit‡:</label>
+		<label for="quantita">Quantit√†:</label>
 		<select name="quantita" id="quantita">
   			<option value="1">1</option>
   			<option value="2">2</option>

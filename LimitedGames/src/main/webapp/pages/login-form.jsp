@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,7 @@
 <form action="<%= request.getContextPath() %>/login" method="post">
 <fieldset>
 <legend>Effettua il login</legend>
+
 <label for="username">Username</label>
 <input id="username" type="text" name="username" placeholder="enter login"><br>
 

@@ -1,14 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="Model.Cart" import="Model.Cartable" import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="Model.Cart" import="Model.Cartable" import="java.util.*"%>
+    <%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Carrello</title>
 </head>
 <body>
 	<%
-		session.setAttribute("username","ogham");
+		String username = (String)session.getAttribute("user");
 		Cart cart=(Cart)session.getAttribute("cart");
 		if(cart==null || cart.isEmpty()){
 	%><h1>Carrello vuoto</h1>
@@ -22,7 +23,7 @@
 			<th>Piattaforma</th>
 			<th>Edizione</th>
 			<th>Prezzo</th>
-			<th>Quantità</th>
+			<th>QuantitÃ </th>
 			<th>Prezzo totale</th>
 			<th></th>
 		</tr>

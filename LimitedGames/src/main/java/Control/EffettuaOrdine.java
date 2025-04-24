@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +29,13 @@ public class EffettuaOrdine extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String user = (String)session.getAttribute("username");
+		String user = (String)session.getAttribute("user");
+		if(user == null) {
+			session.setAttribute("order", "true");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/login-form.jsp");
+			dispatcher.forward(request, response);
+			
+		}
 		Cart cart = (Cart)session.getAttribute("cart");
 		ArrayList<Cartable> games= cart.getGames();
 		AcquistoDAO acquistoModel = new AcquistoDAO();
@@ -67,6 +74,7 @@ public class EffettuaOrdine extends HttpServlet {
 				
 				acquistoModel.doSave(acquisto);
 				session.removeAttribute("cart");
+				session.removeAttribute("order");
 				response.sendRedirect("/LimitedGames/pages/OrdineEffettuato.jsp");
 			}
 		}catch (SQLException e) {
