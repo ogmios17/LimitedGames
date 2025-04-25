@@ -39,7 +39,7 @@ public class login extends HttpServlet {
 					request.getSession().setAttribute("adminFilterRoles", false);
 					request.getSession().setAttribute("userFilterRoles", true);
 					request.getSession().setAttribute("nome", utente.getNome());
-					request.getSession().setAttribute("user", utente.getUsername());
+					request.getSession().setAttribute("user",utente);
 					String order = (String)request.getSession().getAttribute("order");
 					if(order != null && order.equals("true")) {
 						response.sendRedirect(request.getContextPath()+"/EffettuaOrdine");

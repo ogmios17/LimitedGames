@@ -21,15 +21,17 @@ public class Modifica extends HttpServlet {
 		
 		UtenteDAO model = new UtenteDAO();
 		try {
-			UtenteBean utente = model.doRetrieveByKey((String)request.getSession().getAttribute("user"));
+			UtenteBean utente = (UtenteBean)request.getSession().getAttribute("user");
 			utente.setCAP(request.getParameter("cap"));
 			utente.setCitta(request.getParameter("citta"));
 			utente.setCognome(request.getParameter("cognome"));
 			utente.setNome(request.getParameter("email"));
 			utente.setPassword(Hasher.toHash(request.getParameter("password")));
 			utente.setVia(request.getParameter("via"));
+			utente.setNome(request.getParameter("nome"));
 			
 			model.doUpdate(utente);
+			response.sendRedirect(request.getContextPath()+"/pages/user/User.jsp");
 		}catch(Exception e) {
 			e.printStackTrace();
 			response.sendRedirect(request.getContextPath()+"/pages/Error.jsp");

@@ -67,15 +67,17 @@ public class UtenteDAO {
 		Connection connection = null;
 		PreparedStatement ps =  null;
 		String query = "UPDATE "+TABLE_NAME+" SET  Pwd = ?, Nome = ?, Cognome =?, Via =?, CAP=?,Citta=? WHERE Username = ?";
-		
 		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			ps = connection.prepareStatement(query);
+			
 			ps.setString(1, utente.getPassword());
 			ps.setString(2, utente.getNome());
 			ps.setString(3, utente.getCognome());
-			ps.setString(5, utente.getVia());
-			ps.setString(6, utente.getCAP());
-			ps.setString(7, utente.getCitta());
-			ps.setString(8, utente.getUsername());
+			ps.setString(4, utente.getVia());
+			ps.setString(5, utente.getCAP());
+			ps.setString(6, utente.getCitta());
+			ps.setString(7, utente.getUsername());
 			
 			ps.executeUpdate();
 		}finally {

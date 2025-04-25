@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*" import="Model.Ordine.*"%>
+    pageEncoding="UTF-8" import="java.util.*" import="Model.Ordine.*" import ="Model.Utente.*"%>
     <%@ include file="/pages/header.jsp" %>
     <%
-    	String username = (String)session.getAttribute("user");
+    	UtenteBean utente = (UtenteBean)session.getAttribute("utente");
+    	String username = utente.getUsername();
     	OrdineDAO model = new OrdineDAO();
     	AcquistoDAO modelAcquisto = new AcquistoDAO();
     	Collection<?> ordini = model.doRetrieveByUsername(username);    	
