@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="Model.Cart" import="Model.Cartable" import="java.util.*"%>
+    pageEncoding="UTF-8" import="Model.Cart" import="Model.Cartable" import="java.util.*" import="Model.Utente.*"%>
     <%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,6 @@
 </head>
 <body>
 	<%
-		String username = (String)session.getAttribute("user");
 		Cart cart=(Cart)session.getAttribute("cart");
 		if(cart==null || cart.isEmpty()){
 	%><h1>Carrello vuoto</h1>

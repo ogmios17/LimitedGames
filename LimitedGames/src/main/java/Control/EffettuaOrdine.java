@@ -29,7 +29,8 @@ public class EffettuaOrdine extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String user = (String)session.getAttribute("user");
+		UtenteBean utente = (UtenteBean)session.getAttribute("user");
+		String user= utente.getUsername();
 		if(user == null) {
 			session.setAttribute("order", "true");
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/login-form.jsp");
@@ -43,7 +44,6 @@ public class EffettuaOrdine extends HttpServlet {
 		UtenteDAO utenteModel = new UtenteDAO();
 		float prezzoTot=0;
 		try {
-			UtenteBean utente = utenteModel.doRetrieveByKey(user);
 			OrdineBean ordine = new OrdineBean();
 			ordine.setCAP(utente.getCAP());
 			ordine.setCitta(utente.getCitta());

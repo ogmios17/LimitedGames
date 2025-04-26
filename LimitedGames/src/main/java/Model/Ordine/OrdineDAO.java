@@ -176,7 +176,6 @@ public class OrdineDAO {
 				bean.setUsername(result.getString("Username"));
 				ordini.add(bean);
 			}
-			connection.commit();
 		}finally {
 			try {
 				if (ps != null)

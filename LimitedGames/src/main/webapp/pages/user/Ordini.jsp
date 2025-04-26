@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" import="java.util.*" import="Model.Ordine.*" import ="Model.Utente.*"%>
     <%@ include file="/pages/header.jsp" %>
     <%
-    	UtenteBean utente = (UtenteBean)session.getAttribute("utente");
+    	UtenteBean utente = (UtenteBean)session.getAttribute("user");
     	String username = utente.getUsername();
     	OrdineDAO model = new OrdineDAO();
     	AcquistoDAO modelAcquisto = new AcquistoDAO();

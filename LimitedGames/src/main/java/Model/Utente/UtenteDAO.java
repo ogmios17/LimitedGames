@@ -80,6 +80,7 @@ public class UtenteDAO {
 			ps.setString(7, utente.getUsername());
 			
 			ps.executeUpdate();
+			connection.commit();
 		}finally {
 			try {
 				if (ps != null)
@@ -114,6 +115,7 @@ public class UtenteDAO {
 				bean.setTipo(result.getString("Tipo"));
 				
 			}
+			connection.commit();
 		}finally {
 			try {
 				if (ps != null)
@@ -146,6 +148,7 @@ public class UtenteDAO {
 				bean.setTipo(result.getString("Tipo"));
 				utenti.add(bean);
 			}
+			connection.commit();
 		}finally {
 			try {
 				if (ps != null)

@@ -30,17 +30,18 @@ public class Carte extends HttpServlet {
 		ProprietaDAO proprietaModel = new ProprietaDAO();
 		PagamentoDAO pagamentoModel = new PagamentoDAO();
 		HttpSession session = request.getSession();
-		String username = (String)session.getAttribute("user");
+		UtenteBean utente= (UtenteBean)session.getAttribute("user");
+		String username = utente.getUsername();
 		Collection<PagamentoBean> carte = new ArrayList<PagamentoBean>();
 		try {
-			if(action == "view") {
+			if(action.equals("view")) {
 				Collection<ProprietaBean> proprieta = proprietaModel.doRetrieveByUsername(username);
 				for(ProprietaBean p: proprieta) {
 					String numero = p.getCarta();
 					PagamentoBean carta = pagamentoModel.doRetrieveByKey(numero);
 					carte.add(carta);
 				}
-			}else if(action == "add") {
+			}else if(action.equals("add")) {
 				PagamentoBean pagamento = new PagamentoBean();
 				pagamento.setCognome(request.getParameter("Cognome"));
 				pagamento.setCVV(request.getParameter("CVV"));
@@ -50,7 +51,7 @@ public class Carte extends HttpServlet {
 				pagamento.setTipo(request.getParameter("Tipo"));
 				pagamentoModel.doSave(pagamento);
 				proprietaModel.doSave(new ProprietaBean(username,pagamento.getNumero()));				
-			}else if(action == "delete") {
+			}else if(action.equals("delete")) {
 				PagamentoBean pagamento = new PagamentoBean();
 				proprietaModel.doDelete(request.getParameter("carta"),username);
 			}
@@ -62,7 +63,7 @@ public class Carte extends HttpServlet {
 		request.removeAttribute("carte");
 		request.setAttribute("carte", carte);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/User/Carte.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/user/Carte.jsp");
 		dispatcher.forward(request, response);
 	}
 
