@@ -72,7 +72,33 @@ public class ProprietaDAO {
 				bean.setCarta(result.getString("Carta"));				
 				carte.add(bean);
 			}
-			connection.commit();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		return carte;
+	}
+	
+	public Collection<ProprietaBean> doRetrieveByCarta(String numero)throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps = null;
+		Collection<ProprietaBean> carte = new LinkedList<ProprietaBean>();
+		String query = "SELECT * FROM "+TABLE_NAME+" WHERE Carta = ?";
+		try {
+			connection=DriverManagerConnectionPool.getConnection();
+			ps=connection.prepareStatement(query);
+			ps.setString(1, numero);
+			ResultSet result = ps.executeQuery();
+			while(result.next()) {
+				ProprietaBean bean = new ProprietaBean();
+				bean.setUtente(result.getString("Utente"));
+				bean.setCarta(result.getString("Carta"));				
+				carte.add(bean);
+			}
 		}finally {
 			try {
 				if (ps != null)

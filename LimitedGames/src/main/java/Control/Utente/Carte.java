@@ -34,30 +34,44 @@ public class Carte extends HttpServlet {
 		String username = utente.getUsername();
 		Collection<PagamentoBean> carte = new ArrayList<PagamentoBean>();
 		try {
-			if(action.equals("view")) {
-				Collection<ProprietaBean> proprieta = proprietaModel.doRetrieveByUsername(username);
-				for(ProprietaBean p: proprieta) {
-					String numero = p.getCarta();
-					PagamentoBean carta = pagamentoModel.doRetrieveByKey(numero);
-					carte.add(carta);
+			
+			Collection<ProprietaBean> proprieta = proprietaModel.doRetrieveByUsername(username);
+			for(ProprietaBean p: proprieta) {
+				String numero = p.getCarta();
+				PagamentoBean carta = pagamentoModel.doRetrieveByKey(numero);
+				carte.add(carta);
+			}
+			if(action.equals("add")) {
+				PagamentoBean pagamento = new PagamentoBean();
+				pagamento.setCognome(request.getParameter("cognome"));
+				pagamento.setCVV(request.getParameter("cvv"));
+				pagamento.setNome(request.getParameter("nome"));
+				pagamento.setNumero(request.getParameter("numero"));
+				pagamento.setScadenza(Date.valueOf(request.getParameter("scadenza")));
+				pagamento.setTipo(request.getParameter("tipo"));
+				
+				PagamentoBean giaRegistrata = pagamentoModel.doRetrieveByKey(pagamento.getNumero());
+				if(giaRegistrata.getNumero()==null) {
+					pagamentoModel.doSave(pagamento);
+					System.out.println("saved");
 				}
-			}else if(action.equals("add")) {
-				PagamentoBean pagamento = new PagamentoBean();
-				pagamento.setCognome(request.getParameter("Cognome"));
-				pagamento.setCVV(request.getParameter("CVV"));
-				pagamento.setNome(request.getParameter("Nome"));
-				pagamento.setNumero(request.getParameter("Numero"));
-				pagamento.setScadenza(Date.valueOf(request.getParameter("Scadenza")));
-				pagamento.setTipo(request.getParameter("Tipo"));
-				pagamentoModel.doSave(pagamento);
-				proprietaModel.doSave(new ProprietaBean(username,pagamento.getNumero()));				
+				proprietaModel.doSave(new ProprietaBean(username,pagamento.getNumero()));	
+				
+				response.sendRedirect(request.getContextPath() + "/Carte?action=view");
+				return;
 			}else if(action.equals("delete")) {
-				PagamentoBean pagamento = new PagamentoBean();
 				proprietaModel.doDelete(request.getParameter("carta"),username);
+				Collection<ProprietaBean> rimanenti = proprietaModel.doRetrieveByCarta(request.getParameter("carta"));
+				if(rimanenti == null || rimanenti.isEmpty()) {
+					pagamentoModel.doDelete(request.getParameter("carta"));
+				}
+				response.sendRedirect(request.getContextPath() + "/Carte?action=view");
+				return;
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 			response.sendRedirect(request.getContextPath() +"/pages/Error.jsp");
+			return;
 		}
 		
 		request.removeAttribute("carte");
