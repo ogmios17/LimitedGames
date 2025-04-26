@@ -25,7 +25,7 @@
 			<input type = "submit" value="Invia"><br>
 		</form>
 		
-	<a href="<%= request.getContextPath() %>/pages/user/Carte.jsp">
+	<a href="<%= request.getContextPath() %>/Carte?action=view">
 		<button>Le tue carte</button>
 	</a>
 </body>

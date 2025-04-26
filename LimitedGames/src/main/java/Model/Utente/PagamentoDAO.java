@@ -79,7 +79,7 @@ public class PagamentoDAO implements PagamentoDAOInterface{
 				bean.setNome(result.getString("Nome"));
 				bean.setCognome(result.getString("Cognome"));
 				bean.setScadenza(result.getDate("Scadenza"));
-				bean.setCVV(result.getString("Edizione"));
+				bean.setCVV(result.getString("Cvv"));
 				bean.setTipo(result.getString("Tipo"));
 				
 			}
