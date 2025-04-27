@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,9 +35,9 @@ public class EffettuaOrdine extends HttpServlet {
 		if(user == null) {
 			session.setAttribute("order", "true");
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/login-form.jsp");
-			dispatcher.forward(request, response);
-			
+			dispatcher.forward(request, response);			
 		}
+		
 		Cart cart = (Cart)session.getAttribute("cart");
 		ArrayList<Cartable> games= cart.getGames();
 		AcquistoDAO acquistoModel = new AcquistoDAO();

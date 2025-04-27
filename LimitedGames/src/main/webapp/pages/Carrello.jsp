@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="Model.Cart" import="Model.Cartable" import="java.util.*" import="Model.Utente.*"%>
     <%@ include file="header.jsp" %>
+    
+    <%
+    Collection<ProprietaBean> carte= (Collection<ProprietaBean>)request.getAttribute("carte"); 
+    Boolean checkedAttr = (Boolean)request.getAttribute("checked");
+    boolean checked = (checkedAttr != null) ? checkedAttr : false;
+    if((carte == null || carte.isEmpty())&& checked == false){
+    	response.sendRedirect(request.getContextPath()+"/CardHandler");
+    	return;
+    }
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +47,20 @@
 				<td><a href= "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>"><button>-</button></a></td>
 		<%} %>
 		</table>
+		<Label for=carta>Seleziona il metodo di pagamento</Label>
+		<select name="carta" id="carta">
+			<% 
+				if(carte!= null && !carte.isEmpty()){
+					Iterator<?> it=carte.iterator();
+					while(it.hasNext()){
+						ProprietaBean carta=(ProprietaBean)it.next();
+			%>
+				<option value="<%=carta.getCarta()%>">**** **** ****<%=carta.getCarta().substring(7,11) %></option>
+					<% }
+				}
+				%>
+
+		</select>
 		<form action="<%= request.getContextPath()%>/EffettuaOrdine" method="POST">
 			<input type="submit" value="Effettua acquisto">
 		</form>
