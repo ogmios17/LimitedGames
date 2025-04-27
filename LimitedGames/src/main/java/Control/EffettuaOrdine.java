@@ -55,7 +55,7 @@ public class EffettuaOrdine extends HttpServlet {
 			ordine.setUsername(user);
 			ordine.setVia(utente.getVia());
 			for(Cartable c: games) {
-				float prezzo = c.getGioco().getPrezzo()-c.getGioco().getPrezzo()*c.getGioco().getSconto()/100;
+				float prezzo = (c.getGioco().getPrezzo()-c.getGioco().getPrezzo()*c.getGioco().getSconto()/100)*c.getQuantita();
 				prezzoTot+=prezzo;
 			}
 			ordine.setPrezzo(prezzoTot);
@@ -77,6 +77,7 @@ public class EffettuaOrdine extends HttpServlet {
 				session.removeAttribute("cart");
 				session.removeAttribute("order");
 				response.sendRedirect("/LimitedGames/pages/OrdineEffettuato.jsp");
+				return;
 			}
 		}catch (SQLException e) {
 			System.out.println("Error: "+e);

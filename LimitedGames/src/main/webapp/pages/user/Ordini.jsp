@@ -23,7 +23,7 @@
     			OrdineBean o= (OrdineBean)it.next();
     %>
     
-    	 <%=o.getDataOrdine() %>  <%=o.getPrezzo() %>€</li>
+    	 <%=o.getDataOrdine() %>  <%=String.format("%.2f",o.getPrezzo()) %>€</li>
 			<ul>
 	    	<% 
 	    		Collection<?> acquisti = modelAcquisto.doRetrieveByOrdine(o.getId());
@@ -32,7 +32,7 @@
 	    			AcquistoBean a = (AcquistoBean)iter.next();
 	    	%>
 	    	
-	    		<li><%=a.getTitolo() %> <%=a.getPiattaforma() %> <%=a.getEdizione() %> <%=a.getPrezzo() %> <%=a.getQuantita() %></li>
+	    		<li><%=a.getTitolo() %> <%=a.getPiattaforma() %> <%=a.getEdizione() %> <%=String.format("%.2f",a.getPrezzo()) %>€ <%=a.getQuantita() %></li>
 	    	<%} %>
 			</ul>
     <%		} %>
