@@ -13,6 +13,31 @@ public class StockDAO implements StockDAOInterface{
 
 	private static final String TABLE_NAME = "Stock";
 	
+	public void doSave(StockBean stock) throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps= null;
+		String query="INSERT INTO "+TABLE_NAME+"(IDGioco, Piattaforma, Acquistati, Rimanenti) VALUES(?,?,?,?)";
+		try {
+			connection=DriverManagerConnectionPool.getConnection();
+			ps= connection.prepareStatement(query);
+			ps.setInt(1, stock.getIdGioco());
+			ps.setString(2, stock.getPiattaforma());
+			ps.setInt(3, stock.getAcquistati());
+			ps.setInt(4, stock.getRimanenti());
+			
+			ps.executeUpdate();
+			connection.commit();
+			
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
+	}
+	
 	public Collection<StockBean> doRetrieveByGioco(int id) throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps = null;

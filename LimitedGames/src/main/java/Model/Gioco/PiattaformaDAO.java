@@ -39,4 +39,26 @@ public class PiattaformaDAO {
 		}
 		return piattaforme;
 	}
+	
+	public void doSave(String piattaforma) throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps= null;
+		String query="INSERT INTO "+TABLE_NAME+"(Piattaforma) VALUES(?)";
+		try {
+			connection=DriverManagerConnectionPool.getConnection();
+			ps= connection.prepareStatement(query);
+			ps.setString(1, piattaforma);
+			
+			ps.executeUpdate();
+			connection.commit();
+			
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
+	}
 }
