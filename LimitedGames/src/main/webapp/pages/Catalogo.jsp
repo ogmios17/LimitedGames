@@ -53,45 +53,11 @@
         <a href= "<%= request.getContextPath() %>/giochi?action=delete&id=<%=g.getId()%>">
         	<button>Elimina</button>
         </a>
-        
-        <button>Aggiungi al carrello</button>
-        <br/>
+        <br>
     <% } %>
 <% } else { %>
     <p><em>Nessun gioco disponibile al momento.</em></p>
 <% } %>
-
-
-	
-	<h2>Inserisci un nuovo gioco</h2>
-	<form action="<%= request.getContextPath() %>/giochi" method="post" enctype="multipart/form-data">
-	<!-- DA FARE AGGIUNTA DELLA PIATTAFORMA(Servono le entry nel db) -->
-		<input type="hidden" name="action" value="insert"> 
-		
-		<label for="Titolo">Titolo:</label><br> 
-		<input name="Titolo" type="text" maxlength="20" required><br> 
-		
-		<label for="Descrizione">Descrizione:</label><br>
-		<textarea name="Descrizione" maxlength="100" rows="3" required></textarea><br>
-		
-		<label for="Edizione">Edizione:</label><br> 
-		<textarea name="Edizione" maxlength="100" rows="3" required></textarea><br>
-		
-		<label for="Prezzo">Prezzo:</label><br> 
-		<input name="Prezzo" type="number" min="0" value="0" required><br>
-		
-		<label for="Iva">Iva:</label><br> 
-		<input name="Iva" type="number" min="0" value="0" required><br>
-	
-		<label for="Data">Data di uscita:</label><br>
-		<input name="Data" type="date" required><br>
-		
-		<label for="immagine">Immagine:</label><br>
-		<input name="immagine" type="file" required><br>
-		
-		<input type="submit" value="Add"><input type="reset" value="Reset">
-
-	</form>
 	
 	<%@include file="footer.jsp" %>
 
