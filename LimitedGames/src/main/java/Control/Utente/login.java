@@ -33,7 +33,7 @@ public class login extends HttpServlet {
 					request.getSession().setAttribute("adminFilterRoles", true);
 					request.getSession().setAttribute("userFilterRoles", false);
 					request.getSession().setAttribute("nome", utente.getNome());
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/protected.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/Admin.jsp");
 					dispatcher.forward(request, response);
 				}else {
 					request.getSession().setAttribute("adminFilterRoles", false);

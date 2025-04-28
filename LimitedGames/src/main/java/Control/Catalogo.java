@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import Model.Gioco.*;
@@ -69,7 +70,14 @@ public class Catalogo extends HttpServlet {
 		}catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 		}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/Catalogo.jsp");
+		String path ="/pages/";
+		HttpSession session = request.getSession();
+		Boolean adminAttr = (Boolean) session.getAttribute("adminFilterRoles");
+	    boolean admin = (adminAttr != null) ? adminAttr : false;
+	    if(admin) path+="admin/CatalogoAdmin.jsp";
+	    else path+="Catalogo.jsp";
+	    
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
 

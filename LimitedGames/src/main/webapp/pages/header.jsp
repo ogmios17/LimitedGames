@@ -13,17 +13,13 @@
 	%>
 	<p>Sei loggato come <%=nome %></p>
 
-	<a href="<%= request.getContextPath() %>/pages/Catalogo.jsp">
-		<button>HOME</button>
-	</a>
-
-	<a href="<%= request.getContextPath() %>/pages/Carrello.jsp">
-		<button>Carrello</button>
-	</a>
-
+	<nav>
+		<ul>
+			<li><a href="<%= request.getContextPath() %>/pages/Catalogo.jsp">HOME </a></li>
+			<li><a href="<%= request.getContextPath() %>/pages/Carrello.jsp">Carrello</a></li>
+			<li><a href="<%= request.getContextPath() %>/pages/login-form.jsp">Utente</a></li>
+		</ul>
+	</nav>
 	
-	<a href="<%= request.getContextPath() %>/pages/user/User.jsp">
-		<button>Utente</button>
-	</a>
 </body>
 </html>
