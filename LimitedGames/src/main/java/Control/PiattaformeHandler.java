@@ -28,13 +28,22 @@ public class PiattaformeHandler extends HttpServlet {
 			try {
 				Collection<PiattaformaBean> piattaforme = model.doRetrieveAll();
 				request.setAttribute("piattaforme", piattaforme);
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/GameInsert.jsp");
-				dispatcher.forward(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 				response.sendRedirect("/LimitedGames/pages/Error.jsp");
 			}
 		}
+		else if(action.equals("insert")) {
+			String piattaforma = request.getParameter("piattaforma");
+			try {
+				model.doSave(piattaforma);
+			}catch(Exception e) {
+				e.printStackTrace();
+				response.sendRedirect("/LimitedGames/pages/Error.jsp");
+			}
+		}
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/GameInsert.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
