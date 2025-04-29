@@ -17,7 +17,7 @@ public class UtenteDAO {
 	public void doSave(UtenteBean utente)throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps = null;
-		String query = "INSERT INTO "+TABLE_NAME+"(Username,Pwd,Nome,Cognome,User,Via,CAP,Citta,Tipo) VALUES (?,?,?,?,?,?,?,?,?) ";
+		String query = "INSERT INTO "+TABLE_NAME+"(Username,Pwd,Nome,Cognome,Email,Via,CAP,Citta,Tipo) VALUES (?,?,?,?,?,?,?,?,?) ";
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
 			ps = connection.prepareStatement(query);
