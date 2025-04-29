@@ -99,4 +99,57 @@ public class StockDAO implements StockDAOInterface{
 			}
 		}return stock;
 	}
+	
+	public void doUpdate(StockBean stock) throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps =  null;
+		String query = "UPDATE "+TABLE_NAME+" SET   Acquistati =?, Rimanenti =? WHERE IDGioco=? AND  Piattaforma = ?";
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			ps = connection.prepareStatement(query);
+			
+			ps.setInt(1, stock.getAcquistati());
+			ps.setInt(2, stock.getRimanenti());
+			ps.setInt(3, stock.getIdGioco());
+			ps.setString(4, stock.getPiattaforma());
+			
+			ps.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
+	}
+	public StockBean doRetrieveByKey(int idGioco, String piattaforma ) throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps = null;
+		StockBean bean = new StockBean();
+		String query = "SELECT * FROM "+TABLE_NAME+" WHERE IDGioco= ? AND Piattaforma = ?";
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			ps = connection.prepareStatement(query);
+			ps.setInt(1,idGioco);
+			ps.setString(2,piattaforma);
+			ResultSet result = ps.executeQuery();
+			while(result.next()) {
+				
+				bean.setIdGioco(result.getInt("IDGioco"));
+				bean.setPiattaforma(result.getString("Piattaforma"));
+				bean.setAcquistati(result.getInt("Acquistati"));
+				bean.setRimanenti(result.getInt("Rimanenti"));
+			}
+			connection.commit();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}return bean;
+	}
 }
