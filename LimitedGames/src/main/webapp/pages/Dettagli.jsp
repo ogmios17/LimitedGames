@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="Model.Gioco.GiocoBean" import= "java.util.*" import= "Model.Gioco.StockBean"%>
+    pageEncoding="UTF-8" import="Model.Gioco.GiocoBean" import= "java.util.*" import= "Model.Gioco.StockBean" import ="Model.Cartable"%>
 <%@ include file="header.jsp" %>
 <% 
-	GiocoBean dettaglio=(GiocoBean)request.getAttribute("gioco"); 
-	Collection<?> piattaforme = (Collection<?>) request.getAttribute("piattaforme");
-    	if(piattaforme == null || dettaglio==null){
-    		response.sendRedirect(request.getContextPath()+"/ShowDetails?id="+dettaglio.getId());
-    		return;
-    	}  
+	ArrayList<Cartable> products = (ArrayList<Cartable>) request.getAttribute("cartables");
+	if(products == null || products==null){
+		response.sendRedirect(request.getContextPath()+"/ShowDetails?id="+request.getParameter("id"));
+		return;
+	}  
+	GiocoBean dettaglio=products.get(0).getGioco(); 
+
 %>
 <!DOCTYPE html>
 <html>
@@ -40,15 +41,15 @@
 	<form action="./AggiungiGioco" method="post">
 	<Label for=piattaforma>Seleziona la piattaforma</Label>
 		<select name="piattaforma" id="piattaforma">
-			<% 
-				if(piattaforme!= null && !piattaforme.isEmpty()){
-					Iterator<?> it=piattaforme.iterator();
-					while(it.hasNext()){
-						StockBean piattaforma=(StockBean)it.next();
+			<% 	
+				Iterator<?> it=products.iterator();
+				while(it.hasNext()){
+					Cartable c = (Cartable) it.next();
+					String piattaforma = c.getPiattaforma();
 			%>
-				<option value= "<%=piattaforma.getPiattaforma() %>"><%=piattaforma.getPiattaforma() %></option>
+				<option value= "<%=piattaforma%>"><%=piattaforma%></option>
 					<% }
-				}
+				
 				%>
 
 		</select>
