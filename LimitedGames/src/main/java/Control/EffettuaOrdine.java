@@ -19,6 +19,7 @@ import Model.Cart;
 import Model.Cartable;
 import Model.Ordine.*;
 import Model.Utente.*;
+import Model.Gioco.*;
 
 @WebServlet("/EffettuaOrdine")
 public class EffettuaOrdine extends HttpServlet {
@@ -42,7 +43,7 @@ public class EffettuaOrdine extends HttpServlet {
 		ArrayList<Cartable> games= cart.getGames();
 		AcquistoDAO acquistoModel = new AcquistoDAO();
 		OrdineDAO ordineModel = new OrdineDAO();
-		UtenteDAO utenteModel = new UtenteDAO();
+		StockDAO stockModel = new StockDAO();
 		float prezzoTot=0;
 		try {
 			OrdineBean ordine = new OrdineBean();
@@ -74,11 +75,18 @@ public class EffettuaOrdine extends HttpServlet {
 				acquisto.setTitolo(c.getGioco().getTitolo());
 				
 				acquistoModel.doSave(acquisto);
+				
+				StockBean stock = stockModel.doRetrieveByKey(c.getGioco().getId(),c.getPiattaforma());
+				stock.setRimanenti(stock.getRimanenti()-c.getQuantita());
+				stock.setAcquistati(stock.getAcquistati()-c.getQuantita());
+				stockModel.doUpdate(stock);
+				
 				session.removeAttribute("cart");
 				session.removeAttribute("order");
 				response.sendRedirect("/LimitedGames/pages/OrdineEffettuato.jsp");
 				return;
 			}
+			
 		}catch (SQLException e) {
 			System.out.println("Error: "+e);
 			e.printStackTrace();
