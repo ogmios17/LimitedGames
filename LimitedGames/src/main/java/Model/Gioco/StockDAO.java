@@ -152,4 +152,25 @@ public class StockDAO implements StockDAOInterface{
 			}
 		}return bean;
 	}
+	
+	public void doDelete(int Id) throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps = null;
+		String query = "DELETE FROM "+TABLE_NAME+" WHERE IDGioco=?";
+		try {
+			connection= DriverManagerConnectionPool.getConnection();
+			ps=connection.prepareStatement(query);
+			ps.setInt(1, Id);
+			
+			ps.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
+	}
 }

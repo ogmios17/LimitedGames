@@ -47,10 +47,11 @@
         	<button >Dettagli</button>
         </a>
 
-        <a href= "<%= request.getContextPath() %>/ModificaGioco?action=delete&id=<%=g.getId()%>">
-        	<button>Elimina</button>
-        </a>
-        <a href= "<%= request.getContextPath() %>/ModificaGioco?action=change&id=<%=g.getId()%>">
+		<form action = "<%= request.getContextPath() %>/EliminaGiocoAdmin" method="POST">
+			<input type = "hidden" name = "id" value= "<%=g.getId()%>">
+			<input type = "submit" value = "Elimina">
+		</form>
+        <a href= "<%= request.getContextPath() %>/pages/admin/ModificaGioco?action=change&id=<%=g.getId()%>">
         	<button>Modifica</button>
         </a>
         

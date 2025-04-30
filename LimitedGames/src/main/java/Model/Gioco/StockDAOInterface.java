@@ -10,4 +10,5 @@ public interface StockDAOInterface {
 	public Collection<StockBean> doRetrieveByPiattaforma(String piattaforma) throws SQLException;
 	public StockBean doRetrieveByKey(int idGioco, String piattaforma ) throws SQLException;
 	public void doUpdate(StockBean stock) throws SQLException;
+	public void doDelete(int Id) throws SQLException;
 }
