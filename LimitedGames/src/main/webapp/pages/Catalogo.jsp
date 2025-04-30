@@ -39,21 +39,18 @@
     while(it.hasNext()){
     	GiocoBean g= (GiocoBean)it.next();
     %>
-        <img height=200 width=160 src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>"><br>
+    	<a href= "<%= request.getContextPath() %>/ShowDetails?id=<%=g.getId()%>">
+        	<img height=200 width=160 src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>"><br>
+        </a>
         <%= g.getTitolo() %> <%= g.getEdizione() %> Edition<br>
         <% if(g.getSconto()!=0) {%>
         <s><%=g.getPrezzo() %></s>
         <% } %>
         <%= String.format("%.2f",g.getPrezzo()-g.getPrezzo()*g.getSconto()/100) %> €<br>
             
-        <a href= "<%= request.getContextPath() %>/ShowDetails?id=<%=g.getId()%>">
-        	<button >Dettagli</button>
-        </a>
+        
 
-        <a href= "<%= request.getContextPath() %>/giochi?action=delete&id=<%=g.getId()%>">
-        	<button>Elimina</button>
-        </a>
-        <br>
+
     <% } %>
 <% } else { %>
     <p><em>Nessun gioco disponibile al momento.</em></p>
