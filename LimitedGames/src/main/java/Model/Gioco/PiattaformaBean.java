@@ -14,5 +14,5 @@ public class PiattaformaBean {
 	public void setPiattaforma(String piattaforma) {
 		this.piattaforma = piattaforma;
 	}
-
+	 public PiattaformaBean() {}
 }

@@ -1,13 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isErrorPage="true"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isErrorPage="true"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>LimitedGames</title>
 </head>
 <body>
-	<h1>Ops...sembra esserci stato un errore. Niente paura, il nostro tecnico è già al lavoro
+	<h1>Ops...sembra esserci stato un errore. Niente paura, il nostro tecnico Ã¨ giÃ  al lavoro
 	Intanto, ti ha preparato un piccolo pulsante per non perderti, scusa per l'inconvenienza!</h1>
 	<a href= "<%= request.getContextPath() %>/pages/Catalogo.jsp">
         	<button >Home page</button>

@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>LimitedGames</title>
 </head>
 <body>
@@ -21,11 +22,11 @@
 		<input type="text" id="via" name="via" required> <br>
 		<label for="cap">CAP:</label>
 		<input type="text" id="cap" name="cap" required> <br>
-		<label for="citta">Città:</label>
+		<label for="citta">CittÃ :</label>
 		<input type="text" id="citta" name="citta" required> <br>
 		<input type = "submit" value="Registrati">
 		<% if(Boolean.TRUE.equals(request.getAttribute("logged"))){ %>
-			<p>utente già registrato nella piattaforma</p>
+			<p>utente giÃ  registrato nella piattaforma</p>
 		<%} %>
 	</form>
 </body>

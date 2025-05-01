@@ -93,7 +93,7 @@ public class AcquistoDAO {
 				bean.setEdizione(result.getString("Edizione"));
 				bean.setPiattaforma(result.getString("Piattaforma"));
 			}
-			
+			connection.commit();
 		}finally {
 			try {
 				if (ps != null)
@@ -130,7 +130,7 @@ public class AcquistoDAO {
 				
 				acquisti.add(bean);
 			}
-			
+			connection.commit();
 		}finally {
 			try {
 				if (ps != null)
@@ -167,7 +167,7 @@ public class AcquistoDAO {
 				
 				acquisti.add(bean);
 			}
-			
+			connection.commit();
 		}finally {
 			try {
 				if (ps != null)

@@ -14,7 +14,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 	
 	private static final String TABLE_NAME = "Gioco";
 	
-	public void doSave(GiocoBean gioco) throws SQLException{
+	public int doSave(GiocoBean gioco) throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps= null;
 		String query="INSERT INTO "+TABLE_NAME+"(Titolo,Descrizione,Immagine,Edizione,Prezzo,IVA,Sconto,Data_uscita) VALUES(?,?,?,?,?,?,?,?)";
@@ -32,6 +32,12 @@ public class GiocoDAO implements GiocoDAOInterface{
 			
 			ps.executeUpdate();
 			connection.commit();
+			
+			ResultSet rs = ps.getGeneratedKeys();
+		    if (rs.next()) {
+		        return rs.getInt(1); 
+		    }
+		    return -1;
 		}finally {
 			try {
 				if (ps != null)

@@ -1,5 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ include file="header.jsp" %>
+    <%
+	    Boolean adminAttr = (Boolean) request.getSession().getAttribute("adminFilterRoles");
+	    boolean admin = (adminAttr != null) ? adminAttr : false;
+	
+	    Boolean userAttr = (Boolean) request.getSession().getAttribute("userFilterRoles");
+	    boolean user = (userAttr != null) ? userAttr : false;
+    	if(admin){
+    		response.sendRedirect(request.getContextPath()+"/pages/admin/Admin.jsp");
+    	}else if(user){
+    		response.sendRedirect(request.getContextPath()+"/pages/user/User.jsp");
+    	}
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +23,7 @@
 <form action="<%= request.getContextPath() %>/login" method="post">
 <fieldset>
 <legend>Effettua il login</legend>
+
 <label for="username">Username</label>
 <input id="username" type="text" name="username" placeholder="enter login"><br>
 

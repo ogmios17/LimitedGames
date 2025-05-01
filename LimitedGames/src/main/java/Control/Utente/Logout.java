@@ -13,6 +13,7 @@ public class Logout extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().removeAttribute("adminFilterRoles");
+		request.getSession().removeAttribute("userFilterRoles");
 		request.getSession().invalidate();
 		
 		String redirectedPage = "/pages/login-form.jsp";

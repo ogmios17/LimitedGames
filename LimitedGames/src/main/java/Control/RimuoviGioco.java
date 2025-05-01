@@ -42,7 +42,8 @@ public class RimuoviGioco extends HttpServlet {
 					session.setAttribute("cart", cart);
 				}
 			}catch (SQLException e) {
-				System.out.println("Errore: "+e);
+				e.printStackTrace();
+				response.sendRedirect("/LimitedGames/pages/Error.jsp");
 			}
 		}
 		response.sendRedirect(request.getContextPath()+"/pages/Carrello.jsp");

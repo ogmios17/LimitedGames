@@ -10,7 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import Model.Cartable;
+import Model.Gioco.GiocoBean;
 import Model.Gioco.GiocoDAO;
+import Model.Gioco.StockBean;
 import Model.Gioco.StockDAO;
 
 @WebServlet("/ShowDetails")
@@ -27,10 +31,18 @@ public class ShowDetails extends HttpServlet {
 		final StockDAO stockDAO = new StockDAO();
 		try {
 			int id=Integer.parseInt(request.getParameter("id"));
-			request.removeAttribute("gioco");
-			request.setAttribute("gioco", giocoDAO.doRetrieveByKey(id));
-			request.removeAttribute("piattaforme");
-			request.setAttribute("piattaforme",stockDAO.doRetrieveByGioco(Integer.parseInt(request.getParameter("id"))));
+			GiocoBean gioco = giocoDAO.doRetrieveByKey(id);
+			Collection<Cartable> cartables = new ArrayList<Cartable>();
+			Collection<StockBean> stocks = stockDAO.doRetrieveByGioco(Integer.parseInt(request.getParameter("id")));
+			for(StockBean s: stocks) {
+				Cartable cartable = new Cartable();
+				cartable.setGioco(gioco);
+				cartable.setPiattaforma(s.getPiattaforma());
+				cartable.setQuantita(s.getRimanenti());
+				cartables.add(cartable);
+			}
+			request.removeAttribute("cartables");
+			request.setAttribute("cartables",cartables);
 		}catch(SQLException e) {
 			System.out.println("Error: "+e.getMessage());
 		}

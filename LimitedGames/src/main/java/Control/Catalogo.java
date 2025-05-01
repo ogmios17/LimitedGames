@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import Model.Gioco.*;
@@ -30,46 +31,21 @@ public class Catalogo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		final GiocoDAO model = new GiocoDAO();
-		String action=request.getParameter("action");
-		try {
-			if(action != null) {				
-				
-				if(action.equals("delete")) {
-					int id=Integer.parseInt(request.getParameter("id"));
-					model.doDelete(id);
-					response.sendRedirect(request.getContextPath()+"/giochi");
-					return;
-				}else if(action.equals("insert")) {
-					Part filePart = request.getPart("immagine");
-					String nomeFile= filePart.getSubmittedFileName();
-					GiocoBean bean = new GiocoBean();
-					bean.setTitolo(request.getParameter("Titolo"));
-					bean.setDescrizione(request.getParameter("Descrizione"));
-					bean.setImmagine(nomeFile);
-					bean.setEdizione(request.getParameter("Edizione"));
-					bean.setPrezzo(Float.parseFloat(request.getParameter("Prezzo")));
-					bean.setIva(Float.parseFloat(request.getParameter("Iva")));
-					bean.setSconto(0);
-					bean.setDataUscita(Date.valueOf(request.getParameter("Data")));
-					try (OutputStream outputStream = new FileOutputStream(request.getServletContext().getInitParameter("LIMITED_ROOT") + File.separator + "images"+ File.separator + nomeFile); 
-						    InputStream inputStream = filePart.getInputStream()) {
-						    inputStream.transferTo(outputStream);
-						}
-					model.doSave(bean);
-					response.sendRedirect(request.getContextPath()+"/giochi");
-					return;
-				}
-			}
-		}catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
-		}
 		try {
 			request.removeAttribute("giochi");
 			request.setAttribute("giochi",model.doRetrieveAll(request.getParameter("sort")));
 		}catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			e.printStackTrace();
+			response.sendRedirect("/LimitedGames/pages/Error.jsp");
 		}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/Catalogo.jsp");
+		String path ="/pages/";
+		HttpSession session = request.getSession();
+		Boolean adminAttr = (Boolean) session.getAttribute("adminFilterRoles");
+	    boolean admin = (adminAttr != null) ? adminAttr : false;
+	    if(admin) path+="admin/CatalogoAdmin.jsp";
+	    else path+="Catalogo.jsp";
+	    
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
 

@@ -13,13 +13,12 @@ public class AuthFilter implements Filter{
 			
 			String loginURI = hrequest.getContextPath() + "/pages/admin";
 
-
 			boolean loginRequest = hrequest.getRequestURI().startsWith(loginURI);
 			
 			if(loginRequest) {
 				HttpSession session = hrequest.getSession(false);
-				boolean loggedIn = session != null && Boolean.TRUE.equals(session.getAttribute("adminFilterRoles"));
-				if(!loggedIn) {
+				boolean adminLoggedIn = session != null && (Boolean.TRUE.equals(session.getAttribute("adminFilterRoles")));
+				if(!adminLoggedIn) {
 					hresponse.sendRedirect(hrequest.getContextPath()+"/pages/login-form.jsp");			
 				} else {
 					chain.doFilter(request,  response);

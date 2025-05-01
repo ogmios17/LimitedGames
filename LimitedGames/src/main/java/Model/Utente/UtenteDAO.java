@@ -63,7 +63,32 @@ public class UtenteDAO {
 			}
 		}
 	}
-	public void doUpdate(UtenteBean utente)throws SQLException{		
+	public void doUpdate(UtenteBean utente)throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps =  null;
+		String query = "UPDATE "+TABLE_NAME+" SET  Pwd = ?, Nome = ?, Cognome =?, Via =?, CAP=?,Citta=? WHERE Username = ?";
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			ps = connection.prepareStatement(query);
+			
+			ps.setString(1, utente.getPassword());
+			ps.setString(2, utente.getNome());
+			ps.setString(3, utente.getCognome());
+			ps.setString(4, utente.getVia());
+			ps.setString(5, utente.getCAP());
+			ps.setString(6, utente.getCitta());
+			ps.setString(7, utente.getUsername());
+			
+			ps.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
 	}
 	
 	public UtenteBean doRetrieveByKey(String username)throws SQLException{
@@ -90,6 +115,7 @@ public class UtenteDAO {
 				bean.setTipo(result.getString("Tipo"));
 				
 			}
+			connection.commit();
 		}finally {
 			try {
 				if (ps != null)
@@ -122,6 +148,7 @@ public class UtenteDAO {
 				bean.setTipo(result.getString("Tipo"));
 				utenti.add(bean);
 			}
+			connection.commit();
 		}finally {
 			try {
 				if (ps != null)

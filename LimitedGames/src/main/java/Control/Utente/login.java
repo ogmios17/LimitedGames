@@ -31,16 +31,27 @@ public class login extends HttpServlet {
 				UtenteBean utente = checkLogin(username, hashPassword);
 				if(utente.getTipo().equals("admin")) {
 					request.getSession().setAttribute("adminFilterRoles", true);
+					request.getSession().setAttribute("userFilterRoles", false);
 					request.getSession().setAttribute("nome", utente.getNome());
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/protected.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/Admin.jsp");
 					dispatcher.forward(request, response);
 				}else {
+					request.getSession().setAttribute("adminFilterRoles", false);
+					request.getSession().setAttribute("userFilterRoles", true);
 					request.getSession().setAttribute("nome", utente.getNome());
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/Catalogo.jsp");
+					request.getSession().setAttribute("user",utente);
+					String order = (String)request.getSession().getAttribute("order");
+					if(order != null && order.equals("true")) {
+						response.sendRedirect(request.getContextPath()+"/EffettuaOrdine");
+						return;
+					}
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/user/User.jsp");
 					dispatcher.forward(request, response);
+					return;
 				}
 				
 			} catch (Exception e) {
+				e.printStackTrace();
 				request.getSession().setAttribute("adminFilterRoles", false);
 			    redirectedPage = "/login-form.jsp?failed=true";
 			    response.sendRedirect(request.getContextPath() +"/pages"+redirectedPage);
