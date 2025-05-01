@@ -23,7 +23,11 @@
     			OrdineBean o= (OrdineBean)it.next();
     %>
     
-    	 <%=o.getDataOrdine() %>  <%=String.format("%.2f",o.getPrezzo()) %>€</li>
+    	 <%=o.getDataOrdine() %>  <%=String.format("%.2f",o.getPrezzo()) %>€
+    	 <form action = "<%=request.getContextPath()%>/StampaFattura" method= "POST">
+    	 <input type = "hidden" name="ordine" value="<%=o.getId() %>">
+    	 	<input type="submit" value ="Stampa fattura">
+    	 </form>
 			<ul>
 	    	<% 
 	    		Collection<?> acquisti = modelAcquisto.doRetrieveByOrdine(o.getId());

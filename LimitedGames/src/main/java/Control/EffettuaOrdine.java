@@ -81,12 +81,11 @@ public class EffettuaOrdine extends HttpServlet {
 					stock.setRimanenti(stock.getRimanenti()-c.getQuantita());
 					stock.setAcquistati(stock.getAcquistati()-c.getQuantita());
 					stockModel.doUpdate(stock);
-					
-					session.removeAttribute("cart");
-					session.removeAttribute("order");
-					response.sendRedirect("/LimitedGames/pages/OrdineEffettuato.jsp");
-					return;
 				}
+				session.removeAttribute("cart");
+				session.removeAttribute("order");
+				response.sendRedirect("/LimitedGames/pages/OrdineEffettuato.jsp");
+				return;
 				
 			}catch (SQLException e) {
 				System.out.println("Error: "+e);

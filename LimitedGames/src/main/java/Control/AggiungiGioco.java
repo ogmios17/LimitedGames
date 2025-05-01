@@ -44,7 +44,8 @@ public class AggiungiGioco extends HttpServlet {
 				cart.addGame(new Cartable(game,quantita,piattaforma));
 				session.setAttribute("cart", cart);
 			}catch (SQLException e) {
-				System.out.println("Errore: "+e);
+				e.printStackTrace();
+				response.sendRedirect("/LimitedGames/pages/Error.jsp");
 			}
 		}
 		response.sendRedirect(request.getContextPath()+"/ShowDetails?id="+request.getParameter("id"));
