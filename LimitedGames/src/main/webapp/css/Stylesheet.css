@@ -1,0 +1,12 @@
+@charset "UTF-8";
+body {
+  font: fantasy;
+  color: #d12c47;
+  background: #d12c47;
+  border-color: coral;
+}
+
+p, h1, h2 {
+	color: #cc6600;
+	text-decoration: underline;
+}
