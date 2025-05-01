@@ -1,0 +1,36 @@
+@charset "UTF-8";
+body {
+  font: fantasy;
+  background: #f2f2f2;
+  border-color: #000000;
+  font-weight: bold;
+}
+
+h1 {
+	color: #ed1c24;
+	font-size: 150%;
+	font-weight: bold;
+	text-align: center;
+}
+h2 {
+	color: #ed1c24;
+	font-size: 130%;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+div.images {
+  margin: 30px;
+  float: left;
+  width: 200px;
+}
+
+div.images:hover {
+  border: 3px solid;
+}
+
+div.images img {
+  width: 100%;
+  height: 160;
+}
