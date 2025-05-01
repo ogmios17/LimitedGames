@@ -7,6 +7,7 @@ import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
@@ -49,52 +50,53 @@ public class StampaFattura extends HttpServlet {
         }
 
         PDPage page = document.getPage(0);
+        page.setMediaBox(PDRectangle.A4);
 
         PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true);
 
         contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 8);
 
         contentStream.beginText();
-        contentStream.newLineAtOffset(430.864f, 635.7037f);
+        contentStream.newLineAtOffset(430.864f, 588.7037f);
         contentStream.showText(LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)));
         contentStream.endText();
 
         contentStream.beginText();
-        contentStream.newLineAtOffset(430.864f, 618.963f);
+        contentStream.newLineAtOffset(430.864f, 571.963f);
         assert ordine != null;
         contentStream.showText(ordine.getDataOrdine().toString());
         contentStream.endText();
 
         contentStream.beginText();
-        contentStream.newLineAtOffset(46.6203f, 642.2537f);
+        contentStream.newLineAtOffset(46.6203f, 595.2537f);
         contentStream.showText(utenteBean.getNome());
         contentStream.endText();
 
         contentStream.beginText();
-        contentStream.newLineAtOffset(46.6203f, 631.2537f);
+        contentStream.newLineAtOffset(46.6203f, 584.2537f);
         contentStream.showText(utenteBean.getCognome());
         contentStream.endText();
         contentStream.beginText();
 
-        contentStream.newLineAtOffset(46.6203f, 620.2537f);
+        contentStream.newLineAtOffset(46.6203f, 573.2537f);
         contentStream.showText(utenteBean.getVia() + " " + utenteBean.getCAP());
         contentStream.endText();
 
         contentStream.beginText();
-        contentStream.newLineAtOffset(46.6203f, 609.2537f);
+        contentStream.newLineAtOffset(46.6203f, 562.2537f);
         contentStream.showText(utenteBean.getCitta());
         contentStream.endText();
 
         contentStream.beginText();
-        contentStream.newLineAtOffset(405.1517f, 591.2341f);
+        contentStream.newLineAtOffset(405.1517f, 544.2341f);
         contentStream.showText(ordine.getPrezzo() + " €");
         contentStream.endText();
 
-        float coord = 448.0316f;
+        float coord = 401.0316f;
         for (AcquistoBean a : acquisti) {
             contentStream.beginText();
-            contentStream.newLineAtOffset(92.7409f, coord);
-            contentStream.showText(String.valueOf(a.getTitolo()));
+            contentStream.newLineAtOffset(42.7409f, coord);
+            contentStream.showText(String.valueOf(a.getTitolo())+" "+String.valueOf(a.getEdizione()+" Edition  ")+String.valueOf(a.getPiattaforma()));
             contentStream.endText();
 
             contentStream.beginText();
