@@ -16,6 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Catalogo Giochi</title>
+    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Catalogo.css?v=">
 </head>
 <body>
 
@@ -39,8 +40,9 @@
     while(it.hasNext()){
     	GiocoBean g= (GiocoBean)it.next();
     %>
+    <div class="images">
     	<a href= "<%= request.getContextPath() %>/ShowDetails?id=<%=g.getId()%>">
-        	<img height=200 width=160 src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>"><br>
+        	<img height=200 width=160 src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>">
         </a>
         <%= g.getTitolo() %> <%= g.getEdizione() %> Edition<br>
         <% if(g.getSconto()!=0) {%>
@@ -49,7 +51,7 @@
         <%= String.format("%.2f",g.getPrezzo()-g.getPrezzo()*g.getSconto()/100) %> €<br>
             
         
-
+</div>
 
     <% } %>
 <% } else { %>
@@ -58,7 +60,7 @@
 	
 	<%@include file="footer.jsp" %>
 
-
+	
 
 </body>
 </html>
