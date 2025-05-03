@@ -19,15 +19,22 @@ h2 {
 	text-align: center;
 }
 
+div.catalogo-giochi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 60px; 
+  gap: 20px; 
+  max-width: 900px;
+}
 
 div.images {
   margin: 30px;
-  float: left;
   width: 200px;
 }
 
 div.images:hover {
-  border: 3px solid;
+  border: 2px solid;
 }
 
 div.images img {

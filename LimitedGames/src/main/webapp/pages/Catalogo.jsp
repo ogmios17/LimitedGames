@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Catalogo Giochi</title>
-    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Catalogo.css?v=">
+    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Catalogo.css?v=<%=System.currentTimeMillis()%>">;
 </head>
 <body>
 
@@ -33,7 +33,7 @@
 
 <br/>
 
-
+<div class="catalogo-giochi">
 <% if (catalogo != null && !catalogo.isEmpty()) { %>
     <%
     	Iterator<?> it=catalogo.iterator();
@@ -42,22 +42,21 @@
     %>
     <div class="images">
     	<a href= "<%= request.getContextPath() %>/ShowDetails?id=<%=g.getId()%>">
-        	<img height=200 width=160 src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>">
+        	<img src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>">
         </a>
         <%= g.getTitolo() %> <%= g.getEdizione() %> Edition<br>
         <% if(g.getSconto()!=0) {%>
         <s><%=g.getPrezzo() %></s>
         <% } %>
         <%= String.format("%.2f",g.getPrezzo()-g.getPrezzo()*g.getSconto()/100) %> €<br>
-            
-        
+          
 </div>
 
-    <% } %>
+    <% } %>  
 <% } else { %>
     <p><em>Nessun gioco disponibile al momento.</em></p>
 <% } %>
-	
+</div> 
 	<%@include file="footer.jsp" %>
 
 	
