@@ -68,6 +68,33 @@ public class GiocoDAO implements GiocoDAOInterface{
 		}
 	}
 	public void doUpdate(GiocoBean gioco) throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps =  null;
+		String query = "UPDATE "+TABLE_NAME+" SET  Prezzo = ?, IVA = ?, Data_uscita =?, Descrizione =?, Titolo=?,Immagine=?, Edizione=?, Sconto=? WHERE ID = ?";
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			ps = connection.prepareStatement(query);
+			
+			ps.setString(5, gioco.getTitolo());
+			ps.setString(4, gioco.getDescrizione());
+			ps.setString(6, gioco.getImmagine());
+			ps.setString(7, gioco.getEdizione());
+			ps.setDouble(1, gioco.getPrezzo());
+			ps.setDouble(2, gioco.getIva());
+			ps.setDouble(8, gioco.getSconto());
+			ps.setDate(3, gioco.getDataUscita());
+			ps.setInt(9, gioco.getId());
+			
+			ps.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
 	}
 	
 	public GiocoBean doRetrieveByKey(int id) throws SQLException{

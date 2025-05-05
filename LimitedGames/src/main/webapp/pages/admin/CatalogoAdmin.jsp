@@ -51,7 +51,7 @@
 			<input type = "hidden" name = "id" value= "<%=g.getId()%>">
 			<input type = "submit" value = "Elimina">
 		</form>
-        <a href= "<%= request.getContextPath() %>/pages/admin/ModificaGioco?action=change&id=<%=g.getId()%>">
+        <a href= "<%= request.getContextPath() %>/pages/admin/GameUpdate.jsp?id=<%=g.getId()%>">
         	<button>Modifica</button>
         </a>
         

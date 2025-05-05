@@ -46,6 +46,12 @@ public class ShowDetails extends HttpServlet {
 		}catch(SQLException e) {
 			System.out.println("Error: "+e.getMessage());
 		}
+		String admin = request.getParameter("admin");
+		if(admin!=null && admin.equals("yes")) {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/GameUpdate.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/Dettagli.jsp");
 		dispatcher.forward(request, response);
 		

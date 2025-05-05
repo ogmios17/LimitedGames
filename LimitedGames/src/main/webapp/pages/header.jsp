@@ -15,7 +15,7 @@
 
 	<nav>
 		<ul>
-			<li><a href="<%= request.getContextPath() %>/pages/Catalogo.jsp">HOME </a></li>
+			<li><a href="<%= request.getContextPath() %>/pages/Catalogo.jsp"><img src="<%= request.getContextPath() %>/images/system/logo.png" alt="Limited Games"> </a></li>
 			<li><a href="<%= request.getContextPath() %>/pages/Carrello.jsp">Carrello</a></li>
 			<li><a href="<%= request.getContextPath() %>/pages/login-form.jsp">Utente</a></li>
 		</ul>
