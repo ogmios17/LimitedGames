@@ -14,6 +14,9 @@
 	<a href="<%= request.getContextPath() %>/pages/admin/GameInsert.jsp">
 		<button>Aggiungi prodotti</button>
 	</a>
+	<a href="<%= request.getContextPath() %>/pages/admin/VisualizzaUtenti.jsp">
+		<button>Visualizza utenti</button>
+	</a>
 	<form action= "<%= request.getContextPath() %>/Logout" method = POST>
 		<input type = "submit" value= "Logout">
 	</form>

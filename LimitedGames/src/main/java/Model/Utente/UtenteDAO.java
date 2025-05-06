@@ -129,7 +129,7 @@ public class UtenteDAO {
 		Connection connection = null;
 		PreparedStatement ps = null;
 		Collection<UtenteBean> utenti = new LinkedList<UtenteBean>();
-		String query = "SELECT * FROM "+TABLE_NAME;
+		String query = "SELECT * FROM "+TABLE_NAME+" ORDER BY "+order;
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
 			ps = connection.prepareStatement(query);
@@ -138,7 +138,7 @@ public class UtenteDAO {
 			while(result.next()) {
 				UtenteBean bean = new UtenteBean();
 				bean.setUsername(result.getString("Username"));
-				bean.setPassword(result.getString("Password"));
+				bean.setPassword(result.getString("Pwd"));
 				bean.setNome(result.getString("Nome"));
 				bean.setCognome(result.getString("Cognome"));
 				bean.setEmail(result.getString("Email"));
