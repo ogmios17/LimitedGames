@@ -37,7 +37,8 @@
 			<td><%=user.getCAP() %></td>
 			<td><%=user.getCitta() %></td>
 			<td><%=user.getTipo()%></td>
-			<td>peninculo</td>
+			<td><a href="<%=request.getContextPath() %>/VisualizzaOrdini?username=<%=user.getUsername()%>&destinazione=admin/VisualizzaOrdini.jsp">
+			<button>Ordini</button></a></td>
 		</tr>
 		<%} %>
 	</table>

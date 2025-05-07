@@ -91,5 +91,10 @@ public class OrdineBean {
 		this.username = username;
 	}
 	
+	public OrdineBean(String nome) {
+		super();
+		this.nome= nome;
+	}
+	
 	
 }

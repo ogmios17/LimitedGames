@@ -30,10 +30,6 @@
     %>
     
     	 <%=o.getDataOrdine() %>  <%=String.format("%.2f",o.getPrezzo()) %>€
-    	 <form action = "<%=request.getContextPath()%>/StampaFattura" method= "POST">
-    	 	<input type = "hidden" name="ordine" value="<%=o.getId() %>">
-    	 	<input type="submit" value ="Stampa fattura">
-    	 </form>
     	 <form action = "<%=request.getContextPath()%>/VisualizzaAcquisti" method= "POST">
     	 	<input type = "hidden" name= "destinazione" value="user/Acquisti.jsp">
     	 	<input type = "hidden" name="id" value="<%=o.getId() %>">
