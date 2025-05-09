@@ -33,6 +33,15 @@
 
 <br/>
 
+<div id="Tendenza">
+<h2> Gioco in Evidenza della settimana!</h2>
+<img src="/LimitedGames/src/main/webapp/images/Elden-Ring.jpeg<%= System.currentTimeMillis() %>" >
+</div>
+
+<div id="Pubblicità">
+<p>Pubblicità</p>
+</div>
+
 <div class="catalogo-giochi">
 <% if (catalogo != null && !catalogo.isEmpty()) { %>
     <%
