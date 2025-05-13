@@ -6,8 +6,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarqube:
-    name: SonarQube
+  sonarcloud:
+    name: SonarCloud
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
