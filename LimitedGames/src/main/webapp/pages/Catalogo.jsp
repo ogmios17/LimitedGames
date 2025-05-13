@@ -39,7 +39,7 @@
 </div>
 
 <div id="Pubblicità">
-<p>Pubblicità</p>
+<iframe width="250" height="600" src="https://www.youtube.com/embed/IVv5YTwfki4?si=IiFp1G5TtrSX6xTL" title="YouTube video player"frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 <div class="catalogo-giochi">
