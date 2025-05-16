@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>slideshow</title>
+<style>
+#slideshow {
+width: 250px;
+height: 518px;
+overflow: hidden;
+position: relative;
+}
+
+.slide-container {
+display: flex;
+transition: transform 1s ease-in-out;
+}
+
+.slide-container img {
+width: 250px;
+height: 600px;
+object-fit: fill;
+}
+</style>
+</head>
+<body>
+
+<div id="slideshow">
+  <div class="slide-container" id="slideContainer">
+  <img src="images/Demons-Souls.jpg" alt="">
+  <img src="images/Elden-Ring.jpg" alt="">
+  <img src="images/SpiderMan.JPG" alt="">
+  <img src="images/Ghost-Of-Tsushima.jpg" alt="">
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+	  const slideContainer = document.getElementById("slideContainer");
+	  const totalSlides = slideContainer.children.length;
+	  let index = 0;
+
+	  setInterval(() => {
+	    index = (index + 1) % totalSlides;
+	    slideContainer.style.transform = `translateX(-${index * 250}px)`;
+	  }, 5000); 
+	});
+</script>
+</body>
+</html>
+</html>

@@ -6,13 +6,13 @@ SET FOREIGN_KEY_CHECKS = 1;
 DELETE FROM Piattaforma;
 DELETE FROM Stock;
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
-VALUES('69.99', '12.62', '2022-02-25', 'Elden Ring è un videogioco action RPG open world facente parte della saga dei suols like.', 'ELDEN RING', 'Elden-Ring.jpeg', 'Standard', '0.00');
+VALUES('69.99', '12.62', '2022-02-25', 'Elden Ring è un videogioco action RPG open world facente parte della saga dei suols like.', 'ELDEN RING', 'Elden-Ring.jpg', 'Standard', '0.00');
 
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
-VALUES('89.99', '16.23', '2022-02-25', 'Elden Ring è un videogioco action RPG open world facente parte della saga dei suols like.', 'ELDEN RING', 'Elden-Ring.jpeg', 'Delux Edition', '0.00');
+VALUES('89.99', '16.23', '2022-02-25', 'Elden Ring è un videogioco action RPG open world facente parte della saga dei suols like.', 'ELDEN RING', 'Elden-Ring.jpg', 'Delux Edition', '0.00');
 
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
-VALUES('109.99', '19.83', '2022-02-25', 'Elden Ring è un videogioco action RPG open world facente parte della saga dei suols like.', 'ELDEN RING', 'Elden-Ring.jpeg', 'GOTY Edition', '0.00');
+VALUES('109.99', '19.83', '2022-02-25', 'Elden Ring è un videogioco action RPG open world facente parte della saga dei suols like.', 'ELDEN RING', 'Elden-Ring.jpg', 'GOTY Edition', '0.00');
 
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
 VALUES('59.99', '10.82', '2022-11-09', 'Un epico action adventure che unisce mitologia e dramma familiare.', 'God of War Ragnarök', 'God-of-War.jpg', 'Standard', '0.00');
@@ -27,22 +27,22 @@ INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Ediz
 VALUES('99.99', '18.03', '2022-02-18', 'Avventura post-apocalittica in un vasto open world ricco di misteri.', 'Horizon Forbidden West', 'Horizon-Forbidden-West.jpg', 'Complete edition', '25.00');
 
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
-VALUES('49.99', '9.01', '2020-11-12', 'Un dinamico action-adventure con movimenti acrobatici e combattimenti fluidi.', 'Spider-Man: Miles Morales', 'SpiderMan.jpeg', 'Standard', '20.00');
+VALUES('49.99', '9.01', '2020-11-12', 'Un dinamico action-adventure con movimenti acrobatici e combattimenti fluidi.', 'Spider-Man: Miles Morales', 'SpiderMan.JPG', 'Standard', '20.00');
 
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
-VALUES('59.99', '10.82', '2020-11-12', 'Un dinamico action-adventure con movimenti acrobatici e combattimenti fluidi.', 'Spider-Man: Miles Morales', 'SpiderMan.jpeg', 'Ultimate edition', '10.00');
+VALUES('59.99', '10.82', '2020-11-12', 'Un dinamico action-adventure con movimenti acrobatici e combattimenti fluidi.', 'Spider-Man: Miles Morales', 'SpiderMan.JPG', 'Ultimate edition', '10.00');
 
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
-VALUES('69.99', '12.62', '2020-11-12', 'Remake mozzafiato di un classico, con grafica e gameplay rinnovati.', 'Demon''s Souls', 'Demons-Souls.jpeg', 'Standard', '15.00');
+VALUES('69.99', '12.62', '2020-11-12', 'Remake mozzafiato di un classico, con grafica e gameplay rinnovati.', 'Demon''s Souls', 'Demons-Souls.jpg', 'Standard', '15.00');
 
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
-VALUES('89.99', '16.23', '2020-11-12', 'Remake mozzafiato di un classico, con grafica e gameplay rinnovati.', 'Demon''s Souls', 'Demons-Souls.jpeg', 'Deluxe edition', '10.00');
+VALUES('89.99', '16.23', '2020-11-12', 'Remake mozzafiato di un classico, con grafica e gameplay rinnovati.', 'Demon''s Souls', 'Demons-Souls.jpg', 'Deluxe edition', '10.00');
 
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
-VALUES('59.99', '10.82', '2021-06-11', 'Un platform d’azione che sfrutta al massimo le potenzialità del PS5.', 'Ratchet & Clank: Rift Apart', 'Ratchet-&-Clank.jpeg', 'Standard', '10.00');
+VALUES('59.99', '10.82', '2021-06-11', 'Un platform d’azione che sfrutta al massimo le potenzialità del PS5.', 'Ratchet & Clank: Rift Apart', 'Ratchet-&-Clank.jpg', 'Standard', '10.00');
 
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
-VALUES('69.99', '12.62', '2021-06-11', 'Un platform d’azione che sfrutta al massimo le potenzialità del PS5.', 'Ratchet & Clank: Rift Apart', 'Ratchet-&-Clank.jpeg', 'Delux edition', '0.00');
+VALUES('69.99', '12.62', '2021-06-11', 'Un platform d’azione che sfrutta al massimo le potenzialità del PS5.', 'Ratchet & Clank: Rift Apart', 'Ratchet-&-Clank.jpg', 'Delux edition', '0.00');
 
 INSERT INTO Gioco (Prezzo, IVA, Data_uscita, Descrizione, Titolo, immagine, Edizione, Sconto) 
 VALUES('39.99', '7.21', '2020-06-19', 'Un intenso survival drama con narrazione emozionante e ambientazioni realistiche.', 'The Last of Us Part II', 'The-Last-Of-Us-2.jpg', 'Standard', '0.00');
