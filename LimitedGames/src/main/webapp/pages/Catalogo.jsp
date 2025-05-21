@@ -2,7 +2,6 @@
 <%@ page import="Model.Gioco.GiocoBean" %>
 <%@ page import="java.util.*" %>
 <%@ include file="header.jsp" %>
-
 <%
     Collection<?> catalogo = (Collection<?>) request.getAttribute("giochi");
     if(catalogo == null){
@@ -16,9 +15,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Catalogo Giochi</title>
-    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Catalogo.css?v=<%=System.currentTimeMillis()%>">;
+    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Catalogo.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+
 
 <h1>Catalogo Giochi</h1>
 
