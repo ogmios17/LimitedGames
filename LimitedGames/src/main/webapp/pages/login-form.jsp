@@ -18,8 +18,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Pagina Login</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Login.css?v=<%=System.currentTimeMillis()%>">
+<style>
+body {
+margin: 0;
+    height: 100vh;
+    background-image: url('logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: ;
+
+}
+</style>
 </head>
-<body>
+<body> 
+<h1>ACCEDI</h1>
+
+<div id="Registrazione">
 <form action="<%= request.getContextPath() %>/login" method="post">
 <fieldset>
 <legend>Effettua il login</legend>
@@ -40,6 +56,17 @@
 	<p>Username e/o password errati</p>
 	<%} %>
 </form>
-	<a href="<%= request.getContextPath() %>/pages/Registrazione.jsp">Non sei registrato? Registrati!</a>
+
+     
+     
+  	<a href="<%= request.getContextPath() %>/pages/Registrazione.jsp">Non sei registrato? Registrati!</a>
+	</div>
+	
+	
+	<div id="footer">
+	<div class="footer.img">
+	<%@include file="footer.jsp" %>
+	</div>
+	</div>
 </body>
 </html>

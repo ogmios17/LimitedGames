@@ -43,13 +43,22 @@ li a:hover {
   
   ul img {
   padding: 0px;
-  width: 118px;
-  height: 68px;
+  width: 147px;
+  height: 85px;
   display: block;
   }
 </style>
 </head>
 <body>
+	
+	<nav>	
+		<ul>
+		    <li class="Logo"><a href="<%= request.getContextPath() %>/pages/Catalogo.jsp"><img src="<%= request.getContextPath() %>/images/system/logo.png" alt="Limited Games"> </a></li>
+		    
+			<li class="Menu"><a href="<%= request.getContextPath() %>/pages/Carrello.jsp">Carrello</a></li>
+			<li class="Menu"><a href="<%= request.getContextPath() %>/pages/login-form.jsp">Utente</a></li>
+		</ul>
+	</nav>
 	<% 
 		String nome = (String)session.getAttribute("nome");
 		if(nome == null) nome = "guest";
@@ -65,14 +74,6 @@ li a:hover {
       }
     }, 4000);
   </script>
-	<nav>	
-		<ul>
-		    <li class="Logo"><a href="<%= request.getContextPath() %>/pages/Catalogo.jsp"><img src="<%= request.getContextPath() %>/images/system/logo.png" alt="Limited Games"> </a></li>
-		    
-			<li class="Menu"><a href="<%= request.getContextPath() %>/pages/Carrello.jsp">Carrello</a></li>
-			<li class="Menu"><a href="<%= request.getContextPath() %>/pages/login-form.jsp">Utente</a></li>
-		</ul>
-	</nav>
 
 </body>
 </html>

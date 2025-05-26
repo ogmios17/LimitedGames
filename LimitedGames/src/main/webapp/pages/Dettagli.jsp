@@ -14,11 +14,14 @@
 <html>
 <head>
 <title>Dettaglio gioco</title>
+ <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Dettagli.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
 	<h1>Dettagli gioco:</h1><br>
-	<img src="<%= request.getContextPath() %>/images/<%= dettaglio.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= dettaglio.getTitolo() %>">
-	<table border=1>
+	
+	<img class="Copertina" src="<%= request.getContextPath() %>/images/<%= dettaglio.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= dettaglio.getTitolo() %>">
+
+	<table class="Informazioni" border=1>
 		<tr>
 			<th>Titolo</th>
 			<th>Descrizione</th>
@@ -38,6 +41,8 @@
 			<td><%= dettaglio.getDataUscita()%></td>
 		</tr>
 	</table>
+	
+	<div id="Bottoni">
 	<form action="./AggiungiGioco" method="post">
 	<Label for=piattaforma>Seleziona la piattaforma</Label>
 		<select name="piattaforma" id="piattaforma">
@@ -68,9 +73,11 @@
   			<option value="10">10</option>
 		</select>
 		<input type="submit" value="Aggiungi al carrello">
-		
 	</form>
+</div>
 	
+	<div id="footer">
 	<%@ include file="footer.jsp" %>
+	</div>
 </body>
 </html>

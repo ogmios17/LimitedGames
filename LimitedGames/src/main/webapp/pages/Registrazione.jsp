@@ -6,9 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>LimitedGames</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Login.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
-	
+<h1>REGISTRATI</h1>
+
+	<div id="Registrazione">
 	<form action="<%= request.getContextPath()%>/Registrazione" method = "POST">
 		<label for="nome">Nome:</label>
 		<input type="text" id="nome" name="nome" required> <br>
@@ -29,5 +32,12 @@
 			<p>utente già registrato nella piattaforma</p>
 		<%} %>
 	</form>
+	</div>
+	
+	<div id="footer">
+	<div class="footer.img">
+	<%@include file="footer.jsp" %>
+	</div>
+	</div>
 </body>
 </html>
