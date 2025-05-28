@@ -21,15 +21,38 @@
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Login.css?v=<%=System.currentTimeMillis()%>">
 <style>
 body {
-margin: 0;
-    height: 100vh;
-    background-image: url('logo.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    background-color: ;
+            margin: 0;
+            height: 100vh;
+            position: relative;
+            background-color: #ffffff;
+        }
 
-}
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60vh;
+            background-image: url('<%= request.getContextPath() %>/images/system/logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 400px 200px;
+            pointer-events: none;
+        }
+
+        .contenuto {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding-top: 100px;
+            font-size: 24px;
+            color: #000;
+        }
+
+    fieldset {
+      border: none;
+    }
 </style>
 </head>
 <body> 
@@ -38,7 +61,6 @@ margin: 0;
 <div id="Registrazione">
 <form action="<%= request.getContextPath() %>/login" method="post">
 <fieldset>
-<legend>Effettua il login</legend>
 
 <label for="username">Username</label>
 <input id="username" type="text" name="username" placeholder="enter login"><br>
@@ -64,9 +86,7 @@ margin: 0;
 	
 	
 	<div id="footer">
-	<div class="footer.img">
 	<%@include file="footer.jsp" %>
-	</div>
 	</div>
 </body>
 </html>

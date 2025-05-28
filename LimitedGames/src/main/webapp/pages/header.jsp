@@ -59,21 +59,6 @@ li a:hover {
 			<li class="Menu"><a href="<%= request.getContextPath() %>/pages/login-form.jsp">Utente</a></li>
 		</ul>
 	</nav>
-	<% 
-		String nome = (String)session.getAttribute("nome");
-		if(nome == null) nome = "guest";
-	%>
-	
-	<div id="messaggio">Sei loggato come <%=nome %></div>
-	<script>
-  
-    setTimeout(() => {
-      const messaggio = document.getElementById('messaggio');
-      if (messaggio) {
-        messaggio.remove();
-      }
-    }, 4000);
-  </script>
 
 </body>
 </html>
