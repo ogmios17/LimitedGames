@@ -75,9 +75,9 @@
 		<input type="submit" value="Aggiungi al carrello">
 	</form>
 </div>
-	
-	<div id="footer">
+	<div class="posizione">
 	<%@ include file="footer.jsp" %>
 	</div>
+	
 </body>
 </html>

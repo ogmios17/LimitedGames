@@ -37,6 +37,7 @@ body {
             font-size: 24px;
             color: #000;
             }
+            
            #margine {
             margin-top: 50px;
             }
@@ -68,10 +69,9 @@ body {
 	</form>
 	</div>
 	
-	<div id="margine">
-	<div id="footer">
+     <div id="margine">
 	<%@include file="footer.jsp" %>
 	</div>
-	</div>
+	
 </body>
 </html>

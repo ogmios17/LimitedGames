@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="Model.Cart" import="Model.Cartable" import="java.util.*" import="Model.Utente.*"%>
+    pageEncoding="UTF-8" import="Model.Cart" import="Model.Gioco.GiocoBean" import="Model.Cartable" import="java.util.*" import="Model.Utente.*"%>
     <%@ include file="header.jsp" %>
     
     <%
@@ -11,13 +11,16 @@
     	return;
     }
     %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Carrello</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Carrello.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+
 	<%
 		Cart cart=(Cart)session.getAttribute("cart");
 		if(cart==null || cart.isEmpty()){
@@ -26,28 +29,25 @@
 	
 		ArrayList<Cartable> games= cart.getGames();
 	%>
-	<table>
-		<tr>
-			<th>Prodotto</th>
-			<th>Piattaforma</th>
-			<th>Edizione</th>
-			<th>Prezzo</th>
-			<th>Quantità</th>
-			<th>Prezzo totale</th>
-			<th></th>
-		</tr>
 		<%for(Cartable c: games) {%>
-			<tr>
-				<td><%=c.getGioco().getTitolo() %></td>
-				<td><%=c.getPiattaforma() %></td>
-				<td><%=c.getGioco().getEdizione() %></td>
-				<td><%=c.getGioco().getPrezzo() %></td>
-				<td><%=c.getQuantita() %></td>
-				<td><%=c.getGioco().getPrezzo()*c.getQuantita() %></td>
-				<td><a href= "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>"><button>-</button></a></td>
+			<div class="Cornice">
+			<img class="immagine" src="<%= request.getContextPath() %>/images/<%= c.getGioco().getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= c.getGioco().getTitolo() %>">
+			
+			<div class="posizione">
+				<%=c.getGioco().getTitolo() %><br>
+				<%=c.getPiattaforma() %><br>
+				<%=c.getGioco().getEdizione() %><br>
+				<%=c.getGioco().getPrezzo() %><br></div>
+            <div class="spazio">  <p> Quantità: <%=c.getQuantita() %> </p>	
+				<p>Prezzo Totale: <%=c.getGioco().getPrezzo()*c.getQuantita() %></p>
+	       </div>
+				<a class="bottone" href= "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>">RIMUOVI</a>
+			</div>
 		<%} %>
-		</table>
-		<Label for=carta>Seleziona il metodo di pagamento</Label>
+		
+		
+		<div class="Pagamento">
+		<label for=carta>Seleziona il metodo di pagamento</label>
 		<select name="carta" id="carta">
 			<% 
 				if(carte!= null && !carte.isEmpty()){
@@ -65,8 +65,11 @@
 			<input type="submit" value="Effettua acquisto">
 		</form>
 		<%}%>
+		</div>
 		
-			
-	</table>
+	<div class="posizionef">
+	<%@include file="footer.jsp" %>
+	</div>
+		
 </body>
 </html>

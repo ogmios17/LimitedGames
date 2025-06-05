@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+h1 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 200%;
+}
+
+.posizionef {
+	margin-top: 700px;
+}
+
+.posizione {
+	flex-shrink: 0;
+	margin-top: 80px;
+	padding-left: 50px;
+	font-size: 180%;
+    display: flex;
+    gap: 8px;
+}
+
+.immagine{
+	width: 200px;
+    height: 310px;
+    margin-left: 10px;
+}
+input[type=submit] {
+	font-size: 90%;
+	border-radius: 25px;
+}
+.Cornice {
+	margin-left: 170px;
+	display: flex;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #5d5d5d;
+  gap: 20px;
+  max-width: 1500px;
+}
+
+.bottone {
+	flex-shrink: 0;
+	margin-top: 280px;    margin-left: 30px;
+    color: black;
+}
+
+
+.spazio {
+	flex-shrink: 0;
+	font-size: 180%;
+	margin-top: 70px;
+	margin-left: 550px;
+}
+
+.Pagamento {
+	font-size: 180%;
+    display: flex;
+    gap: 8px;
+    float: right;
+    margin-right: 170px;
+}

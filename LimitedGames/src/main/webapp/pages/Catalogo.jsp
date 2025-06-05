@@ -61,7 +61,7 @@
 </div>
 
 <div id="Pubblicità">
-<iframe width="250" height="600" src="https://www.youtube.com/embed/IVv5YTwfki4?si=IiFp1G5TtrSX6xTL&autoplay=1&mute=1&playlist=IVv5YTwfki4" title="YouTube video player"frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="250" height="600" src="https://www.youtube.com/embed/IVv5YTwfki4?si=IiFp1G5TtrSX6xTL&autoplay=1&mute=1&loop=1&playlist=IVv5YTwfki4" title="YouTube video player"frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 <div class="catalogo-giochi">
@@ -90,12 +90,7 @@
 </div> 
 
 
-
-<div id="footer">
 	<%@include file="footer.jsp" %>
-	</div>
-
-	
 
 </body>
 </html>
