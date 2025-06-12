@@ -5,58 +5,29 @@
 <head>
 <meta charset="UTF-8">
 <title>LimitedGames</title>
-<style>
-#messaggio{
-  font-size: 18px;
-  padding: 10px;
-  text-align: center;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #000000;;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-}
-
-li.Menu {
-float: right;
-font-size: 25px;
-padding: 14px 16px;
-}
-
-li a:hover {
-  background-color: #555;
-  }
-  
-  li.Logo{
-  float: left;
-  }
-  
-  ul img {
-  padding: 0px;
-  width: 147px;
-  height: 85px;
-  display: block;
-  }
-</style>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css">
 </head>
 <body>
 	
 	<nav>	
 		<ul>
-		    <li class="Logo"><a href="<%= request.getContextPath() %>/pages/Catalogo.jsp"><img src="<%= request.getContextPath() %>/images/system/logo.png" alt="Limited Games"> </a></li>
+		    <li class="Logo">
+		    <a href="<%= request.getContextPath() %>/pages/Catalogo.jsp">
+		    <img src="<%= request.getContextPath() %>/images/system/logo.png" alt="Limited Games"> 
+		    </a></li>
 		    
-			<li class="Menu"><a href="<%= request.getContextPath() %>/pages/Carrello.jsp">Carrello</a></li>
-			<li class="Menu"><a href="<%= request.getContextPath() %>/pages/login-form.jsp">Utente</a></li>
+			<li class="Menu">
+			<div class="item">
+				<a href="<%= request.getContextPath() %>/pages/login-form.jsp">
+				<img src="<%= request.getContextPath() %>/images/system/user.png" alt="User">
+				<span>Area utente</span></a>
+			</div>
+			<div class="item">
+				<a href="<%= request.getContextPath() %>/pages/Carrello.jsp">
+				<img src="<%= request.getContextPath() %>/images/system/cart.png" alt="Cart">
+				<span>Carrello</span></a>
+			</div>
+			</li>
 		</ul>
 	</nav>
 
