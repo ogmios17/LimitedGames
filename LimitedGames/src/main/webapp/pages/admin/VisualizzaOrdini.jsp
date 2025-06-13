@@ -10,9 +10,7 @@
 	    		response.sendRedirect(request.getContextPath()+"/VisualizzaOrdini?destinazione=user/Ordini.jsp&username="+utente.getUsername());
 	        	return;
     		}
-    	}
-    	
-    	 	
+    	}	
     %>
 <!DOCTYPE html>
 <html>
