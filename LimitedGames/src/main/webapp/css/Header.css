@@ -9,7 +9,7 @@ body {
 }
 
 nav {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(99, 99,99);
     padding: 1em 5%;
     box-sizing: border-box;
 }
@@ -73,8 +73,9 @@ nav ul .Menu .item span {
     font-size: 0.9em;
 }
 
-a{
+a, a:visited{
 	text-decoration: none;
+	color: black;
 }
 
 

@@ -2,6 +2,7 @@
 <%@ page import="Model.Gioco.GiocoBean" %>
 <%@ page import="java.util.*" %>
 <%@ include file="header.jsp" %>
+<%@ include file="Menu.jsp" %>
 <%
     Collection<?> catalogo = (Collection<?>) request.getAttribute("giochi");
     if(catalogo == null){
@@ -30,8 +31,10 @@
 		String nome = (String)session.getAttribute("nome");
 		if(nome == null) nome = "guest";
 	%>
-	
-	<div id="messaggio">Sei loggato come <%=nome %></div>
+	<%if(nome.equals("guest")) {%> <div id="messaggio">Benvenuto!</div>
+	<%}else {%>
+	<div id="messaggio">Bentornato, <%=nome %>!</div>
+	<%} %>
 	<script>
   
     setTimeout(() => {
@@ -39,10 +42,8 @@
       if (messaggio) {
         messaggio.remove();
       }
-    }, 4000);
+    }, 10000);
   </script>
-
-<h1>Catalogo Giochi</h1>
 
 <form action="<%= request.getContextPath() %>/giochi" method="POST">
     <label for="sort">Ordina per:</label>
@@ -67,9 +68,9 @@
 <div class="catalogo-giochi">
 <% if (catalogo != null && !catalogo.isEmpty()) { %>
     <%
-    	Iterator<?> it=catalogo.iterator();
-    while(it.hasNext()){
-    	GiocoBean g= (GiocoBean)it.next();
+    	Iterator<?> iterator=catalogo.iterator();
+    while(iterator.hasNext()){
+    	GiocoBean g= (GiocoBean)iterator.next();
     %>
     <div class="images">
     	<a href= "<%= request.getContextPath() %>/ShowDetails?id=<%=g.getId()%>">
