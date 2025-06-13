@@ -19,7 +19,7 @@
             background-size: 400px 200px;
             pointer-events: none;
         }
-        
+       
         .Tasti {
         display: flex;
         flex-direction: column;
