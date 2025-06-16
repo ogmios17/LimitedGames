@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding:0;
+    border: 0;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+}
+
+nav.platforms {
+    width: 14%;
+    background-color: #f5f5f5;
+    padding: 1.25em;
+    box-shadow: 0.125em 0 0.3125em rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    box-sizing: border-box;
+    float: left;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.singlePlatform {
+    margin-bottom: 0.625em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.singlePlatform a {
+    width: 100%;
+    display: block;
+}
+
+.singlePlatform button {
+    width: 100%;
+    padding: 0.75em 1.25em;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 1.5625em;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.singlePlatform button:hover {
+    background-color: #cc0000;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+

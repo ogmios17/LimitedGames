@@ -10,5 +10,6 @@ public interface GiocoDAOInterface {
 	public void doUpdate(GiocoBean gioco)throws SQLException;
 	public GiocoBean doRetrieveByKey(int id)throws SQLException;
 	public Collection<GiocoBean> doRetrieveAll(String order)throws SQLException;
+	public Collection<GiocoBean> searchByTitolo(String substring) throws SQLException;
 	
 }

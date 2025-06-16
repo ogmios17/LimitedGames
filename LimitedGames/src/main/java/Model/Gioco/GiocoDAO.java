@@ -168,4 +168,40 @@ public class GiocoDAO implements GiocoDAOInterface{
 		}
 		return giochi;
 	}
+	
+	public Collection<GiocoBean> searchByTitolo(String substring) throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps = null;
+		Collection<GiocoBean> giochi = new LinkedList<GiocoBean>();
+		String query = "SELECT * FROM "+TABLE_NAME+" WHERE Titolo LIKE %?%";
+		try {
+			connection=DriverManagerConnectionPool.getConnection();
+			
+			ps=connection.prepareStatement(query);
+			
+			ResultSet result = ps.executeQuery();
+			while(result.next()) {
+				GiocoBean bean = new GiocoBean();
+				bean.setId(result.getInt("Id"));
+				bean.setTitolo(result.getString("Titolo"));
+				bean.setDescrizione(result.getString("Descrizione"));
+				bean.setImmagine(result.getString("Immagine"));
+				bean.setEdizione(result.getString("Edizione"));
+				bean.setPrezzo(result.getFloat("Prezzo"));
+				bean.setIva(result.getFloat("Iva"));
+				bean.setSconto(result.getFloat("Sconto"));
+				bean.setDataUscita(result.getDate("Data_uscita"));
+				giochi.add(bean);
+			}
+			connection.commit();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		return giochi;
+	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,16 @@
 		    <img src="<%= request.getContextPath() %>/images/system/logo.png" alt="Limited Games"> 
 		    </a></li>
 		    
+		    <li class = "searchbar">
+		    <div class = "item">
+				<form action = "/search">
+					<input type = "text" id ="searchbox">
+					<div id="suggestions" class = "suggestions-list"></div>
+				</form>
+			</div>
+			</li>
 			<li class="Menu">
+			
 			<div class="item">
 				<a href="<%= request.getContextPath() %>/pages/login-form.jsp">
 				<img src="<%= request.getContextPath() %>/images/system/user.png" alt="User">
@@ -30,6 +40,32 @@
 			</li>
 		</ul>
 	</nav>
+<script>
+	document.getElementById("searchBox").addEventListener("input", function() {
+    const query = this.value;
+    if (query.length < 2) {
+        document.getElementById("suggestions").innerHTML = "";
+        return;
+    }
 
+    fetch("SearchSuggestServlet?query=" + encodeURIComponent(query))
+        .then(response => response.json())
+        .then(data => {
+            const suggestions = document.getElementById("suggestions");
+            suggestions.innerHTML = "";
+            data.forEach(giocoBean => {
+                const div = document.createElement("div");
+                div.textContent = giocoBean.getTitolo();
+                div.onclick = () => {
+                    document.getElementById("searchBox").value = giocoBean.getTitolo();
+                    suggestions.innerHTML = "";
+                };
+                suggestions.appendChild(div);
+            });
+        });
+});
+
+</script>
 </body>
 </html>
+<%@ include file="Menu.jsp" %>

@@ -10,10 +10,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Menu.css">
 <title>Limited Games</title>
 </head>
 <body>
-	<nav>	
+	<nav class="platforms">	
 		<ul>
 		<li class="platforms">
 			<%
