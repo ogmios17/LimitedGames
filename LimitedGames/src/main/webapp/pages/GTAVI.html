@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Slideshow GTA6</title>
+  <style>
+    #slideshow {
+      width: 250px;
+      height: 333px;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .slide-container {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+
+    .slide-container img {
+      width: 250px;
+      height: 333px;
+      object-fit: fill;
+    }
+  </style>
+</head>
+<body>
+
+<div id="slideshow">
+  <div class="slide-container" id="slideContainer2">
+    <img src="images/GTA6/GTA-6.jpg" alt="GTA 6">
+    <img src="images/GTA6/Mappa-GTA6.jpg" alt="Mappa">
+    <img src="images/GTA6/Wallpaper-GTA6.jpg" alt="Wallpaper">
+<iframe width="250" height="250" src="https://www.youtube.com/embed/QdBZY2fkU-0?si=5QAV0c3XauYPyk15&autoplay=1&mute=1&loop=1&playlist=QdBZY2fkU-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const slideContainer2 = document.getElementById("slideContainer2");
+    const slides = slideContainer2.children;
+    const totalSlides = slides.length;
+    const slideWidth = 250;
+    let index = 0;
+
+    slideContainer2.style.width = `${totalSlides * slideWidth}px`;
+
+    const interval = setInterval(() => {
+      index++;
+
+      if (index >= totalSlides - 1) {
+        clearInterval(interval);
+      }
+
+      slideContainer2.style.transform = `translateX(-${index * slideWidth}px)`;
+    }, 5000);
+  });
+</script>
+
+</body>
+</html>

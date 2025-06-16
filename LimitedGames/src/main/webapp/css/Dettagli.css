@@ -1,4 +1,9 @@
 @charset "UTF-8";
+
+body {
+	background-color: #f4f6f8;
+}
+
 img.Copertina {
 	width:300px;
 	height:470px;
@@ -7,23 +12,36 @@ img.Copertina {
 	margin-right: 200px;
 }
 
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 13px 20px;
+    font-size: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
 
-#Bottoni {
-	padding: 10px;
-	font-size: 120%;
+input[type="submit"]:hover {
+    background-color: #0056b3;
 }
 
 table.Informazioni {
 	font-size: 120%;
-	border-collapse: collapse; 
+	border-radius: 12px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .Informazioni th {
 	padding: 2px 10px;
+	border: none;
 }
 
 .Informazioni td {
     padding: 10px 10px;
+    border: none;
 }
 
 .posizione {

@@ -10,11 +10,22 @@
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Utente.css?v=<%=System.currentTimeMillis()%>">
 <style>
       .posizione {
-	margin-top: 400px;
+	margin-top: 360px;
 }
 
 .Dimensione{
     font-size: 170%;
+}
+
+.Box {
+   border: none;
+   border-radius: 12px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   width: 24%;
+   height: 32%;
+   margin-left: 40%;
+   margin-top: 7%;
+   background-color: white;
 }
 
 .btn {
@@ -24,7 +35,7 @@
 </style>
 </head>
 <body>
-  
+  <div class="Box">
   <div class="Tasti">
   <div class="Dimensione">
 	<form action="<%= request.getContextPath()%>/Modifica" method="POST">
@@ -53,7 +64,7 @@
 			<a href="<%= request.getContextPath() %>/Carte?action=view" class="btn">Le tue carte</a>
 		</div>
 </div>
-
+</div>
 	<div class="posizione">
 	<%@ include file="/pages/footer.jsp" %>
 	</div>
