@@ -10,30 +10,6 @@
 <meta charset="Utf-8">
 <title>LimitedGames</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Utente.css?v=<%=System.currentTimeMillis()%>">
-<style>
-.posizione {
-	 margin-top: 250px;
-}
-
-h2{
-  font-size: 180;
-  text-align: center;
-}
-
-.Colore ul {
-     color: black;
-     background-color:  #f4f6f8;
-}
-
-
-.Colore fieldset {
-     color: black;
-     background-color: white;
-     border-radius: 12px;
-     font-size: 150%;
-}
-
-</style>
 </head>
 <body>
 	<h1>Le tue carte</h1>
@@ -82,7 +58,7 @@ h2{
     </div>
     
     
-    <div class="posizione">
+    <div class="posizioneC">
 	<%@ include file="/pages/footer.jsp" %>
 	</div>
 </body>

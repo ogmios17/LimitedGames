@@ -1,56 +1,90 @@
 @charset "UTF-8";
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    display: block;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    min-height: 100vh;
+    
+}
+
 h1 {
-	text-align: center;
-	font-weight: bold;
-	margin-top: 20px;
-	font-size: 300%;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #e50914; 
 }
 
 #Registrazione {
-	font-size: 200%;
-	display: flex;
-	flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80vh; 
+    background-color: #2a2a2a;
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 450px;
     margin: 0 auto;
 }
 
-  input[type=text] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 3px solid #ccc;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  outline: none;
-}
-        input[type=text]:focus {
-  border: 3px solid #555;
+form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+    color: #f2f2f2;
 }
 
-  input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 3px solid #ccc;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  outline: none;
-}
-        input[type=password]:focus {
-  border: 3px solid #555;
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    color: #fff;
+    font-size: 14px;
+    transition: border-color 0.2s;
+    
 }
 
-input[type=submit] {
-	padding: 10px 72px;
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #e50914;
+    outline: none;
+}
+input[type="reset"],
+input[type="submit"] {
+	display: inline;
+    margin-top: 20px;
+    width: 49%;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background-color: #c40812;
+}
 
-	}
-input[type=reset]{
-	padding: 10px 72px;
-	
+.margine {
+	Margin-top: 15%;
+}
+
+.testo {
+	color: white;
+}
+.Link {
+	color: white;
+	font-weight: bold;
+	text-decoration: underline;
 }
 
 

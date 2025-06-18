@@ -8,31 +8,6 @@
 <meta charset="UTF-8">
 <title>Limited games</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Utente.css?v=<%=System.currentTimeMillis()%>">
-<style>
-      .posizione {
-	margin-top: 360px;
-}
-
-.Dimensione{
-    font-size: 170%;
-}
-
-.Box {
-   border: none;
-   border-radius: 12px;
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-   width: 24%;
-   height: 32%;
-   margin-left: 40%;
-   margin-top: 7%;
-   background-color: white;
-}
-
-.btn {
-    font-size: 110%;
-}
-
-</style>
 </head>
 <body>
   <div class="Box">
@@ -60,12 +35,12 @@
 	</div>
 	
 		<div class="azione-riga">
-			<input type="submit" value="Invia" class="btn">
-			<a href="<%= request.getContextPath() %>/Carte?action=view" class="btn">Le tue carte</a>
+			<input type="submit" value="Invia" id="btn">
+			<a href="<%= request.getContextPath() %>/Carte?action=view" id="btn">Le tue carte</a>
 		</div>
 </div>
 </div>
-	<div class="posizione">
+	<div class="posizioneMD">
 	<%@ include file="/pages/footer.jsp" %>
 	</div>
 </body>

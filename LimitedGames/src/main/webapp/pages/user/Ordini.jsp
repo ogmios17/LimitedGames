@@ -20,12 +20,6 @@
 <meta charset="UTF-8">
 <title>Ordini registrati</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Utente.css?v=<%=System.currentTimeMillis()%>">
-<style>
-
-.posizione {
-	margin-top: 150px;
-}
-</style>
 </head>
 <body>
 	<h1>Elenco ordini effettuati: </h1>
@@ -62,7 +56,7 @@
 <% } %>
 </div>
     
-  <div class="posizione">
+  <div class="posizioneU">
 	<%@ include file="/pages/footer.jsp" %>
 	</div>
 </body>

@@ -23,23 +23,8 @@
 <style>
 body {
             margin: 0;
-            height: 100vh;
             position: relative;
-            background-color: #ffffff;
-        }
 
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60vh;
-            background-image: url('<%= request.getContextPath() %>/images/system/logo.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 400px 200px;
-            pointer-events: none;
         }
 
         .contenuto {
@@ -80,13 +65,15 @@ body {
 	<%} %>
 </form>
 
-     
-     
-  	<a href="<%= request.getContextPath() %>/pages/Registrazione.jsp">Non sei registrato? Registrati!</a>
+  	<a href="<%= request.getContextPath() %>/pages/Registrazione.jsp">
+  <span class="testo">Non sei registrato?</span>
+  <span class="Link"> Registrati!</span>
+</a>
 	</div>
 	
-	
+	<div class="margine">
 	<%@include file="footer.jsp" %>
+	</div>
 	
 </body>
 </html>

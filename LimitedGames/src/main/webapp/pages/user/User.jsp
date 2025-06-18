@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>LimitedGames</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Utente.css?v=<%=System.currentTimeMillis()%>">
 <style>
  body::before {
             content: "";
@@ -19,48 +20,27 @@
             background-size: 400px 200px;
             pointer-events: none;
         }
+
        
-        .Tasti {
-        display: flex;
-        flex-direction: column;
-        margin-top: 380px;
-        align-items: center;
-        }
-        
-        .Tasti button{
-        padding: 12px 72px;
-        border-radius: 15px;
-        display: block;
-        margin-bottom: 25px;
-        }
-        
-        input[type=submit]{
-        padding: 12px 72px;
-        border-radius: 15px;
-        display: block;
-        margin-bottom: 25px;
-        }
-        
-        .posizione {
-	margin-top: 150px;
-}
 </style>
 </head>
-<body>
+<body class="User">
 <br>
+    <div class="TastiU">
      <div class="Tasti">
-	<a href="<%= request.getContextPath() %>/pages/user/Ordini.jsp">
+	<a class="colore" href="<%= request.getContextPath() %>/pages/user/Ordini.jsp">
 		<button>Ordini</button>
 	</a>
-	<a href="<%= request.getContextPath() %>/pages/user/ModificaDati.jsp">
+	<a  class="colore" href="<%= request.getContextPath() %>/pages/user/ModificaDati.jsp">
 		<button>Modifica dati utente</button>
 	</a>
 	<form action= "<%= request.getContextPath() %>/Logout" method = POST>
 		<input type = "submit" value= "Logout">
 	</form>
 	</div>
+	</div>
 	
-	<div class="posizione">
+	<div class="posizioneU">
 	<%@ include file="/pages/footer.jsp" %>
 	</div>
 </body>

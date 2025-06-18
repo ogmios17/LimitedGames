@@ -7,7 +7,7 @@
 <title>Footer</title>
 <style>
 .footer {
-    border-width: medium;
+    border-width: 0.3em;
 	border-style: solid;
 	border-color: black;
     background-color: #000000;
