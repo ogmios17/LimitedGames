@@ -19,7 +19,10 @@ nav ul {
     margin: 0;
     padding: 0;
     font-size: 1em;
-    white-space: nowrap;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 1em; 
 }
 
 nav ul li {
@@ -78,4 +81,35 @@ a, a:visited{
 	color: black;
 }
 
+.suggestions-list {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    position: absolute;
+    width: 15em;
+    z-index: 999;
+}
+
+.suggestions-list div {
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.suggestions-list div:hover {
+    background-color: #f0f0f0;
+}
+
+#searchbox {
+    padding: 0.75em 1em;
+    font-size: 0.8em;
+    width: 40em;
+    max-width: 100%;
+    border-radius: 0.5em;
+    display: block;
+}
+
+nav ul .searchbar {
+	
+}
 
