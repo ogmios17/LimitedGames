@@ -5,9 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Limited Games</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Acquisti.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
 	<h1>Elenco prodotti relativi all'ordine: </h1>
+	
+	
+   <div class="Lista">
 	<ul>
 	    	<% 
 	    		Collection<?> acquisti = (Collection<?>)request.getAttribute("acquisti");
@@ -23,5 +27,7 @@
 	    		<li><%=a.getTitolo() %> <%=a.getPiattaforma() %> <%=a.getEdizione() %> <%=String.format("%.2f",a.getPrezzo()) %>€ <%=a.getQuantita() %></li>
 	    	<%} %>
 			</ul>
+	</div>
+	
 </body>
 </html>

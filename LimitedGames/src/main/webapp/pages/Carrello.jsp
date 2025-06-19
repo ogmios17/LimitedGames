@@ -41,7 +41,7 @@
             <div class="spazio">  <p> Quantità: <%=c.getQuantita() %> </p>	
 				<p>Prezzo Totale: <%=c.getGioco().getPrezzo()*c.getQuantita() %></p>
 	       </div>
-				<a class="bottone" href= "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>">RIMUOVI</a>
+				<a id="bottone" href= "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>">RIMUOVI</a>
 			</div>
 		<%} %>
 		
