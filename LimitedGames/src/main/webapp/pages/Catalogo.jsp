@@ -2,6 +2,7 @@
 <%@ page import="Model.Gioco.GiocoBean" %>
 <%@ page import="java.util.*" %>
 <%@ include file="header.jsp" %>
+<%@ include file="Menu.jsp" %>
 <%
     Collection<?> catalogo = (Collection<?>) request.getAttribute("giochi");
     if(catalogo == null){

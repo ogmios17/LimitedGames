@@ -9,7 +9,7 @@
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css">
 </head>
 <body>
-	
+	<script src= "<%= request.getContextPath() %>/JavaScript/AJAXSearch.js"></script>
 	<nav>	
 		<ul>
 		    <li class="Logo">
@@ -19,8 +19,8 @@
 		    
 		    <li class = "searchbar">
 		    <div class = "item">
-				<form action = "/search">
-					<input type = "text" id ="searchbox">
+				<form action = "<%= request.getContextPath() %>/search">
+					<input type = "text" id ="searchbox" name ="searchbox" autocomplete="off">
 					<div id="suggestions" class = "suggestions-list"></div>
 				</form>
 			</div>
@@ -41,31 +41,8 @@
 		</ul>
 	</nav>
 <script>
-	document.getElementById("searchBox").addEventListener("input", function() {
-    const query = this.value;
-    if (query.length < 2) {
-        document.getElementById("suggestions").innerHTML = "";
-        return;
-    }
-
-    fetch("SearchSuggestServlet?query=" + encodeURIComponent(query))
-        .then(response => response.json())
-        .then(data => {
-            const suggestions = document.getElementById("suggestions");
-            suggestions.innerHTML = "";
-            data.forEach(giocoBean => {
-                const div = document.createElement("div");
-                div.textContent = giocoBean.getTitolo();
-                div.onclick = () => {
-                    document.getElementById("searchBox").value = giocoBean.getTitolo();
-                    suggestions.innerHTML = "";
-                };
-                suggestions.appendChild(div);
-            });
-        });
-});
-
+	
 </script>
+
 </body>
 </html>
-<%@ include file="Menu.jsp" %>

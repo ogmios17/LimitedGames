@@ -1,6 +1,8 @@
 package Model.Gioco;
 
-public class PiattaformaBean {
+import java.io.Serializable;
+
+public class PiattaformaBean implements Serializable{
 	private String piattaforma;
 
 	public PiattaformaBean(String piattaforma) {

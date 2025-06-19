@@ -139,10 +139,12 @@ public class GiocoDAO implements GiocoDAOInterface{
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
 			if(order!=null && !order.equals("")) {
-				query+=" ORDER BY "+order;
+				query+=" ORDER BY ?";
 			}
 			ps=connection.prepareStatement(query);
-			
+			if(order!=null && !order.equals("")) {
+				ps.setString(1, order);
+			}
 			ResultSet result = ps.executeQuery();
 			while(result.next()) {
 				GiocoBean bean = new GiocoBean();
@@ -173,12 +175,12 @@ public class GiocoDAO implements GiocoDAOInterface{
 		Connection connection = null;
 		PreparedStatement ps = null;
 		Collection<GiocoBean> giochi = new LinkedList<GiocoBean>();
-		String query = "SELECT * FROM "+TABLE_NAME+" WHERE Titolo LIKE %?%";
+		String query = "SELECT * FROM "+TABLE_NAME+" WHERE Titolo LIKE ?";
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
 			
 			ps=connection.prepareStatement(query);
-			
+			ps.setString(1, "%" + substring + "%");
 			ResultSet result = ps.executeQuery();
 			while(result.next()) {
 				GiocoBean bean = new GiocoBean();
