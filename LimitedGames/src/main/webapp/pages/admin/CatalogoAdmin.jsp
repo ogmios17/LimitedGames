@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>LimitedAdmin</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Catalogo.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
 <%
@@ -17,6 +18,10 @@
     	return;
     }    
 %>
+
+ <div id="Griglia">
+  
+<div class="Ordina"> 
 <h2>Catalogo Giochi</h2>
 <form action="<%= request.getContextPath() %>/giochi" method="POST">
     <label for="sort">Ordina per:</label>
@@ -28,21 +33,25 @@
 </form>
 
 <br/>
+</div>
 
-
+<div class="catalogo-admin">
 <% if (catalogo != null && !catalogo.isEmpty()) { %>
     <%
     	Iterator<?> it=catalogo.iterator();
     while(it.hasNext()){
     	GiocoBean g= (GiocoBean)it.next();
     %>
+      <div class="images">   
         <img height=200 width=160 src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>"><br>
         <%= g.getTitolo() %> <%= g.getEdizione() %> Edition<br>
         <% if(g.getSconto()!=0) {%>
         <s><%=g.getPrezzo() %></s>
         <% } %>
         <%= String.format("%.2f",g.getPrezzo()-g.getPrezzo()*g.getSconto()/100) %> €<br>
-            
+      </div>
+       
+       <div id="Colonna">
         <a href= "<%= request.getContextPath() %>/ShowDetails?id=<%=g.getId()%>">
         	<button >Dettagli</button>
         </a>
@@ -54,19 +63,19 @@
         <a href= "<%= request.getContextPath() %>/pages/admin/GameUpdate.jsp?id=<%=g.getId()%>">
         	<button>Modifica</button>
         </a>
+        </div>
         
         <br/>
     <% } %>
 <% } else { %>
     <p><em>Nessun gioco disponibile al momento.</em></p>
 <% } %>
+   </div>
+	
+	</div>
 	
 	<%@include file="/pages/footer.jsp" %>
 
 
-
-</body>
-</html>
-	
 </body>
 </html>

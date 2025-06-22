@@ -16,8 +16,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Limited Admin</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Modifica-Aggiungi.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+  
+  <div class="Dati">
 	<form action="./ModificaGiocoAdmin" method="post">
 	<input type="hidden" name="action" value="find">
 	<input type="hidden" name="id" value="<%=request.getParameter("id") %>">
@@ -37,9 +40,9 @@
 
 		</select>
 		<input type="submit" value="Seleziona">
-	</form>
+	 </form>
 	<% if(selected!=null){ %>
-	<form action ="./ModificaGiocoAdmin" method="post" enctype="multipart/form-data">
+	 <form action ="./ModificaGiocoAdmin" method="post" enctype="multipart/form-data">
 	
 		<input type="hidden" name="id" value="<%=request.getParameter("id") %>">
 	
@@ -50,7 +53,7 @@
 		<textarea name="descrizione" maxlength="400" rows="3" required><%=selected.getGioco().getDescrizione()%></textarea><br>
 	
 		<label for="edizione">Edizione:</label><br> 
-		<textarea name="edizione" maxlength="100" rows="3" required ><%=selected.getGioco().getEdizione()%></textarea><br>
+		<textarea name="edizione" maxlength="100" rows="2" required ><%=selected.getGioco().getEdizione()%></textarea><br>
 		
 		<label for="prezzo">Prezzo:</label><br> 
 		<input name="prezzo" type="number" step="0.01" min="0"  required value="<%=selected.getGioco().getPrezzo()%>"><br>
@@ -71,8 +74,9 @@
 		<input name="immagine" type="file"><br>
 		
 		<input type= "submit" value="Invia">
-	</form>
-	<%}%>
+	 </form>
+	 <%}%>
+  </div>
 	
 </body>
 </html>

@@ -17,9 +17,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Ordini registrati</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Acquisti.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
-	<h1>Elenco ordini effettuati: </h1>
+	<h1>Ordini effettuati: </h1>
+	
+	<div id="Ordini">
 	<% 
 		if (ordini != null && !ordini.isEmpty()) {     
     		Iterator<?> it=ordini.iterator();
@@ -34,14 +37,14 @@
     	 	<input type="submit" value ="Dettagli">
     	 </form>
 			
-    <%		} %>
+     <%} %>
     		
     <%
     	}else{
     %>
     <h1>Non sono ancora stati effettuati ordini.</h1>
-    <%} %>
+      <%} %>
     
-   
+   </div>
 </body>
 </html>

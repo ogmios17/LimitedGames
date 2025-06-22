@@ -23,7 +23,7 @@
 	    		while(iter.hasNext()){
 	    			AcquistoBean a = (AcquistoBean)iter.next();
 	    	%>
-	    	
+	    
 	    		<li><%=a.getTitolo() %> <%=a.getPiattaforma() %> <%=a.getEdizione() %> <%=String.format("%.2f",a.getPrezzo()) %>€ <%=a.getQuantita() %></li>
 	    	<%} %>
 			</ul>

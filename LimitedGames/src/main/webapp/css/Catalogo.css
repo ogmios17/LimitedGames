@@ -99,3 +99,41 @@ div.images img {
 margin-left: 1%;
 }
 
+
+
+                                   /* ADMIN ONLY */
+                                   
+.catalogo-admin {
+  margin-left: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1.25rem; 
+  max-width: 87.5rem;
+  float: none;
+  max-width: 55%;
+}
+                              
+.catalogo-admin [type=submit],
+.catalogo-admin button {
+	display: block;
+	border: none;
+	border-radius: 0.925em;
+	box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+	background-color:  #e50914;
+	font-size: 130%;
+	padding: 0.4em 0.8em;
+    margin: 15% 0%; 
+	
+}
+
+.catalogo-admin [type=submit]:hover,
+.catalogo-admin button:hover {
+	background-color:  #c40812;
+}
+	
+#Colonna {
+   display: flex;
+   flex-direction: column;
+   margin-top: 5%; 
+}

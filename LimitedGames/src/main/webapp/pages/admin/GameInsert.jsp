@@ -15,9 +15,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>AdminLimited</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Modifica-Aggiungi.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
 	<h2>Inserisci un nuovo gioco</h2>
+	
+  <div class="Dati">
 	<form action="<%= request.getContextPath() %>/pages/admin/AggiungiGiocoAdmin" method="post" enctype="multipart/form-data">
 			
 		<label for="Titolo">Titolo:</label><br> 
@@ -61,7 +64,7 @@
 		
 		
 		
-		<input type="submit" value="Add"><input type="reset" value="Reset">
+		<input type="submit" value=" Add"><input type="reset" value=" Reset">
 		
 	</form>
 	
@@ -70,7 +73,9 @@
 		<input type = "hidden" name="action" value="insert">
 		<label for="piattaforma">Piattaforma:</label><br>
 		<input name="piattaforma" type="String" required><br>
-		<input type = "submit" value="Aggiungi">
+		<input type = "submit" value=" Aggiungi">
 	</form>
+  </div>	
+	
 </body>
 </html>

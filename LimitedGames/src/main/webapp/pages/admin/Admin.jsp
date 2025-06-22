@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>AdminLimited</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Admin.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
 
+  <div class="Opzioni">
 	<a href="<%= request.getContextPath() %>/pages/admin/CatalogoAdmin.jsp">
 		<button>Catalogo</button>
 	</a>
@@ -20,5 +22,7 @@
 	<form action= "<%= request.getContextPath() %>/Logout" method = POST>
 		<input type = "submit" value= "Logout">
 	</form>
+  </div>
+  
 </body>
 </html>

@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e1e;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+h2 {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 2em;
+}
+
+.Dati {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 1.4em;
+  border-radius: 0.75em;
+  box-shadow: 0 0 0.94em rgba(0, 0, 0, 0.3);
+  margin-top: 5em;
+}
+
+.Dati input[type="text"],
+.Dati input[type="number"],
+.Dati input[type="date"],
+.Dati input[type="file"],
+.Dati input[type="String"],
+.Dati textarea,
+.Dati select {
+  width: 100%;
+  padding: 0.7em;
+  border-radius: 0.5em;
+  font-size: 0.8em;
+  border: none;
+  margin-bottom: 2%;
+}
+
+.Dati input[type="submit"],
+.Dati input[type="reset"] {
+  padding: 0.6em 1.5em;
+  border-radius: 6px;
+  border: none;
+  background-color: #e50914;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 45%;
+  margin-right: 2%;
+}
+
+.Dati input[type="submit"]:hover,
+.Dati input[type="reset"]:hover {
+  background-color: #c40812;
+}
+
+.Dati form + form {
+  margin-top: 1em;
+  border-top: 1px solid #444;
+  padding-top: 1em;
+  width: 100%;
+}

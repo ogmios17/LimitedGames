@@ -12,10 +12,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Limited Admin</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/VISUT.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
-	<h1>Elenco utenti:</h1>
-	<table>
+	<h1>Elenco utenti:</h1> <br>
+	<table class="Tavolo">
 		<tr>
 			<th>Nome</th>
 			<th>Cognome</th>
