@@ -42,7 +42,8 @@ public class login extends HttpServlet {
 					request.getSession().setAttribute("user",utente);
 					String order = (String)request.getSession().getAttribute("order");
 					if(order != null && order.equals("true")) {
-						response.sendRedirect(request.getContextPath()+"/EffettuaOrdine");
+						request.getSession().removeAttribute("order");
+						response.sendRedirect(request.getContextPath()+"/pages/user/FinalizzaOrdine.jsp");
 						return;
 					}
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/user/User.jsp");

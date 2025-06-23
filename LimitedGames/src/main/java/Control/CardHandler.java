@@ -39,7 +39,7 @@ public class CardHandler extends HttpServlet {
 			carte = proprietaModel.doRetrieveByUsername(user);
 			request.setAttribute("carte", carte);
 			request.setAttribute("checked", true);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/Carrello.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/user/FinalizzaOrdine.jsp");
 			dispatcher.forward(request, response);
 		}catch(Exception e) {
 			e.printStackTrace();

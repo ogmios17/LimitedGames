@@ -3,13 +3,9 @@
     <%@ include file="header.jsp" %>
     
     <%
-    Collection<ProprietaBean> carte= (Collection<ProprietaBean>)request.getAttribute("carte"); 
-    Boolean checkedAttr = (Boolean)request.getAttribute("checked");
-    boolean checked = (checkedAttr != null) ? checkedAttr : false;
-    if((carte == null || carte.isEmpty())&& checked == false){
-    	response.sendRedirect(request.getContextPath()+"/CardHandler");
-    	return;
-    }
+    Boolean userAttr = (Boolean) request.getSession().getAttribute("userFilterRoles");
+    boolean user = (userAttr != null) ? userAttr : false;
+    
     %>
 
 <!DOCTYPE html>
@@ -45,28 +41,18 @@
 			</div>
 		<%} %>
 		
+		<%
+		if(!user){
+			session.setAttribute("order","true");
+		}
+	
+		%>
+		<a href = "<%= request.getContextPath()%>/pages/user/FinalizzaOrdine.jsp">			
+			<button>Effettua acquisto</button>
+		</a>
 		
-		<div class="Pagamento">
-		<label for=carta>Seleziona il metodo di pagamento</label>
-		<select name="carta" id="carta">
-			<% 
-				if(carte!= null && !carte.isEmpty()){
-					Iterator<?> it=carte.iterator();
-					while(it.hasNext()){
-						ProprietaBean carta=(ProprietaBean)it.next();
-			%>
-				<option value="<%=carta.getCarta()%>">**** **** ****<%=carta.getCarta().substring(7,11) %></option>
-					<% }
-				}
-				%>
-
-		</select>
-		<form action="<%= request.getContextPath()%>/EffettuaOrdine" method="POST">
-			<input type="submit" value="Effettua acquisto">
-		</form>
-		<%}%>
 		</div>
-		
+		<%} %>
 	<div class="posizionef">
 	<%@include file="footer.jsp" %>
 	</div>
