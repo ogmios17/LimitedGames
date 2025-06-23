@@ -43,11 +43,11 @@ margin: 3% 0% 0% 8%;
 <body>
 
 <div class="footer">
-<img id="Mascotte" src="images/system/Mascotte.PNG" alt="Mascotte LG">
+<img id="Mascotte" src="/LimitedGames/images/system/Mascotte.PNG" alt="Mascotte LG">
 <p>
 &copy; 2025, LimitedGames<br>
-metodi di pagamento: <img src="images/imgCarte/logo-visa.jpg">  VISA
-<img src="images/imgCarte/MasterCard_Logo.png"> MASTERCARD<br>
+metodi di pagamento: <img src="/LimitedGames/images/imgCarte/logo-visa.jpg">  VISA
+<img src="/LimitedGames/images/imgCarte/MasterCard_Logo.png"> MASTERCARD<br>
  chi siamo: GitHub </p>
  </div>
 </body>

@@ -68,13 +68,20 @@ h1 {
 
 .Pagamento {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-    font-size: 1.5em;
-    color: white;
     justify-content: flex-end;
-    margin: 2em 5% 0 0;
-    width: 90%;
+    margin: 2em 0 0 0;
+    width: 95%;
+}
+
+.Pagamento button {
+	font-size: 130%;
+	color: white;
+	background-color:  #e50914;
+	border-radius: 0.825em;
+}
+
+.Pagamento button:hover {
+	background-color:  #c40812;
 }
 
 input[type="submit"] {
@@ -92,7 +99,7 @@ input[type="submit"] {
         width: 100%;
     }
 
-    .Pagamento {
+    .Pagamento  {
         justify-content: center;
         margin-top: 2em;
         font-size: 1.2em;

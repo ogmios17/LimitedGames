@@ -2,6 +2,7 @@
 
 body {
 	background-color:  #1e1e1e;
+	color: white;
 }
 
 h1 {
@@ -39,3 +40,19 @@ ul {
 	margin-bottom: 6%;
 }
 
+.Immagine {
+	display: flex;
+	margin-left: 12em;
+}
+
+.Immagine a {
+	color: white;
+	font-size: 140%;
+	margin-top: 7em;
+	text-decoration: underline;
+}
+
+.Immagine img {
+	color: white;
+	width: 25%;
+}

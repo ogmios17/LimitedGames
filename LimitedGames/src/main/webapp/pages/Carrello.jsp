@@ -47,11 +47,13 @@
 		}
 	
 		%>
-		<a href = "<%= request.getContextPath()%>/pages/user/FinalizzaOrdine.jsp">			
+		<div class="Pagamento">
+		<a href = "<%= request.getContextPath()%>/pages/OrdineEffettuato.jsp">			
 			<button>Effettua acquisto</button>
 		</a>
 		
 		</div>
+		
 		<%} %>
 	<div class="posizionef">
 	<%@include file="footer.jsp" %>
