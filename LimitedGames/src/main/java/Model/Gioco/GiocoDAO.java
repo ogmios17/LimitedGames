@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -136,15 +138,16 @@ public class GiocoDAO implements GiocoDAOInterface{
 		PreparedStatement ps = null;
 		Collection<GiocoBean> giochi = new LinkedList<GiocoBean>();
 		String query = "SELECT * FROM "+TABLE_NAME;
+		ArrayList<String> allowedOrderFields = new ArrayList<>();
+		allowedOrderFields.add("titolo");
+		allowedOrderFields.add("prezzo");
+		allowedOrderFields.add("Data_uscita");
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
-			if(order!=null && !order.equals("")) {
-				query+=" ORDER BY ?";
-			}
+			if (order != null && allowedOrderFields.contains(order)) {
+		        query += " ORDER BY " + order;
+		    }
 			ps=connection.prepareStatement(query);
-			if(order!=null && !order.equals("")) {
-				ps.setString(1, order);
-			}
 			ResultSet result = ps.executeQuery();
 			while(result.next()) {
 				GiocoBean bean = new GiocoBean();

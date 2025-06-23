@@ -20,7 +20,7 @@
 		    <li class = "searchbar">
 		    <div class = "item">
 				<form action = "<%= request.getContextPath() %>/search">
-					<input type = "text" id ="searchbox" name ="searchbox" autocomplete="off">
+					<input type = "text" id ="searchbox" name ="searchbox">
 					<div id="suggestions" class = "suggestions-list"></div>
 				</form>
 			</div>
