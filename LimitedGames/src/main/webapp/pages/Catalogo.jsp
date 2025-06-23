@@ -37,10 +37,26 @@
     }, 10000);
   </script>
   
-  <div id="Pubblicità">
-<iframe src="https://www.youtube.com/embed/IVv5YTwfki4?si=IiFp1G5TtrSX6xTL&autoplay=1&mute=1&loop=1&playlist=IVv5YTwfki4" title="YouTube video player"frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ <div id="Video">
+  <iframe src="https://www.youtube.com/embed/QdBZY2fkU-0?si=5QAV0c3XauYPyk15&autoplay=1&mute=1&loop=1&playlist=QdBZY2fkU-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  
+  
+  <div id="Posizione">
+  <div class="Most-Wanted">
+<h2> Il gioco più atteso!</h2>
+ <jsp:include page="GTAVI.html" />
 </div>
 
+<div class="Tendenza">
+<h2> Gioco in Evidenza della settimana!</h2>
+ <jsp:include page="slideshow.html" />
+</div>
+
+ <div id="Pubblicità">
+<iframe src="https://www.youtube.com/embed/IVv5YTwfki4?si=IiFp1G5TtrSX6xTL&autoplay=1&mute=1&loop=1&playlist=IVv5YTwfki4" title="YouTube video player"frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
 
   <div id="Griglia">
   
@@ -54,19 +70,6 @@
     <input type="submit" value="Ordina" />
 </form>
 <br/>
-</div>
-
-
-<div id="Posizioni">
-<div class="Tendenza">
-<h2> Gioco in Evidenza della settimana!</h2>
- <jsp:include page="slideshow.html" />
-</div>
-
-<div class="Most-Wanted">
-<h2> Il gioco più atteso!</h2>
- <jsp:include page="GTAVI.html" />
-</div>
 </div>
 
 <div class="catalogo-giochi">
