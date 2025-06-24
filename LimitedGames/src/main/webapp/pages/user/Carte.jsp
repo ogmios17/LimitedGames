@@ -37,6 +37,7 @@
     	<fieldset>
     		<legend>Inserisci una nuova carta</legend>
     		<form action = "<%= request.getContextPath()%>/Carte" method="POST">
+    			<input type = "hidden" name="destination" value="/pages/user/Carte.jsp">
     			<label for="nome">Nome:</label>
     			<input type="text" name = "nome" id="nome" required><br>
     			<label for="cognome">Cognome:</label>
