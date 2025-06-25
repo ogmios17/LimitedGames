@@ -16,6 +16,7 @@
 </style>
 <meta charset="UTF-8">
 <title>Limited Games</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/FinalizzaOrdine.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
 <h1>Riepilogo ordine:</h1>
@@ -28,24 +29,19 @@
 		ArrayList<Cartable> games= cart.getGames();
 	%>
 		<%for(Cartable c: games) {%>
-			<div class="Cornice">
-			<img class="immagine" src="<%= request.getContextPath() %>/images/<%= c.getGioco().getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= c.getGioco().getTitolo() %>">
+			<div class="Dati">
+			<img class="Immagini" src="<%= request.getContextPath() %>/images/<%= c.getGioco().getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= c.getGioco().getTitolo() %>">
 			
-			<div class="posizione">
+			
 				<%=c.getGioco().getTitolo() %><br>
 				<%=c.getPiattaforma() %><br>
 				<%=c.getGioco().getEdizione() %><br>
-				<%=c.getGioco().getPrezzo() %><br></div>
-            <div class="spazio">  <p> Quantità: <%=c.getQuantita() %> </p>	
+				<%=c.getGioco().getPrezzo() %><br>
+            <p> Quantità: <%=c.getQuantita() %> </p>	
 				<p>Prezzo Totale: <%=c.getGioco().getPrezzo()*c.getQuantita() %></p>
 		<%} %>
-		
-		
-		
-		</div>
 		<%} %>
-	<div class="posizionef">
-	</div>
+           </div>
 	<% 
 	Collection<ProprietaBean> carte= (Collection<ProprietaBean>)request.getAttribute("carte"); 
     Boolean checkedAttr = (Boolean)request.getAttribute("checked");
@@ -54,7 +50,7 @@
     	response.sendRedirect(request.getContextPath()+"/CardHandler");
     	return;
     }%>
-<div class="Pagamento">
+
 	<button type="button" onclick="toggleSection('savedCards')">💳 Usa una delle carte salvate</button>
     <button type="button" onclick="toggleSection('newCard')">➕ Inserisci nuovo metodo di pagamento</button>
     <div id="savedCards">
@@ -103,10 +99,11 @@
 </form>
 
     </div>
-</div>
+    
+    <div class="Posizione">
  <%@ include file="/pages/footer.jsp" %>
+ </div>
 
-</div>
 <script>
 function toggleSection(id) {
   const sectionIds = ['savedCards', 'newCard'];
@@ -121,5 +118,4 @@ function toggleSection(id) {
   });
 }
 </script>
-
-</div></body>
+</body>

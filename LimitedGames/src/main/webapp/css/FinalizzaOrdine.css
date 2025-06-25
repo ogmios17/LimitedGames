@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.Immagini {
+	width: 16%;
+    height: 36%; 
+    margin:0 5%;
+}
+
+.Dati {
+	display: flex; 
+	flex-wrap: wrap;
+	align-items: center;
+	font-size: 140%;
+	line-height: 2;
+	margin: 2% 0%;
+}
+
