@@ -4,6 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+  #savedCards, #newCard {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  #savedCards.show, #newCard.show {
+    max-height: 500px;
+  }
+</style>
 <meta charset="UTF-8">
 <title>Limited Games</title>
 </head>
@@ -45,45 +55,72 @@
     	return;
     }%>
 <div class="Pagamento">
-<% if(carte!= null && !carte.isEmpty()){ %>
-		<label for=carta>Seleziona il metodo di pagamento</label>
-		
-			<select name="carta" id="carta">
-		<%} %>
-			<% 
-				if(carte!= null && !carte.isEmpty()){
-					Iterator<?> it=carte.iterator();
-					while(it.hasNext()){
-						ProprietaBean carta=(ProprietaBean)it.next();
-			%>
-				<option value="<%=carta.getCarta()%>">**** **** ****<%=carta.getCarta().substring(7,11) %></option>
-					<% }
-				}else{
-				%>
-				<fieldset>
-    		<legend>Inserisci metodo di pagamento</legend>
-    		<form action = "<%= request.getContextPath()%>/Carte" method="POST">
-    			<label for="nome">Nome:</label>
-    			<input type="text" name = "nome" id="nome" required><br>
-    			<label for="cognome">Cognome:</label>
-    			<input type="text" name = "cognome" id="cognome" required><br>
-    			<label for="tipo">Tipo:</label>
-    			<input type="text" name="tipo" id="tipo" required><br>
-    			<label for="numero">Numero:</label>
-    			<input type="text" maxlength=16 name = "numero" id="numero"  required><br>
-    			<label for="scadenza">Scadenza:</label>
-    			<input type="date" name="scadenza" id="scadenza" required><br>
-    			<label for="cvv">CVV:</label>
-    			<input type="text" maxlength=3 name="cvv" id="cvv" required><br>
-    		</form>
-    	</fieldset>
-    	<%} %>
+	<button type="button" onclick="toggleSection('savedCards')">💳 Usa una delle carte salvate</button>
+    <button type="button" onclick="toggleSection('newCard')">➕ Inserisci nuovo metodo di pagamento</button>
+    <div id="savedCards">
+        <% if (carte != null && !carte.isEmpty()) { %>
+            <form action="<%= request.getContextPath() %>/EffettuaOrdine" method="POST">
+                <label for="carta">Seleziona una carta:</label>
+                <select name="carta" id="carta" required>
+                    <% for (ProprietaBean carta : carte) { %>
+                        <option value="<%= carta.getCarta() %>">**** **** **** <%= carta.getCarta().substring(7, 11) %></option>
+                    <% } %>
+                </select>
+                <br><br>
+                <input type="submit" value="Completa l'acquisto">
+            </form>
+        <% } else { %>
+            <p>Nessuna carta salvata disponibile.</p>
+        <% } %>
+    </div>
+    <div id="newCard">
+        <form action="<%= request.getContextPath() %>/Carte?action=add" method="POST">
+    <fieldset>
+        <legend>Inserisci dati della nuova carta</legend>
 
-		</select>
-		<form action = "<%= request.getContextPath()%>/EffettuaOrdine" method = POST>
-			<input type = "submit" value="Completa l'acquisto"> 
-		</form>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" required><br>
+		
+		<input type = "hidden" name="destination" value="/pages/user/FinalizzaOrdine.jsp">
+		
+        <label for="cognome">Cognome:</label>
+        <input type="text" name="cognome" id="cognome" required><br>
+
+        <label for="tipo">Tipo:</label>
+        <input type="text" name="tipo" id="tipo" required><br>
+
+        <label for="numero">Numero:</label>
+        <input type="text" maxlength="16" name="numero" id="numero" required><br>
+
+        <label for="scadenza">Scadenza:</label>
+        <input type="date" name="scadenza" id="scadenza" required><br>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" maxlength="3" name="cvv" id="cvv" required><br><br>
+
+        <input type="submit" value="Salva metodo di pagamento">
+    </fieldset>
+</form>
+
+    </div>
 </div>
-<%@include file="/pages/footer.jsp" %>
-</body>
-</html>
+ <%@ include file="/pages/footer.jsp" %>
+
+</div>
+<script>
+function toggleSection(id) {
+  const sectionIds = ['savedCards', 'newCard'];
+
+  sectionIds.forEach(sectionId => {
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionId === id) {
+      sectionElement.classList.toggle('show');
+    } else {
+      sectionElement.classList.remove('show');
+    }
+  });
+}
+</script>
+
+</div></body>
+

@@ -32,6 +32,8 @@ public class Carte extends HttpServlet {
 		HttpSession session = request.getSession();
 		UtenteBean utente= (UtenteBean)session.getAttribute("user");
 		String username = utente.getUsername();
+		String destination = request.getParameter("destination");
+		if(destination == null) destination = "/pages/user/Carte.jsp";
 		Collection<PagamentoBean> carte = new ArrayList<PagamentoBean>();
 		try {
 			
@@ -57,8 +59,6 @@ public class Carte extends HttpServlet {
 				}
 				proprietaModel.doSave(new ProprietaBean(username,pagamento.getNumero()));	
 				
-				response.sendRedirect(request.getContextPath() + "/Carte?action=view");
-				return;
 			}else if(action.equals("delete")) {
 				proprietaModel.doDelete(request.getParameter("carta"),username);
 				Collection<ProprietaBean> rimanenti = proprietaModel.doRetrieveByCarta(request.getParameter("carta"));
@@ -77,7 +77,7 @@ public class Carte extends HttpServlet {
 		request.removeAttribute("carte");
 		request.setAttribute("carte", carte);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/user/Carte.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(destination);
 		dispatcher.forward(request, response);
 	}
 
