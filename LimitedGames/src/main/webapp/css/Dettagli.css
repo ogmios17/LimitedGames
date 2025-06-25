@@ -12,8 +12,8 @@ img.Copertina {
 	width: 18.75rem;
     height: 29.375rem;  
     float: left;
-    margin-left: 15.625rem;
-    margin-right: 12.5rem;
+    margin-left: 13.625em;
+    margin-right: 11.5em;
 }
 
 input[type="submit"] {
@@ -37,6 +37,7 @@ table.Informazioni {
 	font-size: 120%;
 	border-radius: 0.75rem;
     box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 #Bottoni{
@@ -58,3 +59,71 @@ table.Informazioni {
 .posizione {
 	margin-top:  34.375rem;
 }
+                                                       /* FinalizzaOrdine */
+                                                       
+.Informazioni {
+	background-color:  #1e1e1e;
+	font-size: 120%;
+	border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+
+.Pagamento {
+	margin: 5% 0% 0% 4%;
+	max-width: 28.125em;
+	border: none;
+	color: white;
+	
+   	
+}
+
+.Pagamento fieldset {
+	border: none;
+	color: white;
+   	
+}
+
+.Pagamento input[type="text"] {
+    width: 90%;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid #555;
+    border-radius: 0.5rem;
+    background-color: #1e1e1e;
+    color: white;
+    font-size: 0.875rem;
+    transition: border-color 0.2s;
+}
+
+.Pagamento input[type="submit"] {
+	margin: 5% 0% 0% 41%;
+}
+
+.Ordine {
+	display: flex;
+}
+
+#Riepilogo {
+	display: flex; 
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.CopertinaOF { 
+	width: 18.75rem;
+    height: 29.375rem; 
+    display: flex;
+    flex-direction: column; 
+}
+
+.PosizioneOF {
+	margin-top: 10em;
+}
+
+
+
+
+
+
+

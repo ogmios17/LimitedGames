@@ -22,7 +22,7 @@
 	
 	<img class="Copertina" src="<%= request.getContextPath() %>/images/<%= dettaglio.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= dettaglio.getTitolo() %>">
 
-	<table class="Informazioni" border=1>
+	<table class="Informazioni">
 		<tr>
 			<th>Titolo</th>
 			<th>Descrizione</th>

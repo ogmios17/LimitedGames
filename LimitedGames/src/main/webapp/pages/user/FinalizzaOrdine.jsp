@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Limited Games</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Dettagli.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
-<h1>Riepilogo ordine:</h1>
+<h1>Riepilogo ordine</h1>
 <%
 		Cart cart=(Cart)session.getAttribute("cart");
 		if(cart==null || cart.isEmpty()){
@@ -18,24 +19,23 @@
 		ArrayList<Cartable> games= cart.getGames();
 	%>
 		<%for(Cartable c: games) {%>
-			<div class="Cornice">
-			<img class="immagine" src="<%= request.getContextPath() %>/images/<%= c.getGioco().getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= c.getGioco().getTitolo() %>">
+		
+		
+			<div id="Riepilogo">
+			<div class="Ordine">
+			<img class="CopertinaOF" src="<%= request.getContextPath() %>/images/<%= c.getGioco().getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= c.getGioco().getTitolo() %>">
 			
-			<div class="posizione">
+	       <div class="Informazioni">
 				<%=c.getGioco().getTitolo() %><br>
 				<%=c.getPiattaforma() %><br>
 				<%=c.getGioco().getEdizione() %><br>
-				<%=c.getGioco().getPrezzo() %><br></div>
-            <div class="spazio">  <p> Quantità: <%=c.getQuantita() %> </p>	
+				<%=c.getGioco().getPrezzo() %><br>
+             <p> Quantità: <%=c.getQuantita() %> </p>	
 				<p>Prezzo Totale: <%=c.getGioco().getPrezzo()*c.getQuantita() %></p>
-		<%} %>
-		
-		
-		
-		</div>
-		<%} %>
-	<div class="posizionef">
-	</div>
+		<%} %>   
+	<%} %>
+	      </div>
+	      </div>
 <% 
 	Collection<ProprietaBean> carte= (Collection<ProprietaBean>)request.getAttribute("carte"); 
     Boolean checkedAttr = (Boolean)request.getAttribute("checked");
@@ -44,7 +44,7 @@
     	response.sendRedirect(request.getContextPath()+"/CardHandler");
     	return;
     }%>
-<div class="Pagamento">
+
 <% if(carte!= null && !carte.isEmpty()){ %>
 		<label for=carta>Seleziona il metodo di pagamento</label>
 		
@@ -60,6 +60,8 @@
 					<% }
 				}else{
 				%>
+				
+		<div class ="Pagamento">
 				<fieldset>
     		<legend>Inserisci metodo di pagamento</legend>
     		<form action = "<%= request.getContextPath()%>/Carte" method="POST">
@@ -83,7 +85,10 @@
 		<form action = "<%= request.getContextPath()%>/EffettuaOrdine" method = POST>
 			<input type = "submit" value="Completa l'acquisto"> 
 		</form>
-</div>
+    </div>   
+ <div class="PosizioneOF">
 <%@include file="/pages/footer.jsp" %>
+</div>
+
 </body>
 </html>

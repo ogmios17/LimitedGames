@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+body {
+	background-color:   #1e1e1e;
+}
+
+p {
+	color: black;
+	border: 0.3em  #2a2a2a;;
+	border-style: dashed;
+	background-color: white;
+	height: 7em;
+	padding-top: 2.5%;
+	width: 30%;
+	border-radius: 50%;
+	text-align: center;
+	margin-top: 7%;
+	font-size: 120%;
+}                                                   
+                                                    
+.Immagine {
+	display: flex;
+	margin-left: 12em;
+}
+
+.Immagine button {
+	border-radius: 0.6em;
+	background-color:  #e50914;
+	color: white;
+	cursor: pointer;
+	padding: 1%;
+}
+
+.Immagine button:hover {
+	background-color:  #c40812;
+}
+	
+
+.Immagine img {
+	width: 25%;
+}

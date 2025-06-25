@@ -48,7 +48,7 @@
 	
 		%>
 		<div class="Pagamento">
-		<a href = "<%= request.getContextPath()%>/pages/OrdineEffettuato.jsp">			
+		<a href = "<%= request.getContextPath()%>/pages/user/FinalizzaOrdine.jsp">			
 			<button>Effettua acquisto</button>
 		</a>
 		
