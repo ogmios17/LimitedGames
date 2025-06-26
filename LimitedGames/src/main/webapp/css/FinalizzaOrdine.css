@@ -51,6 +51,15 @@
     outline: none;
 }
 
+#newCard [type=submit] {
+	background-color:  #e50914;
+    border-radius: 0.825em;
+    color: white;
+    font-size: 100%;
+    margin-left: 26%;
+    padding: 0.3em
+}
+
 #savedCards {
 	margin-left: 6em;
 	font-size: 150%;
