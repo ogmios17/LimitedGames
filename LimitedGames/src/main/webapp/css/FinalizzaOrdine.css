@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 .Immagini {
-	width: 16%;
-    height: 36%; 
-    margin:0 5%;
+    width: 18.75rem;
+    height: 29.375rem; 
+    margin: 2em 3em;
 }
 
 .Dati {
@@ -13,5 +13,64 @@
 	font-size: 140%;
 	line-height: 2;
 	margin: 2% 0%;
+	max-width: 1400px;
 }
 
+.Bottoni  {
+	margin-left: 45%;
+}
+
+#newCard {
+	border: none;
+    border-radius: 0.8rem;
+    background-color: #1e1e1e;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+   width: 350px;
+    margin-left: auto;
+    margin-right: 6em;
+}
+
+#newCard fieldset{
+	border: none;
+}
+
+#newCard input[type="text"] {
+    width: 90%;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid #555;
+    border-radius: 0.5rem;
+    background-color: #2e2e2e;
+    color: #fff;
+    font-size: 0.875rem; 
+}
+
+#newCard input[type="text"]:focus {
+    border-color: #e50914;
+    outline: none;
+}
+
+#savedCards {
+	margin-left: 6em;
+	font-size: 150%;
+	border: none; 
+	border-radius: 0.825em;
+	background-color:  #2e2e2e;
+	color: white;
+	max-width: 21em;
+	padding-left: 1em;
+}
+
+#savedCards [type=submit] {
+    background-color:  #e50914;
+    border-radius: 0.825em;
+    color: white;
+    font-size: 90%;
+    margin-left: 55%;
+}
+
+.Posizione {
+	margin-top: 20em;
+	width: 100%;
+}

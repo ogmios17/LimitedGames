@@ -20,6 +20,8 @@
 </head>
 <body>
 <h1>Riepilogo ordine:</h1>
+
+<div class="Dati">
 <%
 		Cart cart=(Cart)session.getAttribute("cart");
 		if(cart==null || cart.isEmpty()){
@@ -29,9 +31,8 @@
 		ArrayList<Cartable> games= cart.getGames();
 	%>
 		<%for(Cartable c: games) {%>
-			<div class="Dati">
+		
 			<img class="Immagini" src="<%= request.getContextPath() %>/images/<%= c.getGioco().getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= c.getGioco().getTitolo() %>">
-			
 			
 				<%=c.getGioco().getTitolo() %><br>
 				<%=c.getPiattaforma() %><br>
@@ -50,9 +51,10 @@
     	response.sendRedirect(request.getContextPath()+"/CardHandler");
     	return;
     }%>
-
+    <div class="Bottoni">
 	<button type="button" onclick="toggleSection('savedCards')">💳 Usa una delle carte salvate</button>
-    <button type="button" onclick="toggleSection('newCard')">➕ Inserisci nuovo metodo di pagamento</button>
+    <button type="button" onclick="toggleSection('newCard')">➕ Inserisci nuovo metodo di pagamento</button></div>
+    
     <div id="savedCards">
         <% if (carte != null && !carte.isEmpty()) { %>
             <form action="<%= request.getContextPath() %>/EffettuaOrdine" method="POST">
