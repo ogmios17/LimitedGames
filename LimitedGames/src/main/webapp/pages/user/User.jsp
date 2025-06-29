@@ -18,10 +18,22 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: 400px 200px;
-            pointer-events: none;
         }
 
-       
+ @media screen and (max-width: 830px) {
+         
+          body::before {
+             height: 68vh;
+          }           
+}
+
+@media screen and (max-height: 750px) {
+          
+           body::before {
+            display: none;
+            content: none;
+          }
+}
 </style>
 </head>
 <body class="User">

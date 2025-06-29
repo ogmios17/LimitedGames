@@ -12,8 +12,7 @@ img.Copertina {
 	width: 18.75rem;
     height: 29.375rem;  
     float: left;
-    margin-left: 13.625em;
-    margin-right: 11.5em;
+    margin: 0 11.5em 4em 13.6em;
 }
 
 input[type="submit"] {
@@ -61,9 +60,36 @@ table.Informazioni {
 }
 
 
+@media screen and (max-width: 1420px) {
+    img.Copertina{
+       margin-left: 37%;
+    }
+    
+    table.Informazioni {
+       margin-left: 2%; 
+    }
+    
+    #Bottoni{
+       margin-top: 2%;
+    }
+}
 
+@media screen and (max-width: 800px) {
+	.Informazioni th, .Informazioni td,
+    table.Informazioni {
+       font-size: 100%;
+    }
+}
 
+@media screen and (max-width: 735px) {
+    input[type="submit"] {
+       margin-left: 23%;
+    }
+}
 
-
-
-
+@media screen and (max-width: 640px) {
+	.Informazioni th, .Informazioni td,
+    table.Informazioni {
+       font-size: 80%;
+    }
+}

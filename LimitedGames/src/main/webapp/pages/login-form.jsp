@@ -20,26 +20,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Pagina Login</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Login.css?v=<%=System.currentTimeMillis()%>">
-<style>
-body {
-            margin: 0;
-            position: relative;
-
-        }
-
-        .contenuto {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding-top: 100px;
-            font-size: 24px;
-            color: #000;
-        }
-
-    fieldset {
-      border: none;
-    }
-</style>
 </head>
 <body> 
 <h1>ACCEDI</h1>

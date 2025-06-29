@@ -5,40 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Footer</title>
-<style>
-.footer {
-    border-width: 0.3em;
-	border-style: solid;
-	border-color: black;
-    background-color: #000000;
-	width: 100%;
-	height: 15%;
-	
-	font-style: oblique;
-	text-align: center;
-	font-size: 110%;
-	color: #f2f2f2;
-	position: relative;
-	display: flex;
-	bottom: 0;
-}
-.footer img{
-	width: 15px;
-	height: 15px;
-}
-
-#Mascotte  {
-width: 7%;
-height: 7%;
-margin-left: 22%;
-position: relative;
-}
-
-p {
-margin: 3% 0% 0% 8%;
-}
-
-</style>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Footer.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
 
