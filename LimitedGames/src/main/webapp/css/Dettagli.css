@@ -94,5 +94,12 @@ table.Informazioni {
     }
 }
 
+@media screen and (max-width: 600px) {
+	
+	img.Copertina{
+       margin-left: 20%;
+    }
+	
+}
 
 
