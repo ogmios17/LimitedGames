@@ -12,6 +12,13 @@
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Utente.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+<script src="<%= request.getContextPath() %>/JavaScript/Forms.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        setupCartaForm("numero", "cvv");
+        setupFormValidation(); 
+    });
+</script>
 	<h1>Le tue carte</h1>
 	
 	
@@ -35,19 +42,26 @@
     		<h2>Non sono presenti carte</h2>
     	<%} %>
     	<fieldset>
-    		<legend>Inserisci una nuova carta</legend>
-    		<form action = "<%= request.getContextPath()%>/Carte" method="POST">
+    	<div class="submit-error" id ="submit-error"></div>
+    		Inserisci una nuova carta<br>
+    		<form action = "<%= request.getContextPath()%>/Carte" method="POST" id ="form-aggiungi-carta">
     			<input type = "hidden" name="destination" value="/pages/user/Carte.jsp">
     			<label for="nome">Nome:</label>
     			<input type="text" name = "nome" id="nome" required><br>
     			<label for="cognome">Cognome:</label>
     			<input type="text" name = "cognome" id="cognome" required><br>
     			<label for="tipo">Tipo:</label>
-    			<input type="text" name="tipo" id="tipo" required><br>
+    			<select name="tipo" id="tipo">
+    				<option value="mastercard">Mastercard</option>
+    				<option value="VISA">VISA </option>
+    			</select>
+    			<br>
+    			<div id="numero-warning" class="warning"></div>
     			<label for="numero">Numero:</label>
-    			<input type="text" maxlength=16 name = "numero" id="numero"  required><br>
+    			<input type="text" name = "numero" id="numero"  required><br>
     			<label for="scadenza">Scadenza:</label>
     			<input type="date" name="scadenza" id="scadenza" required><br>
+    			<div id="cvv-warning" class="warning"></div>
     			<label for="cvv">CVV:</label>
     			<input type="text" maxlength=3 name="cvv" id="cvv" required><br>
     			<input type="hidden" name="action" value="add">
