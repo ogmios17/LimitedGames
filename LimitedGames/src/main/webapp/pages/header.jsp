@@ -34,6 +34,7 @@
 			</div>
 			<div class="item">
 				<a href="<%= request.getContextPath() %>/pages/Carrello.jsp">
+				<span id="cart-count">0</span>
 				<img src="<%= request.getContextPath() %>/images/system/cart.png" alt="Cart">
 				<span>Carrello</span></a>
 			</div>

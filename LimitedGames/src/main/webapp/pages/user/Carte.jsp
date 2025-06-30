@@ -47,9 +47,11 @@
     		<form action = "<%= request.getContextPath()%>/Carte" method="POST" id ="form-aggiungi-carta">
     			<input type = "hidden" name="destination" value="/pages/user/Carte.jsp">
     			<label for="nome">Nome:</label>
-    			<input type="text" name = "nome" id="nome" required><br>
+    			<input type="text" name = "nome" id="nome" required oninvalid="this.setCustomValidity('Inserisci il nome')" 
+       oninput="this.setCustomValidity('')"><br>
     			<label for="cognome">Cognome:</label>
-    			<input type="text" name = "cognome" id="cognome" required><br>
+    			<input type="text" name = "cognome" id="cognome" required oninvalid="this.setCustomValidity('Inserisci il cognome')" 
+       oninput="this.setCustomValidity('')"><br>
     			<label for="tipo">Tipo:</label>
     			<select name="tipo" id="tipo">
     				<option value="mastercard">Mastercard</option>
@@ -58,12 +60,15 @@
     			<br>
     			<div id="numero-warning" class="warning"></div>
     			<label for="numero">Numero:</label>
-    			<input type="text" name = "numero" id="numero"  required><br>
+    			<input type="text" name = "numero" id="numero"  required oninvalid="this.setCustomValidity('Inserisci il numero della carta')" 
+       oninput="this.setCustomValidity('')"><br>
     			<label for="scadenza">Scadenza:</label>
-    			<input type="date" name="scadenza" id="scadenza" required><br>
+    			<input type="date" name="scadenza" id="scadenza" required oninvalid="this.setCustomValidity('Inserisci la scadenza')" 
+       oninput="this.setCustomValidity('')"><br>
     			<div id="cvv-warning" class="warning"></div>
     			<label for="cvv">CVV:</label>
-    			<input type="text" maxlength=3 name="cvv" id="cvv" required><br>
+    			<input type="text" maxlength=3 name="cvv" id="cvv" required oninvalid="this.setCustomValidity('Attenzione: questo campo è obbligatorio')" 
+       oninput="this.setCustomValidity('')"><br>
     			<input type="hidden" name="action" value="add">
     			<input type="submit" value="Aggiungi">
     		</form>

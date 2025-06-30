@@ -30,7 +30,6 @@ public class AggiungiGioco extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		GiocoDAO model = new GiocoDAO();
-		StockDAO stockModel = new StockDAO();
 		synchronized(session){
 			Cart cart = (Cart) session.getAttribute("cart");
 			if(cart==null) {

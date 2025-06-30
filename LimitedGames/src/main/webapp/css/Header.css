@@ -63,6 +63,7 @@ nav ul .Menu .item {
     display: inline-block;
     margin-left: 1em;
     text-align: center;
+     position: relative;
 }
 
 nav ul .Menu .item img {
@@ -126,5 +127,25 @@ a, a:visited{
     display: none;
 }
 
+.item {
+	position: relative;
+}
 
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e50914;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    animation: none;
+}
 
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}

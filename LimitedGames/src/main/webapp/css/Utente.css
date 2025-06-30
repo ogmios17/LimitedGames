@@ -191,5 +191,24 @@ form input[type="password"]:focus {
     word-break: break-word;
 }
 
+form select,
+form input[type="date"] {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    border: 0.0625rem solid #555;
+    border-radius: 0.5rem;
+    background-color: #1e1e1e;
+    color: #fff;
+    font-size: 0.875rem;
+    transition: border-color 0.2s;
+    appearance: none; /* rimuove la freccia di default nei browser */
+}
+
+form select:focus,
+form input[type="date"]:focus {
+    border-color: #e50914;
+    outline: none;
+}
+
 
 
