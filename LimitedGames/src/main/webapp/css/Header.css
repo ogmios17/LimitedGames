@@ -131,7 +131,7 @@ a, a:visited{
 	position: relative;
 }
 
-.cart-count {
+#cart-count {
     position: absolute;
     top: -8px;
     right: -8px;

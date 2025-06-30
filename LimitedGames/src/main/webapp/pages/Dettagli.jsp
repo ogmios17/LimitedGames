@@ -15,6 +15,7 @@
 <head>
 <title>Dettaglio gioco</title>
  <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Dettagli.css?v=<%=System.currentTimeMillis()%>">
+  <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
 	<h1>Dettagli gioco:</h1><br>
