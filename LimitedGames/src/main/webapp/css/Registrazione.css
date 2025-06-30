@@ -6,7 +6,6 @@ body {
     display: block;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 3.125rem;
     min-height: 100vh;
     
 }
@@ -23,7 +22,6 @@ h1 {
     padding: 2.5rem; 
     border-radius: 0.75rem; 
     box-shadow: 0 0 0.9375rem rgba(0, 0, 0, 0.6); 
-    width: 100%;
     max-width: 28.125em;
     margin: 0 auto;
 }
@@ -72,6 +70,17 @@ input[type="submit"]:hover {
 }
 
 #margine {
-	margin-top: 5%;
+	margin-top: 7%;
 }
 
+
+@media screen and (max-width: 650px) {
+	
+	#Registrazione {
+	  max-width: 21em;
+	}
+	
+	#margine {
+	Margin-top: 10%;
+}
+}
