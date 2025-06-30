@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file="/pages/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>LimitedGames</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Utente.css?v=<%=System.currentTimeMillis()%>">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 <style>
  body::before {
             content: "";
@@ -37,6 +37,9 @@
 </style>
 </head>
 <body class="User">
+<%@ include file="/pages/header.jsp" %>
+
+
 <br>
     <div class="TastiU">
      <div class="Tasti">

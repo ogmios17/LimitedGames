@@ -1,8 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="Model.Gioco.GiocoBean" %>
 <%@ page import="java.util.*" %>
-<%@ include file="header.jsp" %>
-<%@ include file="Menu.jsp" %>
+
 <%
     Collection<?> catalogo = (Collection<?>) request.getAttribute("giochi");
     if(catalogo == null){
@@ -17,8 +16,18 @@
     <meta charset="UTF-8">
     <title>Catalogo Giochi</title>
     <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Catalogo.css?v=<%=System.currentTimeMillis()%>">
+    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+
+<%@ include file="header.jsp" %>
+<%@ include file="Menu.jsp" %>
+
+
+
+
+
+
 <% 
 		String nome = (String)session.getAttribute("nome");
 		if(nome == null) nome = "guest";

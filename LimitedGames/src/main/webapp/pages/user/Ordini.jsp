@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*" import="Model.Ordine.*" import ="Model.Utente.*"%>
-    <%@ include file="/pages/header.jsp" %>
     <%
     	UtenteBean utente = (UtenteBean)session.getAttribute("user");
     	Collection<OrdineBean> ordini = (Collection<OrdineBean>)request.getAttribute("ordini");
@@ -20,8 +19,12 @@
 <meta charset="UTF-8">
 <title>Ordini registrati</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Utente.css?v=<%=System.currentTimeMillis()%>">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+<%@ include file="/pages/header.jsp" %>
+
+
 	<h1>Elenco ordini effettuati: </h1>
 
 

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import ="Model.Utente.*"%>
-    <%@ include file="/pages/header.jsp" %>
     <% UtenteBean utente = (UtenteBean) session.getAttribute("user");%>
 <!DOCTYPE html>
 <html>
@@ -8,8 +7,13 @@
 <meta charset="UTF-8">
 <title>Limited games</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Utente.css?v=<%=System.currentTimeMillis()%>">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+<%@ include file="/pages/header.jsp" %>
+
+
+
   <div class="Box">
   <div class="Tasti">
   <div class="Dimensione">

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="Model.Cart" import="Model.Gioco.GiocoBean" import="Model.Cartable" import="java.util.*" import="Model.Utente.*"%>
-    <%@ include file="/pages/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +16,12 @@
 <meta charset="UTF-8">
 <title>Limited Games</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/FinalizzaOrdine.css?v=<%=System.currentTimeMillis()%>">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+<%@ include file="/pages/header.jsp" %>
+
+
 <h1>Riepilogo ordine:</h1>
 
 <div class="Dati">

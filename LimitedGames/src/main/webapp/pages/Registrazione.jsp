@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +8,12 @@
 <script src= "<%= request.getContextPath() %>/JavaScript/Forms.js"></script>
 <title>LimitedGames</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Registrazione.css?v=<%=System.currentTimeMillis()%>">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+ <%@ include file="header.jsp" %>
+
+
 <h1>REGISTRATI</h1><br>
 
 	<div id="Registrazione">

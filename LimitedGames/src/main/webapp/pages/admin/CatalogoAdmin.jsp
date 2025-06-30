@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/pages/header.jsp" %>
 <%@ page import="Model.Gioco.GiocoBean" %>
 <%@ page import="java.util.*" %>
 <!DOCTYPE html>
@@ -9,8 +8,14 @@
 <meta charset="UTF-8">
 <title>LimitedAdmin</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Catalogo.css?v=<%=System.currentTimeMillis()%>">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+<%@ include file="/pages/header.jsp" %>
+
+
+
+
 <%
     Collection<?> catalogo = (Collection<?>) request.getAttribute("giochi");
     if(catalogo == null){

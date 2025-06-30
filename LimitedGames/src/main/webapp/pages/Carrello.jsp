@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="Model.Cart" import="Model.Gioco.GiocoBean" import="Model.Cartable" import="java.util.*" import="Model.Utente.*"%>
-    <%@ include file="header.jsp" %>
     
     <%
     Boolean userAttr = (Boolean) request.getSession().getAttribute("userFilterRoles");
@@ -14,8 +13,14 @@
 <meta charset="UTF-8">
 <title>Carrello</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Carrello.css?v=<%=System.currentTimeMillis()%>">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
+
 </head>
 <body>
+<%@ include file="header.jsp" %>
+
+
+
 
 	<%
 		Cart cart=(Cart)session.getAttribute("cart");

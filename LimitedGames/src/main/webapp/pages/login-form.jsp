@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file="header.jsp" %>
     <%
 	    Boolean adminAttr = (Boolean) request.getSession().getAttribute("adminFilterRoles");
 	    boolean admin = (adminAttr != null) ? adminAttr : false;
@@ -20,8 +19,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Pagina Login</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Login.css?v=<%=System.currentTimeMillis()%>">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body> 
+<%@ include file="header.jsp" %>
+
+
+
+
 <h1>ACCEDI</h1>
 
 <div id="Registrazione">

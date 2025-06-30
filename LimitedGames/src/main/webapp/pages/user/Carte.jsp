@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*" import ="Model.Utente.*"%>
-    <%@ include file="/pages/header.jsp" %>
     <% 
     	Collection<?> carte =(Collection<?>)request.getAttribute("carte");
     %>
@@ -10,8 +9,12 @@
 <meta charset="Utf-8">
 <title>LimitedGames</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Utente.css?v=<%=System.currentTimeMillis()%>">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+<%@ include file="/pages/header.jsp" %>
+
+
 <script src="<%= request.getContextPath() %>/JavaScript/Forms.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
