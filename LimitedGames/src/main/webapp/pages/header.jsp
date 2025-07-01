@@ -35,9 +35,12 @@
 			</div>
 			<div class="item">
 				<a href="<%= request.getContextPath() %>/pages/Carrello.jsp">
-				<span id="cart-count"><%if(carrello!=null)%><%=carrello.getObjects() %><%else %>0</span>
+
+				
+				<span id="cart-count"><%= (carrello != null) ? carrello.getObjects() : 0 %></span>
+				
 				<img src="<%= request.getContextPath() %>/images/system/cart.png" alt="Cart">
-				<span>Carrello</span></a>
+				Carrello</a>
 			</div>
 			</li>
 		</ul>

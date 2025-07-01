@@ -14,7 +14,6 @@
 <title>Carrello</title>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Carrello.css?v=<%=System.currentTimeMillis()%>">
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
-
 </head>
 <body>
 <%@ include file="header.jsp" %>
