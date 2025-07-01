@@ -23,11 +23,6 @@
 <%@ include file="header.jsp" %>
 <%@ include file="Menu.jsp" %>
 
-
-
-
-
-
 <% 
 		String nome = (String)session.getAttribute("nome");
 		if(nome == null) nome = "guest";
@@ -36,15 +31,7 @@
 	<%}else {%>
 	<div id="messaggio">Bentornato, <%=nome %>!</div>
 	<%} %>
-	<script>
-  
-    setTimeout(() => {
-      const messaggio = document.getElementById('messaggio');
-      if (messaggio) {
-        messaggio.remove();
-      }
-    }, 10000);
-  </script>
+
   
  <div id="Video">
   <iframe src="https://www.youtube.com/embed/QdBZY2fkU-0?si=5QAV0c3XauYPyk15&autoplay=1&mute=1&loop=1&playlist=QdBZY2fkU-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

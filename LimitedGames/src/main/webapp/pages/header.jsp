@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "Model.Cart"%>
     
+    <% Cart carrello=(Cart) session.getAttribute("cart"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,7 @@
 			</div>
 			<div class="item">
 				<a href="<%= request.getContextPath() %>/pages/Carrello.jsp">
-				<span id="cart-count">0</span>
+				<span id="cart-count"><%if(carrello!=null)%><%=carrello.getObjects() %><%else %>0</span>
 				<img src="<%= request.getContextPath() %>/images/system/cart.png" alt="Cart">
 				<span>Carrello</span></a>
 			</div>

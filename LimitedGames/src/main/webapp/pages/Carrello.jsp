@@ -19,9 +19,6 @@
 <body>
 <%@ include file="header.jsp" %>
 
-
-
-
 	<%
 		Cart cart=(Cart)session.getAttribute("cart");
 		if(cart==null || cart.isEmpty()){
@@ -41,19 +38,23 @@
 				<%=c.getGioco().getPrezzo() %><br></div>
             <div class="spazio">  <p> Quantità: <%=c.getQuantita() %> </p>	
 				<p>Prezzo Totale: <%=c.getGioco().getPrezzo()*c.getQuantita() %></p>
-	       </div>
-				<a id="bottone" href= "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>">RIMUOVI</a>
+	       	</div>
+	       		<form action = "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>" method="POST">
+	       			<input type="submit" value="RIMUOVI" class="bottone">
+	       		</form>
+				
 			</div>
 		<%} %>
 		
-		<%
-		if(!user){
-			session.setAttribute("order","true");
-		}
-	
-		%>
+		
 		<div class="Pagamento">
-		<a href = "<%= request.getContextPath()%>/pages/user/FinalizzaOrdine.jsp">			
+		<a href = "<%= request.getContextPath()%>/pages/user/FinalizzaOrdine.jsp">	
+			<%
+			if(!user){
+				session.setAttribute("order","true");
+			}else session.setAttribute("order","false");
+		
+			%>		
 			<button>Effettua acquisto</button>
 		</a>
 		

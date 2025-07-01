@@ -44,7 +44,7 @@
             <p> Quantità: <%=c.getQuantita() %> </p>	
 				<p>Prezzo Totale: <%=c.getGioco().getPrezzo()*c.getQuantita() %></p>
 		<%} %>
-		<%} %>
+		
            </div>
 	<% 
 	Collection<ProprietaBean> carte= (Collection<ProprietaBean>)request.getAttribute("carte"); 
@@ -108,6 +108,7 @@
     <div class="Posizione">
  <%@ include file="/pages/footer.jsp" %>
  </div>
+ <%} %>
 
 <script>
 function toggleSection(id) {

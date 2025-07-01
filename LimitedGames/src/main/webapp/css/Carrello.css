@@ -53,7 +53,7 @@ h1 {
     flex: 1 1 30%;
 }
 
-#bottone {
+.bottone {
   position: absolute;
   bottom: 1em;
   right: 1em;

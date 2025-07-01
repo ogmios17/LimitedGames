@@ -7,19 +7,23 @@ import Model.Gioco.GiocoBean;
 public class Cart {
 	
 	private ArrayList<Cartable> games;
+	private int objects;
 	
 	public Cart() {
 		games= new ArrayList<Cartable>();
+		objects = 0;
 	}
 	
 	public void addGame(Cartable game) {
 		for(Cartable c: games) {
 			if(c.getGioco().getId()==game.getGioco().getId()) {
 				c.quantita++;
+				objects++;
 				return;
 			}
 		}
 		games.add(game);
+		objects++;
 		
 	}
 	
@@ -37,6 +41,7 @@ public class Cart {
 		for(Cartable g: games) {
 			if(g.getGioco().getId()==game.getGioco().getId() && g.getPiattaforma().equals(game.getPiattaforma())) {
 				g.quantita--;
+				objects--;
 				if(g.quantita==0) {
 					deleteGame(g);
 				}
@@ -51,6 +56,10 @@ public class Cart {
 	
 	public boolean isEmpty() {
 		return games.isEmpty();
+	}
+	
+	public int getObjects() {
+		return this.objects;
 	}
 }
 
