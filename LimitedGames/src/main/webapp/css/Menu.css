@@ -54,4 +54,46 @@ a {
 }
 
 
+@media screen and (max-width: 1300px) {
+  nav.platforms,
+  nav.platforms ul,
+  .singlePlatform {
+    float: none !important;
+    width: auto !important;
+  }
+
+
+  nav.platforms ul {
+    text-align: center; 
+    padding: 0;
+    margin: 0;
+  }
+
+  .singlePlatform {
+    display: inline-block; 
+    vertical-align: middle;
+    margin: 0.25em; 
+  }
+
+  .singlePlatform button {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  nav.platforms ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+  }
+  
+  nav.platforms {
+    max-height: 8em;
+  }
+}
+  @media screen and (max-width: 700px) {
+       body {
+         font-size: 0.8em;
+       }
+  }
 

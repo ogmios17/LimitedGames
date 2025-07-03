@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Menu.css">
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Menu.css?v=<%=System.currentTimeMillis()%>">
 <title>Limited Games</title>
 </head>
 <body>

@@ -152,3 +152,42 @@ div.images img {
    flex-direction: column;
    margin-top: 5%; 
 }
+
+
+
+                                              /*Media Query */
+
+
+
+@media screen and (max-width: 1300px) {
+       #Video {
+          margin-left: 10%;
+       }
+
+}
+
+@media screen and (max-width: 700px) {
+	 #Posizione {
+	 margin-right: 24.5%;
+	 }
+	  
+	 .Tendenza {
+	 margin-top: 30em;
+	 }
+	 
+	 #Pubblicità {
+	 margin-top: 30em;
+	 }
+	 
+	.catalogo-giochi > .images:nth-child(1) {
+	 margin-top: 42em;
+	 }
+	 
+	 .catalogo-giochi > .images:nth-child(2) {
+	 margin-top: 35em;
+	 }
+	 
+	 .catalogo-giochi > .images:nth-child(3) {
+	 margin-top: 55em;
+	 }
+}
