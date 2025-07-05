@@ -4,15 +4,12 @@ body {
 	background-color: #1e1e1e;
 }
 
-h1 {
-	color: white;
-}
-
 img.Copertina {
 	width: 18.75rem;
     height: 29.375rem;  
     float: left;
-    margin: 0 11.5em 4em 13.6em;
+    margin: 5em 11.5em 4em 13.6em;
+    border-radius: 0.8em;
 }
 
 input[type="submit"] {
@@ -37,6 +34,7 @@ table.Informazioni {
 	border-radius: 0.75rem;
     box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
     color: white;
+    margin: 5em 2em 0 0;
 }
 
 #Bottoni{

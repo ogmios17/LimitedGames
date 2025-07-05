@@ -119,14 +119,14 @@ div.images img {
                                    /* ADMIN ONLY */
                                    
 .catalogo-admin {
-  margin-left: 10%;
+  margin-left: 15%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 1.25rem; 
   max-width: 87.5rem;
   float: none;
-  max-width: 55%;
+  max-width: 65%;
 }
                               
 .catalogo-admin [type=submit],
@@ -156,14 +156,48 @@ div.images img {
 
 
                                               /*Media Query */
+@media screen and (max-width: 1510px) {
+	.catalogo-admin {
+	max-width: 70%;
+	}
+	
+}
 
-
+@media screen and (max-width: 1405px) {
+	.catalogo-admin {
+	max-width: 80%;
+	}
+	
+}
 
 @media screen and (max-width: 1300px) {
        #Video {
           margin-left: 10%;
        }
 
+}
+
+@media screen and (max-width: 1230px) {
+	.catalogo-admin {
+	max-width: 90%;
+	margin-left: 10%;
+	}
+	
+}
+
+@media screen and (max-width: 1096px) {
+	.catalogo-admin {
+	max-width: 100%;
+	margin-left: 0;
+	}
+	
+}
+
+@media screen and (max-width: 987px) {
+	.catalogo-admin {
+	max-width: 85%;
+	margin-left: 20%;
+	}
 }
 
 @media screen and (max-width: 700px) {
@@ -179,6 +213,10 @@ div.images img {
 	 margin-top: 30em;
 	 }
 	 
+	 .catalogo-giochi {
+	 margin-left: 9%;
+	 }
+	 
 	.catalogo-giochi > .images:nth-child(1) {
 	 margin-top: 42em;
 	 }
@@ -190,4 +228,20 @@ div.images img {
 	 .catalogo-giochi > .images:nth-child(3) {
 	 margin-top: 55em;
 	 }
+}
+
+@media screen and (max-width: 609px) {
+	.catalogo-admin {
+	max-width: 90%;
+	margin-left: 10%;
+	}
+	
+}
+
+@media screen and (max-width: 546px) {
+	.catalogo-admin {
+	max-width: 100%;
+	margin-left: 0%;
+	}
+	
 }

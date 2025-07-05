@@ -24,10 +24,8 @@
     }    
 %>
 
- <div id="Griglia">
-  
-<div class="Ordina"> 
 <h2>Catalogo Giochi</h2>
+<div class="Ordina"> 
 <form action="<%= request.getContextPath() %>/giochi" method="POST">
     <label for="sort">Ordina per:</label>
     <select name="sort" id="sort">
@@ -40,6 +38,8 @@
 <br/>
 </div>
 
+ <div id="Griglia">
+
 <div class="catalogo-admin">
 <% if (catalogo != null && !catalogo.isEmpty()) { %>
     <%
@@ -48,7 +48,7 @@
     	GiocoBean g= (GiocoBean)it.next();
     %>
       <div class="images">   
-        <img height=200 width=160 src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>"><br>
+        <img src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>"><br>
         <%= g.getTitolo() %> <%= g.getEdizione() %> Edition<br>
         <% if(g.getSconto()!=0) {%>
         <s><%=g.getPrezzo() %></s>

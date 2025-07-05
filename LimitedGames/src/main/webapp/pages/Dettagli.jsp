@@ -20,7 +20,6 @@
 </head>
 <body>
 	<script src= "<%= request.getContextPath() %>/JavaScript/CartJs.js"></script>
-	<h1>Dettagli gioco:</h1><br>
 	
 	<img class="Copertina" src="<%= request.getContextPath() %>/images/<%= dettaglio.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= dettaglio.getTitolo() %>">
 

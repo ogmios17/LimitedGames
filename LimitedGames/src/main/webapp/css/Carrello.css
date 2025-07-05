@@ -34,6 +34,7 @@ h1 {
     flex-shrink: 0;
     width: 12.5em; 
     height: auto;
+    border-radius: 0.8em;
 }
 
 .posizione {
@@ -78,6 +79,8 @@ h1 {
 	color: white;
 	background-color:  #e50914;
 	border-radius: 0.825em;
+	margin-right: 2em;
+	
 }
 
 .Pagamento button:hover {
