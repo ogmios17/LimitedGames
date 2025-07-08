@@ -1,6 +1,5 @@
 function Validate(email) {
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    console.log("Forms.js caricato correttamente");
     return mailformat.test(email);
 }
 
@@ -105,11 +104,9 @@ function setupFormValidation() {
         if (hasActiveWarnings) {
             e.preventDefault();
 
-            // Mostra il messaggio d'errore
             submitError.textContent = "Errore nella sottomissione dei dati. Correggi gli input contrassegnati in giallo e riprova";
             submitError.style.display = "block";
 
-            // opzionale: fai scroll in cima al messaggio d'errore
             submitError.scrollIntoView({ behavior: "smooth", block: "center" });
         } else {
         	const numeroInput = document.getElementById("numero");

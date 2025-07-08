@@ -23,7 +23,9 @@
 
 		<label for="cognome">Cognome:</label>
 		<input type="text" id="cognome" name="cognome" required value="<%=utente.getCognome()%>"> <br>
-
+		
+		<input type = "checkbox" id="cambiaPassword" value="Cambia">Cambia password
+		
 		<label for="password">Password:</label>
 		<input type="password" id="password" name="password" required placeholder="password"> <br>
 

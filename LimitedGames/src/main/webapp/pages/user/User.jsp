@@ -27,7 +27,7 @@
           }           
 }
 
-@media screen and (max-height: 750px) {
+@media screen and (max-height: 800px) {
           
            body::before {
             display: none;
