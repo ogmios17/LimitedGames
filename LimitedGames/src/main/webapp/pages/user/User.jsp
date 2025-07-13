@@ -13,26 +13,24 @@
             position: absolute;
             left: 0;
             width: 100%;
-            height: 60vh;
+            height: 300px;
             background-image: url('<%= request.getContextPath() %>/images/system/logo.png');
             background-repeat: no-repeat;
             background-position: center;
             background-size: 400px 200px;
+            margin-top: 5%;
         }
+ @media screen and (max-width: 1220px) {
+          body::before {
+            margin-top: 10%;
+          }
+ }
 
- @media screen and (max-width: 830px) {
+ @media screen and (max-width: 1050px) {
          
           body::before {
-             height: 68vh;
+            margin-top: 15%;
           }           
-}
-
-@media screen and (max-height: 800px) {
-          
-           body::before {
-            display: none;
-            content: none;
-          }
 }
 </style>
 </head>
