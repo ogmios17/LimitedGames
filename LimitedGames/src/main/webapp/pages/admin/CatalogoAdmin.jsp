@@ -61,7 +61,7 @@
         	<button >Dettagli</button>
         </a>
 
-		<form action = "<%= request.getContextPath() %>/EliminaGiocoAdmin" method="POST">
+		<form action = "<%= request.getContextPath() %>/pages/admin/EliminaGiocoAdmin" method="POST">
 			<input type = "hidden" name = "id" value= "<%=g.getId()%>">
 			<input type = "submit" value = "Elimina">
 		</form>

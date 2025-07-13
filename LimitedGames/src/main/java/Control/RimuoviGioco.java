@@ -40,6 +40,12 @@ public class RimuoviGioco extends HttpServlet {
 					String piattaforma = request.getParameter("piattaforma");
 					cart.subtractGame(new Cartable(game,1,piattaforma));
 					session.setAttribute("cart", cart);
+				} else if(request.getParameter("action").equals("delete")) {
+					GiocoBean game=model.doRetrieveByKey(Integer.parseInt(request.getParameter("id")));
+					String piattaforma = request.getParameter("piattaforma");
+					int quantita = Integer.parseInt(request.getParameter("quantita"));
+					cart.deleteGame(new Cartable(game,quantita,piattaforma));
+					session.setAttribute("cart", cart);
 				}
 			}catch (SQLException e) {
 				e.printStackTrace();

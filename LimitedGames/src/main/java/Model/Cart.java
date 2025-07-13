@@ -17,14 +17,13 @@ public class Cart {
 	public void addGame(Cartable game) {
 		for(Cartable c: games) {
 			if(c.getGioco().getId()==game.getGioco().getId()) {
-				c.quantita++;
-				objects++;
+				c.quantita+=game.getQuantita();
+				objects+= game.getQuantita();
 				return;
 			}
 		}
 		games.add(game);
-		objects++;
-		
+		objects+= game.getQuantita();
 	}
 	
 	public void deleteGame(Cartable game) {
@@ -32,6 +31,7 @@ public class Cart {
 			System.out.println(g.getGioco().getId()+" "+ game.getGioco().getId()+" "+ g.getPiattaforma()+" "+ game.getPiattaforma());
 			if(g.getGioco().getId()==game.getGioco().getId() && g.getPiattaforma().equals(game.getPiattaforma())) {
 				games.remove(g);
+				objects-=game.getQuantita();
 				break;
 			}
 		}

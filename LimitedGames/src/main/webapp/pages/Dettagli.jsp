@@ -8,7 +8,8 @@
 		return;
 	}  
 	GiocoBean dettaglio=products.get(0).getGioco(); 
-	
+	Boolean adminAttr = (Boolean) request.getSession().getAttribute("adminFilterRoles");
+    boolean admin = (adminAttr != null) ? adminAttr : false;
 
 %>
 <!DOCTYPE html>
@@ -60,6 +61,7 @@
 				%>
 
 		</select>
+		<% if(!admin){ %>
 		<input type="hidden" name="id" value="<%=dettaglio.getId() %>">
 		<label for="quantita">Quantità:</label>
 		<select name="quantita" id="quantita">
@@ -75,6 +77,7 @@
   			<option value="10">10</option>
 		</select>
 		<input type="submit" value="Aggiungi al carrello">
+		<%} %>
 	</form>
 </div>
 	<div class="posizione">
