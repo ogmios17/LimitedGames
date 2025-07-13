@@ -21,7 +21,7 @@ import Model.Ordine.*;
 import Model.Utente.*;
 import Model.Gioco.*;
 
-@WebServlet("/EffettuaOrdine")
+@WebServlet("/pages/user/EffettuaOrdine")
 public class EffettuaOrdine extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

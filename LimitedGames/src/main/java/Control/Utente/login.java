@@ -46,8 +46,7 @@ public class login extends HttpServlet {
 						response.sendRedirect(request.getContextPath()+"/pages/user/FinalizzaOrdine.jsp");
 						return;
 					}
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/user/User.jsp");
-					dispatcher.forward(request, response);
+					response.sendRedirect(request.getContextPath() + "/pages/user/User.jsp");
 					return;
 				}
 				

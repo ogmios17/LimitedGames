@@ -51,7 +51,7 @@
     Boolean checkedAttr = (Boolean)request.getAttribute("checked");
     boolean checked = (checkedAttr != null) ? checkedAttr : false;
     if((carte == null || carte.isEmpty())&& checked == false){
-    	response.sendRedirect(request.getContextPath()+"/CardHandler");
+    	response.sendRedirect(request.getContextPath()+"/pages/user/CardHandler");
     	return;
     }%>
     <div class="Bottoni">
@@ -60,7 +60,7 @@
     
     <div id="savedCards">
         <% if (carte != null && !carte.isEmpty()) { %>
-            <form action="<%= request.getContextPath() %>/EffettuaOrdine" method="POST">
+            <form action="<%= request.getContextPath() %>/pages/user/EffettuaOrdine" method="POST">
                 <label for="carta">Seleziona una carta:</label>
                 <select name="carta" id="carta" required>
                     <% for (ProprietaBean carta : carte) { %>
@@ -75,7 +75,7 @@
         <% } %>
     </div>
     <div id="newCard">
-        <form action="<%= request.getContextPath() %>/Carte?action=add" method="POST">
+        <form action="<%= request.getContextPath() %>/pages/user/Carte?action=add" method="POST">
     <fieldset>
         <legend>Inserisci dati della nuova carta</legend>
 

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Model.Ordine.*;
 
-@WebServlet("/VisualizzaAcquisti")
+@WebServlet("/pages/user/VisualizzaAcquisti")
 public class VisualizzaAcquisti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

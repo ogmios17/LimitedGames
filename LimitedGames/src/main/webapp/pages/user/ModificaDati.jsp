@@ -17,7 +17,7 @@
   <div class="Box">
   <div class="Tasti">
   <div class="Dimensione">
-	<form action="<%= request.getContextPath()%>/Modifica" method="POST">
+	<form action="<%= request.getContextPath()%>/pages/user/Modifica" method="POST">
 		<label for="nome">Nome:</label>
 		<input type="text" id="nome" name="nome" required value="<%=utente.getNome()%>"> <br>
 
@@ -42,7 +42,7 @@
 	
 		<div class="azione-riga">
 			<input type="submit" value="Invia" id="btn">
-			<a href="<%= request.getContextPath() %>/Carte?action=view" id="btn">Le tue carte</a>
+			<a href="<%= request.getContextPath() %>/pages/user/Carte?action=view" id="btn">Le tue carte</a>
 		</div>
 </div>
 </div>

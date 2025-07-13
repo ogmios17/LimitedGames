@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import Model.Utente.*;
 
-@WebServlet("/Carte")
+@WebServlet("/pages/user/Carte")
 public class Carte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

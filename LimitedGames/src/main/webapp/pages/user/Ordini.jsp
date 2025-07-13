@@ -6,7 +6,7 @@
     	if(ordini == null || ordini.isEmpty()){
     		if(ordini!= null && ordini.contains(new OrdineBean("empty")));
     		else{
-	    		response.sendRedirect(request.getContextPath()+"/VisualizzaOrdini?destinazione=user/Ordini.jsp&username="+utente.getUsername());
+	    		response.sendRedirect(request.getContextPath()+"/pages/user/VisualizzaOrdini?destinazione=user/Ordini.jsp&username="+utente.getUsername());
 	        	return;
     		}
     	}
@@ -45,7 +45,7 @@
 			<input type="hidden" name="ordine" value="<%= o.getId() %>">
 			<input type="submit" value="Stampa fattura">
 		</form>
-		<form action="<%= request.getContextPath() %>/VisualizzaAcquisti" method="POST">
+		<form action="<%= request.getContextPath() %>/pages/user/VisualizzaAcquisti" method="POST">
 			<input type="hidden" name="destinazione" value="user/Acquisti.jsp">
 			<input type="hidden" name="id" value="<%= o.getId() %>">
 			<input type="submit" value="Dettagli">

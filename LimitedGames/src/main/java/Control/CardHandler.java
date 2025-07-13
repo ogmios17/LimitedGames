@@ -15,7 +15,7 @@ import Model.Utente.ProprietaBean;
 import Model.Utente.ProprietaDAO;
 import Model.Utente.UtenteBean;
 
-@WebServlet("/CardHandler")
+@WebServlet("/pages/user/CardHandler")
 public class CardHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

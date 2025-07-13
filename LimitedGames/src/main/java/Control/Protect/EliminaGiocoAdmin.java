@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Model.Gioco.*;
 
-@WebServlet("/EliminaGiocoAdmin")
+@WebServlet("/pages/admin/EliminaGiocoAdmin")
 public class EliminaGiocoAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

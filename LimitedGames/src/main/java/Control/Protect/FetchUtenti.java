@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Model.Utente.*;
 
-@WebServlet("/FetchUtenti")
+@WebServlet("/pages/admin/FetchUtenti")
 public class FetchUtenti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

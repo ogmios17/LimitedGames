@@ -36,7 +36,7 @@
     %>
     	<li>**** **** **** <%=p.getNumero().substring(7,11) %><br>
     	<%=p.getScadenza() %>  
-    	<form action = "<%= request.getContextPath()%>/Carte" method="POST">
+    	<form action = "<%= request.getContextPath()%>/pages/user/Carte" method="POST">
     		<input type = "hidden" name= "action" value="delete">
     		<input type = "hidden" name= "carta" value="<%=p.getNumero() %>">
     		<input type = "submit" value="Elimina">

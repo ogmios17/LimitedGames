@@ -16,7 +16,7 @@
 	    	<% 
 	    		Collection<?> acquisti = (Collection<?>)request.getAttribute("acquisti");
 		    	if(acquisti == null ||acquisti.isEmpty()){
-		    		response.sendRedirect(request.getContextPath()+"/VisualizzaAcquisti?destinazione=user/Ordini.jsp");
+		    		response.sendRedirect(request.getContextPath()+"/pages/user/VisualizzaAcquisti?destinazione=user/Ordini.jsp");
 		        	return;
 		    	}
 	    		Iterator<?> iter = acquisti.iterator();

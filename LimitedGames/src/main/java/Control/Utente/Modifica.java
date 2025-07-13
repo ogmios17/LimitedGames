@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Model.Utente.*;
 
-@WebServlet("/Modifica")
+@WebServlet("/pages/user/Modifica")
 public class Modifica extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

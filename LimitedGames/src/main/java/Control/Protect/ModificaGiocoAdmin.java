@@ -20,7 +20,7 @@ import Model.Gioco.*;
 import Model.Cartable;
 import java.util.*;
 
-@WebServlet("/ModificaGiocoAdmin")
+@WebServlet("/pages/admin/ModificaGiocoAdmin")
 @MultipartConfig
 public class ModificaGiocoAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
