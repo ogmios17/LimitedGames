@@ -38,7 +38,7 @@
 			<td><%=user.getCAP() %></td>
 			<td><%=user.getCitta() %></td>
 			<td><%=user.getTipo()%></td>
-			<td><a href="<%=request.getContextPath() %>/VisualizzaOrdini?username=<%=user.getUsername()%>&destinazione=admin/VisualizzaOrdini.jsp">
+			<td><a href="<%=request.getContextPath() %>/pages/admin/VisualizzaOrdiniAdmin?username=<%=user.getUsername()%>&destinazione=admin/VisualizzaOrdini.jsp">
 			<button>Ordini</button></a></td>
 		</tr>
 		<%} %>
