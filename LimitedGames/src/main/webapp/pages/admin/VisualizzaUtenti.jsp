@@ -3,7 +3,7 @@
 <%
     Collection<UtenteBean> utenti = (Collection<UtenteBean>)request.getAttribute("utenti");
 	if(utenti == null || utenti.isEmpty()){
-		response.sendRedirect(request.getContextPath()+"/FetchUtenti");
+		response.sendRedirect(request.getContextPath()+"/pages/admin/FetchUtenti");
     	return;
 	}
 %>

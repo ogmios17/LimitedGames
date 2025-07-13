@@ -10,7 +10,7 @@
 	        	return;
     		}
     	}
-    	
+    	boolean mostraOrdini = false;
     	 	
     %>
 <!DOCTYPE html>
@@ -34,6 +34,8 @@
     		Iterator<?> it=ordini.iterator();
     		while(it.hasNext()){
     			OrdineBean o= (OrdineBean)it.next();
+    			if(o.getNome()!="empty"){
+    				mostraOrdini = true;
     %>
     
 	<div class="ordine-card">
@@ -53,7 +55,12 @@
 	</div>
 <%
 		}
-	} else {
+    	}
+    		if(!mostraOrdini){
+    			%>
+    				<h1>Non sono ancora stati effettuati ordini.</h1>
+    			<% } 
+	} else if(!mostraOrdini){
 %>
 	<h1>Non sono ancora stati effettuati ordini.</h1>
 <% } %>

@@ -21,7 +21,7 @@
 <body>
   
   <div class="Dati">
-	<form action="./ModificaGiocoAdmin" method="post">
+	<form action="./pages/admin/ModificaGiocoAdmin" method="post">
 	<input type="hidden" name="action" value="find">
 	<input type="hidden" name="id" value="<%=request.getParameter("id") %>">
 	<input type="hidden" name="cartables" value="<%=products %>">
@@ -42,7 +42,7 @@
 		<input type="submit" value="Seleziona">
 	 </form>
 	<% if(selected!=null){ %>
-	 <form action ="./ModificaGiocoAdmin" method="post" enctype="multipart/form-data">
+	 <form action ="./pages/admin/ModificaGiocoAdmin" method="post" enctype="multipart/form-data">
 	
 		<input type="hidden" name="id" value="<%=request.getParameter("id") %>">
 	
