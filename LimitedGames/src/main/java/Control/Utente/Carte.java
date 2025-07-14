@@ -58,6 +58,8 @@ public class Carte extends HttpServlet {
 					System.out.println("saved");
 				}
 				proprietaModel.doSave(new ProprietaBean(username,pagamento.getNumero()));	
+				response.sendRedirect(request.getContextPath() + "/pages/user/ModificaDati.jsp?success=add");
+				return;
 				
 			}else if(action.equals("delete")) {
 				proprietaModel.doDelete(request.getParameter("carta"),username);
@@ -65,7 +67,7 @@ public class Carte extends HttpServlet {
 				if(rimanenti == null || rimanenti.isEmpty()) {
 					pagamentoModel.doDelete(request.getParameter("carta"));
 				}
-				response.sendRedirect(request.getContextPath() + "/Carte?action=view");
+				response.sendRedirect(request.getContextPath() + "/pages/user/Carte?action=view");
 				return;
 			}
 		}catch(Exception e) {

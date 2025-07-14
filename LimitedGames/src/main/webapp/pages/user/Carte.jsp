@@ -47,7 +47,7 @@
     	<fieldset>
     	<div class="submit-error" id ="submit-error"></div>
     		Inserisci una nuova carta<br>
-    		<form action = "<%= request.getContextPath()%>/Carte" method="POST" id ="form-aggiungi-carta">
+    		<form action = "<%= request.getContextPath()%>/pages/user/Carte" method="POST" id ="form-aggiungi-carta">
     			<input type = "hidden" name="destination" value="/pages/user/Carte.jsp">
     			<label for="nome">Nome:</label>
     			<input type="text" name = "nome" id="nome" required oninvalid="this.setCustomValidity('Inserisci il nome')" 

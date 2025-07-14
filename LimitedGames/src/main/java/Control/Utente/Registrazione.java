@@ -42,6 +42,9 @@ public class Registrazione extends HttpServlet {
 			utente.setVia(request.getParameter("via"));
 			
 			model.doSave(utente);
+			request.getSession().setAttribute("userFilterRoles", true);
+			request.getSession().setAttribute("nome", utente.getNome());
+			request.getSession().setAttribute("user",utente);
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/login-form.jsp");
 			dispatcher.forward(request, response);
 		}catch(Exception e) {

@@ -13,6 +13,27 @@
 <%@ include file="/pages/header.jsp" %>
 
 
+<% String success = request.getParameter("success"); %>
+
+<% if (success != null) { %>
+  <div id="popup-message" class="popup">
+    <% if ("add".equals(success)) { %>
+      Carta salvata con successo!
+    <% } else if ("delete".equals(success)) { %>
+      Carta eliminata con successo!
+    <% } %>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const popup = document.getElementById("popup-message");
+      if (popup) {
+        popup.style.opacity = "0";
+        setTimeout(() => popup.remove(), 500);
+      }
+    }, 1000); // 1s visible, then fades out
+  </script>
+<% } %>
 
   <div class="Box">
   <div class="Tasti">
