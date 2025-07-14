@@ -32,6 +32,27 @@
             margin-top: 15%;
           }           
 }
+
+ @media screen and (max-width: 850px) {
+         
+          body::before {
+            margin-top: 20%;
+          }           
+}
+
+ @media screen and (max-width: 650px) {
+         
+          body::before {
+            margin-top: 25%;
+          }           
+}
+
+@media screen and (max-width: 530px) {
+         
+          body::before {
+            margin-top: 35%;
+          }           
+}
 </style>
 </head>
 <body class="User">

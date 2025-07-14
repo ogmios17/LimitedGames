@@ -12,7 +12,7 @@ h1 {
 .Tavolo {
   margin: 0;
   padding: 0;
-  height: 25vh;
+  margin-top: 5%;
   display: flex;
   justify-content: center;
   align-items: center; 
@@ -31,4 +31,21 @@ h1 {
 
 .Tavolo button:hover {
   background-color:  #c40812;
+}
+
+@media (max-width: 780px) {
+  .Tavolo td:nth-child(4),
+  .Tavolo td:nth-child(5),
+  .Tavolo td:nth-child(6),
+  .Tavolo th:nth-child(4),
+  .Tavolo th:nth-child(5),
+  .Tavolo th:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+	.Tavolo {
+  font-size: 90%;
+}
 }
