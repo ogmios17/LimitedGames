@@ -35,7 +35,12 @@ public class RimuoviGioco extends HttpServlet {
 				session.setAttribute("cart", cart);
 			}
 			try {
-				if(request.getParameter("action").equals("subtract")) {
+				if(request.getParameter("action").equals("add")) {
+					GiocoBean game=model.doRetrieveByKey(Integer.parseInt(request.getParameter("id")));
+					String piattaforma = request.getParameter("piattaforma");
+					cart.addGame(new Cartable(game,1,piattaforma));
+					session.setAttribute("cart", cart);
+				} else if(request.getParameter("action").equals("subtract")) {
 					GiocoBean game=model.doRetrieveByKey(Integer.parseInt(request.getParameter("id")));
 					String piattaforma = request.getParameter("piattaforma");
 					cart.subtractGame(new Cartable(game,1,piattaforma));

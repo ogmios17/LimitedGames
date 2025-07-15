@@ -35,12 +35,13 @@
 				<%=c.getPiattaforma() %><br>
 				<%=c.getGioco().getEdizione() %><br>
 				<%=c.getGioco().getPrezzo() %><br></div>
-            <div class="spazio">  <p> Quantità: <%=c.getQuantita() %> </p>	
+            <div class="spazio"> <div id="Aggiungi">  <p> Quantità: <form action = "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>" method="POST">
+	       			<input type="submit" value="-">
+	       		</form> <%=c.getQuantita() %> <form action = "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=add&piattaforma=<%=c.getPiattaforma() %>" method="POST">
+    <input type="submit" value="+">
+</form> </div> 	
 				<p>Prezzo Totale: <%=c.getGioco().getPrezzo()*c.getQuantita() %></p>
-	       	</div>
-	       		<form action = "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=subtract&piattaforma=<%=c.getPiattaforma() %>" method="POST">
-	       			<input type="submit" value="-1" class="bottone">
-	       		</form>
+	       			</div>
 	       		<form action = "<%= request.getContextPath() %>/RimuoviGioco?id=<%=c.getGioco().getId()%>&action=delete&piattaforma=<%=c.getPiattaforma() %>" method="POST">
 	       			<input type="submit" value="RIMUOVI" class="bottone">
 	       			<input type = "hidden" value= "<%=c.getQuantita() %>" name="quantita">
