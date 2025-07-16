@@ -79,7 +79,7 @@
     	<a href= "<%= request.getContextPath() %>/ShowDetails?id=<%=g.getId()%>">
         	<img src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>">
         </a>
-        <%= g.getTitolo() %> <%= g.getEdizione() %> Edition<br>
+            <%= g.getTitolo() %> <%= g.getEdizione() %> Edition<br>
         <% if(g.getSconto()!=0) {%>
         <s><%=g.getPrezzo() %></s>
         <% } %>

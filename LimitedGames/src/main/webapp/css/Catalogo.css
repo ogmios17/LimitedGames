@@ -39,8 +39,8 @@ div.images:hover {
 div.images img {
   width: 100%;
   height: 15rem;
-  
 }
+
 .Tendenza {
   border: 0.1875rem solid #000;
   background-color: #000;
@@ -251,4 +251,23 @@ div.images img {
 	margin-left: 0%;
 	}
 	
+}
+
+@media screen and (max-width: 499px) {
+	.singlePlatform button {
+	font-size: 0.7em;
+	}
+}
+
+@media screen and (max-width: 460px) {
+	#Posizione {
+	 margin-right: 17%;
+	 }
+	
+}
+
+@media screen and (max-width: 460px) {
+	#Posizione {
+	 margin-right: 13%;
+	 }
 }

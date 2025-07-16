@@ -21,9 +21,6 @@
 <body>
 <%@ include file="/pages/header.jsp" %>
 
-
-<h1>Riepilogo ordine:</h1>
-
 <div class="Dati">
 <%
 		Cart cart=(Cart)session.getAttribute("cart");
