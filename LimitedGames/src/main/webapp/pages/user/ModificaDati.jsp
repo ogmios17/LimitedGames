@@ -31,10 +31,9 @@
         popup.style.opacity = "0";
         setTimeout(() => popup.remove(), 500);
       }
-    }, 1000); // 1s visible, then fades out
+    }, 1000); 
   </script>
 <% } %>
-
   <div class="Box">
   <div class="Tasti">
   <div class="Dimensione">
@@ -45,10 +44,6 @@
 		<label for="cognome">Cognome:</label>
 		<input type="text" id="cognome" name="cognome" required value="<%=utente.getCognome()%>"> <br>
 		
-		<input type = "checkbox" id="cambiaPassword" value="Cambia">Cambia password
-		
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" required placeholder="password"> <br>
 
 		<label for="via">Via:</label>
 		<input type="text" id="via" name="via" required value="<%=utente.getVia()%>"> <br>

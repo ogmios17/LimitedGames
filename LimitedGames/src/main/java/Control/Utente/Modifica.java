@@ -26,12 +26,11 @@ public class Modifica extends HttpServlet {
 			utente.setCitta(request.getParameter("citta"));
 			utente.setCognome(request.getParameter("cognome"));
 			utente.setNome(request.getParameter("email"));
-			utente.setPassword(Hasher.toHash(request.getParameter("password")));
 			utente.setVia(request.getParameter("via"));
 			utente.setNome(request.getParameter("nome"));
 			
 			model.doUpdate(utente);
-			response.sendRedirect(request.getContextPath()+"/pages/user/User.jsp");
+			response.sendRedirect(request.getContextPath()+"/pages/user/User.jsp?success=true");
 		}catch(Exception e) {
 			e.printStackTrace();
 			response.sendRedirect(request.getContextPath()+"/pages/Error.jsp");

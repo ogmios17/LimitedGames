@@ -25,4 +25,15 @@
   	<url-pattern>/pages/user/*</url-pattern>
   </filter-mapping>
   
+    <error-page>
+    <error-code>404</error-code>
+    <location>/pages/Error.jsp</location>
+  </error-page>
+
+  <error-page>
+    <error-code>500</error-code>
+    <location>/pages/Error.jsp</location>
+  </error-page>
+  
+  
 </web-app>

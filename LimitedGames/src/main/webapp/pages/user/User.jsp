@@ -55,6 +55,25 @@
 }
 </style>
 </head>
+<% String success = request.getParameter("success"); %>
+
+<% if (success != null) { %>
+  <div id="popup-message" class="popup">
+    <% if ("true".equals(success)) { %>
+      Informazioni aggiornate con successo!
+    <% } %>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const popup = document.getElementById("popup-message");
+      if (popup) {
+        popup.style.opacity = "0";
+        setTimeout(() => popup.remove(), 500);
+      }
+    }, 1000); 
+  </script>
+<% } %>
 <body class="User">
 <%@ include file="/pages/header.jsp" %>
 

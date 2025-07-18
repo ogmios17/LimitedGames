@@ -1,7 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="Model.Gioco.GiocoBean" import= "java.util.*" import= "Model.Gioco.StockBean" import ="Model.Cartable"%>
     
-<% 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Limited Admin</title>
+<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Modifica-Aggiungi.css?v=<%=System.currentTimeMillis()%>">
+</head>
+<body>
+  <% String success = request.getParameter("success"); %>
+
+<% if (success != null) { %>
+  <div id="popup-message" class="popup">
+    <% if ("true".equals(success)) { %>
+      Informazioni aggiornate!
+    <% } }%>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const popup = document.getElementById("popup-message");
+      if (popup) {
+        popup.style.opacity = "0";
+        setTimeout(() => popup.remove(), 500);
+      }
+    }, 1000); 
+  </script>
+  
+  <% 
 	ArrayList<Cartable> products = (ArrayList<Cartable>) request.getAttribute("cartables");
 	if(products == null || products==null){
 		response.sendRedirect(request.getContextPath()+"/ShowDetails?id="+request.getParameter("id")+"&admin=yes");
@@ -11,17 +39,8 @@
 	GiocoBean dettaglio=products.get(0).getGioco(); 
 
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Limited Admin</title>
-<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Modifica-Aggiungi.css?v=<%=System.currentTimeMillis()%>">
-</head>
-<body>
-  
   <div class="Dati">
-	<form action="./pages/admin/ModificaGiocoAdmin" method="post">
+	<form action="<%= request.getContextPath() %>/pages/admin/ModificaGiocoAdmin" method="post">
 	<input type="hidden" name="action" value="find">
 	<input type="hidden" name="id" value="<%=request.getParameter("id") %>">
 	<input type="hidden" name="cartables" value="<%=products %>">
@@ -42,7 +61,7 @@
 		<input type="submit" value="Seleziona">
 	 </form>
 	<% if(selected!=null){ %>
-	 <form action ="./pages/admin/ModificaGiocoAdmin" method="post" enctype="multipart/form-data">
+	 <form action="<%= request.getContextPath() %>/pages/admin/ModificaGiocoAdmin" method="post" enctype="multipart/form-data">
 	
 		<input type="hidden" name="id" value="<%=request.getParameter("id") %>">
 	
