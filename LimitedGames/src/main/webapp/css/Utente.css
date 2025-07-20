@@ -112,7 +112,7 @@ input[type="submit"]:hover {               /* Carte e ModificaDati  */
    background-color: #2a2a2a;
 }
 
-.Dimensione{                                 /* ModificaDati  */
+.Dimensione {                                 /* ModificaDati  */
     font-size: 170%;
     padding: 2% 0;
 }
@@ -250,3 +250,14 @@ form input[type="date"]:focus {
 
 
 
+@media screen and (max-width: 500px){
+    .Box {                                      
+   max-width: 22em;
+}
+
+form input[type="text"],                             /* Carte e ModificaDati  */
+form input[type="password"] {
+    width: 90%;
+    
+}
+}
