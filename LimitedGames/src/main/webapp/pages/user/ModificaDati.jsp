@@ -53,7 +53,7 @@
 
 		<label for="citta">Città:</label>
 		<input type="text" id="citta" name="citta" required value="<%=utente.getCitta()%>"> <br>
-	</form>
+		</form>
 	</div>
 	
 		<div class="azione-riga">

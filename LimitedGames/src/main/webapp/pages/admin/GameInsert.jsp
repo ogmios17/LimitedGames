@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*" import="Model.Gioco.PiattaformaBean"%>
-    
+     
     <%
     Collection<PiattaformaBean> piattaforme= (Collection<PiattaformaBean>)request.getAttribute("piattaforme"); 
     Boolean checkedAttr = (Boolean)request.getAttribute("checked");
@@ -18,6 +18,8 @@
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Modifica-Aggiungi.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+<jsp:include page="/pages/header.jsp" flush="true" />
+
 	<h2>Inserisci un nuovo gioco</h2>
 	
   <div class="Dati">

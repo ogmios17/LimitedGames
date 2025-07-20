@@ -10,6 +10,9 @@
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Modifica-Aggiungi.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+
+<jsp:include page="/pages/header.jsp" flush="true" />
+
   <% String success = request.getParameter("success"); %>
 
 <% if (success != null) { %>

@@ -160,8 +160,19 @@ a, a:visited{
     100% { transform: scale(1); }
 }
 
+@media screen and (max-width: 1108px) {
+	 nav ul .Menu {
+    width: 60%;
+    }
+}
 
-@media screen and (max-width: 1047px) {
+@media screen and (max-width: 1067px) {
+ nav ul {
+      gap: 0em; 
+      }
+}
+
+@media screen and (max-width: 1052px) {
 	  #searchbox {
 	  max-width: 30em;
 	  }
@@ -177,6 +188,10 @@ a, a:visited{
       width: 25em;
       height: 15.2em;
       }
+      
+      nav ul .Menu {
+      width: 60%;
+}
 }
 
 @media screen and (max-width: 925px) {
@@ -199,7 +214,7 @@ a, a:visited{
     }
     
     nav ul .Menu {
-    width: 25%;
+    width: 35%;
     }
     
      .suggestions-list {
@@ -208,6 +223,30 @@ a, a:visited{
       margin-left: 50%;
       }
 }
+
+@media screen and (max-width: 755px) {
+	 nav ul .Menu {
+    width: 45%;
+    }
+}
+@media screen and (max-width: 739px) {
+	 nav ul .Menu {
+    width: 36%;
+    }
+}
+
+@media screen and (max-width: 616px) {
+	 nav ul .Menu {
+    width: 45%;
+    }
+}
+
+@media screen and (max-width: 608px) {
+	 nav ul .Menu {
+    width: 45%;
+    }
+}
+
 
 @media screen and (max-width: 599px) {
 	 #searchbox {
@@ -230,5 +269,26 @@ a, a:visited{
 @media screen and (max-width: 499px) {
      nav ul .Menu {
       width: 50%;
+     }
+}
+
+@media screen and (max-width: 485px) {
+      nav ul .Menu {
+      width: 40%;
+      }
+       nav ul .Menu .item {
+    margin-left: 0em;
+     }
+}
+
+@media screen and (max-width: 455px) {
+     nav ul .Menu {
+      width: 50%;
+     }
+}
+
+@media screen and (max-width: 450px) {
+     nav ul .Menu {
+      width: 15%;
      }
 }

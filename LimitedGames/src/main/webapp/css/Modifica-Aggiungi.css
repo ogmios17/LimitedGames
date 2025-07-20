@@ -3,8 +3,6 @@
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   background-color: #1e1e1e;
@@ -14,7 +12,7 @@ body {
 
 h2 {
   position: absolute;
-  top: 20px;
+  top: 5em;
   width: 100%;
   text-align: center;
   color: white;
@@ -24,14 +22,14 @@ h2 {
 .Dati {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 3em;
+  padding: 2em;
   background-color: #2a2a2a;
   color: white;
   font-size: 1.4em;
   border-radius: 0.75em;
   box-shadow: 0 0 0.94em rgba(0, 0, 0, 0.3);
-  margin-top: 5em;
+  width: 20em;
+  margin: 9% 0 0 36.5%;
 }
 
 .Dati input[type="text"],
@@ -91,3 +89,70 @@ h2 {
       opacity: 1;
       transition: opacity 0.5s ease;
     }
+
+    @media screen and (max-width: 1650px) {
+          .Dati {
+           margin: 9% 0 0 34.5%;
+           }
+}
+
+@media screen and (max-width: 1550px) {
+          .Dati {
+           margin: 9% 0 0 32.5%;
+           }
+}
+
+@media screen and (max-width: 1450px) {
+          .Dati {
+           margin: 11% 0 0 31.5%;
+           }
+}
+
+@media screen and (max-width: 1350px) {
+          .Dati {
+           margin: 12% 0 0 30%;
+           }
+}
+
+@media screen and (max-width: 1250px) {
+          .Dati {
+           margin: 14% 0 0 29%;
+           }
+}
+
+@media screen and (max-width: 1100px) {
+          .Dati {
+           margin: 15% 0 0 25%;
+           }
+}
+
+@media screen and (max-width: 950px) {
+          .Dati {
+           margin: 17% 0 0 21%;
+           }
+}
+
+@media screen and (max-width: 800px) {
+          .Dati {
+           margin: 20% 0 0 15%;
+           }
+}
+
+@media screen and (max-width: 670px) {
+          .Dati {
+           margin: 24% 0 0 5%;
+           }
+}
+@media screen and (max-width: 580px) {
+          .Dati {
+           margin: 30% 0 0 0;
+           width: 17em;
+           }
+}
+
+@media screen and (max-width: 470px) {
+          .Dati {
+           margin: 32% 0 0 0;
+           width: 14m;
+           }
+}

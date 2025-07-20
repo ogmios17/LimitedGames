@@ -15,6 +15,8 @@
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/VISUT.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+<%@ include file="/pages/header.jsp" %>
+
 	<h1>Elenco utenti:</h1> <br>
 	<table class="Tavolo">
 		<tr>

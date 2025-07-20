@@ -114,6 +114,7 @@ input[type="submit"]:hover {               /* Carte e ModificaDati  */
 
 .Dimensione{                                 /* ModificaDati  */
     font-size: 170%;
+    padding: 2% 0;
 }
 
 .posizioneMD {                          /* ModificaDati  */

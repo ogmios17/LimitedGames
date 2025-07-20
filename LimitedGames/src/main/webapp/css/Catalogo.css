@@ -259,10 +259,15 @@ div.images img {
 	}
 }
 
-@media screen and (max-width: 460px) {
-	#Posizione {
-	 margin-right: 17%;
-	 }
+@media screen and (max-width: 500px) {
+    #Posizione {
+        margin-right: 20%;
+    }
+}
+@media screen and (max-width: 490px) {
+	 div.images {
+     margin: 0 0 0 2.5rem;
+}
 	
 }
 
@@ -270,4 +275,12 @@ div.images img {
 	#Posizione {
 	 margin-right: 13%;
 	 }
+}
+
+@media screen and (max-width: 450px) {
+	 .catalogo-admin [type=submit],
+     .catalogo-admin button {
+	  font-size: 110%;
+	  padding: 0.4em 0.7em; 
+	  }
 }
