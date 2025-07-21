@@ -133,6 +133,40 @@ public class GiocoDAO implements GiocoDAOInterface{
 		}return bean;
 	}
 	
+	public GiocoBean doRetrieveByTitolo(String titolo) throws SQLException{
+		Connection connection = null;
+		PreparedStatement ps = null;
+		GiocoBean bean = new GiocoBean();
+		String query = "SELECT * FROM "+TABLE_NAME+" WHERE Titolo=?";
+		try {
+			connection=DriverManagerConnectionPool.getConnection();
+			ps=connection.prepareStatement(query);
+			ps.setString(1, titolo);
+			
+			ResultSet result = ps.executeQuery();
+			while(result.next()) {
+				
+				bean.setId(result.getInt("Id"));
+				bean.setTitolo(result.getString("Titolo"));
+				bean.setDescrizione(result.getString("Descrizione"));
+				bean.setImmagine(result.getString("Immagine"));
+				bean.setEdizione(result.getString("Edizione"));
+				bean.setPrezzo(result.getFloat("Prezzo"));
+				bean.setIva(result.getFloat("Iva"));
+				bean.setSconto(result.getFloat("Sconto"));
+				bean.setDataUscita(result.getDate("Data_uscita"));
+			}
+			connection.commit();
+		}finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}return bean;
+	}
+	
 	public Collection<GiocoBean> doRetrieveAll(String order) throws SQLException{
 		Connection connection = null;
 		PreparedStatement ps = null;

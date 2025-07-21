@@ -29,7 +29,7 @@
 <%
     Collection<?> catalogo = (Collection<?>) request.getAttribute("giochi");
     if(catalogo == null){
-    	response.sendRedirect(request.getContextPath()+"/giochi?success=true");
+    	response.sendRedirect(request.getContextPath()+"/giochi");
     	return;
     }    
 %>

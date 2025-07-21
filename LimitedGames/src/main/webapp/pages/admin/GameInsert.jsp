@@ -52,7 +52,7 @@
 	<form action="<%= request.getContextPath() %>/pages/admin/AggiungiGiocoAdmin" method="post" enctype="multipart/form-data">
 			
 		<label for="Titolo">Titolo:</label><br> 
-		<input name="Titolo" type="text" maxlength="20" required><br> 
+		<input name="Titolo" type="text" maxlength="40" required><br> 
 		
 		<label for="Descrizione">Descrizione:</label><br>
 		<textarea name="Descrizione" maxlength="100" rows="3" required></textarea><br>

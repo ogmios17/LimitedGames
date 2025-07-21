@@ -49,7 +49,11 @@ public class AggiungiGiocoAdmin extends HttpServlet {
 			}
 		try {
 			StockBean stockBean = new StockBean();
-			int idGioco = model.doSave(bean);
+			GiocoBean giaPresente =	model.doRetrieveByTitolo(request.getParameter("Titolo"));
+			int idGioco;
+			if(giaPresente.getTitolo()!=null)
+				idGioco =giaPresente.getId();
+			else idGioco = model.doSave(bean);
 			stockBean.setAcquistati(0);
 			stockBean.setIdGioco(idGioco);
 			stockBean.setPiattaforma(piattaforma);
