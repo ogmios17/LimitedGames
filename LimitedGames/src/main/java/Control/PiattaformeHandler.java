@@ -37,6 +37,9 @@ public class PiattaformeHandler extends HttpServlet {
 			String piattaforma = request.getParameter("piattaforma");
 			try {
 				model.doSave(piattaforma);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/GameInsert.jsp?success=piattaforma");
+				dispatcher.forward(request, response);
+				return;
 			}catch(Exception e) {
 				e.printStackTrace();
 				response.sendRedirect("/LimitedGames/pages/Error.jsp");

@@ -8,6 +8,7 @@
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Acquisti.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+<%@ include file="/pages/header.jsp" %>
 	<h1>Elenco prodotti relativi all'ordine: </h1>
 	
 	
@@ -28,6 +29,5 @@
 	    	<%} %>
 			</ul>
 	</div>
-	
 </body>
 </html>

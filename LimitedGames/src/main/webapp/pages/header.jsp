@@ -14,7 +14,7 @@
 	<nav>	
 		<ul>
 		    <li class="Logo">
-		    <a href="<%= request.getContextPath() %>/pages/Catalogo.jsp">
+		    <a href="<%= request.getContextPath() %>/pages/Catalogo.jsp#ordina">
 		    <img src="<%= request.getContextPath() %>/images/system/logo.png" alt="Limited Games"> 
 		    </a></li>
 		    

@@ -24,7 +24,7 @@
 					piattaformaBean = (PiattaformaBean)iter.next();
 					%>
 					<div class="singlePlatform">
-						<a href="<%=request.getContextPath() %>/CatalogoPiattaforme?piattaforma=<%=piattaformaBean.getPiattaforma() %>">
+						<a href="<%=request.getContextPath() %>/CatalogoPiattaforme?piattaforma=<%=piattaformaBean.getPiattaforma() %>#ordina">
 						<button><%=piattaformaBean.getPiattaforma() %></button>
 						</a>
 						

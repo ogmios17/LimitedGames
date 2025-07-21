@@ -22,7 +22,7 @@ public class GiocoDAO implements GiocoDAOInterface{
 		String query="INSERT INTO "+TABLE_NAME+"(Titolo,Descrizione,Immagine,Edizione,Prezzo,IVA,Sconto,Data_uscita) VALUES(?,?,?,?,?,?,?,?)";
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
-			ps= connection.prepareStatement(query);
+			ps= connection.prepareStatement(query,PreparedStatement.RETURN_GENERATED_KEYS);
 			ps.setString(1, gioco.getTitolo());
 			ps.setString(2, gioco.getDescrizione());
 			ps.setString(3, gioco.getImmagine());

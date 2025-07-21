@@ -20,7 +20,39 @@
 </head>
 <body>
 <%@ include file="/pages/header.jsp" %>
+<% String success = request.getParameter("success"); %>
 
+<% if (success != null) { %>
+  <div id="popup-message" class="popup">
+    <% if ("add".equals(success)) { %>
+      Carta salvata con successo!
+    <% } }%>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const popup = document.getElementById("popup-message");
+      if (popup) {
+        popup.style.opacity = "0";
+        setTimeout(() => popup.remove(), 500);
+      }
+    }, 1000); 
+     
+    if (window.history.replaceState) {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("success");
+        window.history.replaceState(null, "", url);
+        
+        
+    }
+  </script>
+<script src="<%= request.getContextPath() %>/JavaScript/Forms.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        setupCartaForm("numero", "cvv");
+        setupFormValidation(); 
+    });
+</script>
 <div class="Dati">
 <%
 		Cart cart=(Cart)session.getAttribute("cart");
@@ -39,7 +71,8 @@
 				<%=c.getGioco().getEdizione() %><br>
 				<%=c.getGioco().getPrezzo() %><br>
             <p> Quantità: <%=c.getQuantita() %> </p>	
-				<p>Prezzo Totale: <%=c.getGioco().getPrezzo()*c.getQuantita() %></p>
+				<p>Prezzo Totale: <%= String.format("%.2f", c.getGioco().getPrezzo() * c.getQuantita()) %>€</p>
+
 		<%} %>
 		
            </div>
@@ -48,8 +81,13 @@
     Boolean checkedAttr = (Boolean)request.getAttribute("checked");
     boolean checked = (checkedAttr != null) ? checkedAttr : false;
     if((carte == null || carte.isEmpty())&& checked == false){
-    	response.sendRedirect(request.getContextPath()+"/pages/user/CardHandler");
-    	return;
+    	if(success!=null && success.equals("true")){
+	    	response.sendRedirect(request.getContextPath()+"/pages/user/CardHandler?success=add");
+	    	return;
+    	}else {
+    		response.sendRedirect(request.getContextPath()+"/pages/user/CardHandler");
+	    	return;
+    	}
     }%>
     <div class="Bottoni">
 	<button type="button" onclick="toggleSection('savedCards')">💳 Usa una delle carte salvate</button>
@@ -72,35 +110,42 @@
         <% } %>
     </div>
     <div id="newCard">
-        <form action="<%= request.getContextPath() %>/pages/user/Carte?action=add" method="POST">
-    <fieldset>
-        <legend>Inserisci dati della nuova carta</legend>
+    <form action="<%= request.getContextPath() %>/pages/user/Carte" method="POST" id="form-aggiungi-carta">
+        <fieldset>
+    <div class="submit-error" id="submit-error"></div>
+    	<div class="submit-error" id ="submit-error"></div>
+    		Inserisci una nuova carta<br>
+    			<input type = "hidden" name="destination" value="/pages/user/Carte.jsp">
+    			<label for="nome">Nome:</label>
+    			<input type="text" name = "nome" id="nome" required oninvalid="this.setCustomValidity('Inserisci il nome')" 
+       oninput="this.setCustomValidity('')"><br>
+    			<label for="cognome">Cognome:</label>
+    			<input type="text" name = "cognome" id="cognome" required oninvalid="this.setCustomValidity('Inserisci il cognome')" 
+       oninput="this.setCustomValidity('')"><br>
+    			<label for="tipo">Tipo:</label>
+    			<select name="tipo" id="tipo">
+    				<option value="mastercard">Mastercard</option>
+    				<option value="VISA">VISA </option>
+    			</select>
+    			<br>
+    			<div id="numero-warning" class="warning"></div>
+    			<label for="numero">Numero:</label>
+    			<input type="text" name = "numero" id="numero" autocomplete="off" required oninvalid="this.setCustomValidity('Inserisci il numero della carta')" 
+       oninput="this.setCustomValidity('')"><br>
+    			<label for="scadenza">Scadenza:</label>
+    			<input type="month" name="scadenza" id="scadenza" required oninvalid="this.setCustomValidity('Inserisci la scadenza')" 
+       oninput="this.setCustomValidity('')"><br>
+    			<div id="cvv-warning" class="warning"></div>
+    			<label for="cvv">CVV:</label>
+    			<input type="text" maxlength=3 name="cvv" id="cvv" required oninvalid="this.setCustomValidity('Attenzione: questo campo è obbligatorio')" 
+       oninput="this.setCustomValidity('')"><br>
+    			<input type="hidden" name="action" value="add">
+    			<input type="hidden" name="destinazione" value="CardHandler">
+    			<input type="submit" value="Aggiungi">
+    		</form>
+    	</fieldset>
+</div>
 
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" required><br>
-		
-		<input type = "hidden" name="destination" value="/pages/user/FinalizzaOrdine.jsp">
-		
-        <label for="cognome">Cognome:</label>
-        <input type="text" name="cognome" id="cognome" required><br>
-
-        <label for="tipo">Tipo:</label>
-        <input type="text" name="tipo" id="tipo" required><br>
-
-        <label for="numero">Numero:</label>
-        <input type="text" maxlength="16" name="numero" id="numero" required><br>
-
-        <label for="scadenza">Scadenza:</label>
-        <input type="date" name="scadenza" id="scadenza" required><br>
-
-        <label for="cvv">CVV:</label>
-        <input type="text" maxlength="3" name="cvv" id="cvv" required><br><br>
-
-        <input type="submit" value="Salva metodo di pagamento">
-    </fieldset>
-</form>
-
-    </div>
     
     <div class="Posizione">
  <%@ include file="/pages/footer.jsp" %>

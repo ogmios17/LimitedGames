@@ -11,6 +11,16 @@
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/Header.css?v=<%=System.currentTimeMillis()%>">
 </head>
 <body>
+<div id="custom-confirm" class="modal" style="display: none;">
+  <div class="modal-content">
+    <p>Sei sicuro di voler eliminare il prodotto?</p>
+    <div class="modal-buttons">
+      <button id="confirm-yes">Sì</button>
+      <button id="confirm-no">No</button>
+    </div>
+  </div>
+</div>
+
 <%@ include file="/pages/header.jsp" %>
 
 
@@ -19,11 +29,60 @@
 <%
     Collection<?> catalogo = (Collection<?>) request.getAttribute("giochi");
     if(catalogo == null){
-    	response.sendRedirect(request.getContextPath()+"/giochi");
+    	response.sendRedirect(request.getContextPath()+"/giochi?success=true");
     	return;
     }    
 %>
+<% String success = request.getParameter("success"); %>
 
+<% if (success != null) { %>
+  <div id="popup-message" class="popup">
+    <% if ("add".equals(success)) { %>
+      Gioco aggiunto con successo!
+    <% } else if("true".equals(success)){%>
+    Gioco modificato con successo!
+    <%} %>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const popup = document.getElementById("popup-message");
+      if (popup) {
+        popup.style.opacity = "0";
+        setTimeout(() => popup.remove(), 500);
+      }
+    }, 1000); 
+    
+    if (window.history.replaceState) {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("success");
+        window.history.replaceState(null, "", url);
+        
+        
+    }
+  </script>
+  
+  
+<% } %>
+
+	<script>
+	  let pendingForm = null;
+	
+	  function confermaEliminazione(e, form) {
+	    e.preventDefault(); 
+	    pendingForm = form;
+	    document.getElementById('custom-confirm').style.display = 'flex';
+	  }
+	
+	  document.getElementById('confirm-yes').addEventListener('click', () => {
+	    if (pendingForm) pendingForm.submit();
+	  });
+	
+	  document.getElementById('confirm-no').addEventListener('click', () => {
+	    document.getElementById('custom-confirm').style.display = 'none';
+	    pendingForm = null;
+	  });
+	</script>
 <h2>Catalogo Giochi</h2>
 <div class="Ordina"> 
 <form action="<%= request.getContextPath() %>/giochi" method="POST">
@@ -31,6 +90,7 @@
     <select name="sort" id="sort">
         <option value="titolo">Titolo</option>
         <option value="prezzo">Prezzo</option>
+        <option value="Data_uscita">Data</option>
     </select>
     <input type="submit" value="Ordina" />
 </form>
@@ -48,7 +108,9 @@
     	GiocoBean g= (GiocoBean)it.next();
     %>
       <div class="images">   
+      	<a href= "<%= request.getContextPath() %>/ShowDetails?id=<%=g.getId()%>">
         <img src="<%= request.getContextPath() %>/images/<%= g.getImmagine() %>?v=<%= System.currentTimeMillis() %>" alt="<%= g.getTitolo() %>"><br>
+        </a>
         <%= g.getTitolo() %> <%= g.getEdizione() %> Edition<br>
         <% if(g.getSconto()!=0) {%>
         <s><%=g.getPrezzo() %></s>
@@ -61,11 +123,11 @@
         	<button >Dettagli</button>
         </a>
 
-		<form action = "<%= request.getContextPath() %>/pages/admin/EliminaGiocoAdmin" method="POST">
+		<form action = "<%= request.getContextPath() %>/pages/admin/EliminaGiocoAdmin" method="POST" onSubmit="return confermaEliminazione(event,this);">
 			<input type = "hidden" name = "id" value= "<%=g.getId()%>">
 			<input type = "submit" value = "Elimina">
 		</form>
-        <a href= "<%= request.getContextPath() %>/pages/admin/GameUpdate.jsp?id=<%=g.getId()%>">
+        <a href= "<%= request.getContextPath() %>/ShowDetails?id=<%=g.getId()%>&admin=yes&platformSelected=false">
         	<button>Modifica</button>
         </a>
         </div>

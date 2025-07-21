@@ -32,6 +32,13 @@
         setTimeout(() => popup.remove(), 500);
       }
     }, 1000); 
+    if (window.history.replaceState) {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("success");
+        window.history.replaceState(null, "", url);
+        
+        
+    }
   </script>
 <% } %>
   <div class="Box">

@@ -33,7 +33,7 @@
 <form action="<%= request.getContextPath() %>/login" method="post">
 <fieldset>
 
-<label for="username">Username</label>
+<label for="username">Email:</label>
 <input id="username" type="text" name="username" placeholder="enter login"><br>
 
 <label for="password">Password</label>

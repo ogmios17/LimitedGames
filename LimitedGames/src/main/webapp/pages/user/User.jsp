@@ -71,9 +71,16 @@
         popup.style.opacity = "0";
         setTimeout(() => popup.remove(), 500);
       }
-    }, 1000); 
+    }, 1000);
+    
+    if (window.history.replaceState) {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("success");
+        window.history.replaceState(null, "", url);
+    }
   </script>
 <% } %>
+
 <body class="User">
 <%@ include file="/pages/header.jsp" %>
 

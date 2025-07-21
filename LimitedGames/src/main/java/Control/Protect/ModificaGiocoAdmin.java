@@ -96,7 +96,13 @@ public class ModificaGiocoAdmin extends HttpServlet {
 				return;
 			}
 		}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/GameUpdate.jsp?success=true");
+		String destination = request.getParameter("platformSelected");
+		if(destination!= null && destination.equals("true")) {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/GameUpdate.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pages/admin/CatalogoAdmin.jsp?success=true");
 		dispatcher.forward(request, response);
 	}
 

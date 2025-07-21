@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.sql.Date;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import javax.servlet.http.Part;
 import Model.Gioco.*;
 
 @WebServlet("/pages/admin/AggiungiGiocoAdmin")
+@MultipartConfig
 public class AggiungiGiocoAdmin extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -57,8 +59,9 @@ public class AggiungiGiocoAdmin extends HttpServlet {
 		}catch(Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("/LimitedGames/pages/Error.jsp");
+			return;
 		}
-		response.sendRedirect(request.getContextPath()+"/giochi");
+		response.sendRedirect(request.getContextPath()+"/giochi?success=add");
 		return;
 	}
 

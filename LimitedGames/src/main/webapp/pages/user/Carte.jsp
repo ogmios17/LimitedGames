@@ -63,16 +63,17 @@
     			<br>
     			<div id="numero-warning" class="warning"></div>
     			<label for="numero">Numero:</label>
-    			<input type="text" name = "numero" id="numero"  required oninvalid="this.setCustomValidity('Inserisci il numero della carta')" 
+    			<input type="text" name = "numero" id="numero" required oninvalid="this.setCustomValidity('Inserisci il numero della carta')" 
        oninput="this.setCustomValidity('')"><br>
     			<label for="scadenza">Scadenza:</label>
-    			<input type="date" name="scadenza" id="scadenza" required oninvalid="this.setCustomValidity('Inserisci la scadenza')" 
+    			<input type="month" name="scadenza" id="scadenza" required oninvalid="this.setCustomValidity('Inserisci la scadenza')" 
        oninput="this.setCustomValidity('')"><br>
     			<div id="cvv-warning" class="warning"></div>
     			<label for="cvv">CVV:</label>
     			<input type="text" maxlength=3 name="cvv" id="cvv" required oninvalid="this.setCustomValidity('Attenzione: questo campo è obbligatorio')" 
        oninput="this.setCustomValidity('')"><br>
     			<input type="hidden" name="action" value="add">
+    			<input type="hidden" name="destinazione" value="ModificaDati.jsp">
     			<input type="submit" value="Aggiungi">
     		</form>
     	</fieldset>

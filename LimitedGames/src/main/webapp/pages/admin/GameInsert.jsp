@@ -10,6 +10,32 @@
     	return;
     }
     %>
+    <% String success = request.getParameter("success"); %>
+
+<% if (success != null) { %>
+  <div id="popup-message" class="popup">
+    <% if ("piattaforma".equals(success)) { %>
+      Piattaforma aggiunta con successo!
+    <% }} %>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const popup = document.getElementById("popup-message");
+      if (popup) {
+        popup.style.opacity = "0";
+        setTimeout(() => popup.remove(), 500);
+      }
+    }, 1000); 
+    
+    if (window.history.replaceState) {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("success");
+        window.history.replaceState(null, "", url);
+        
+        
+    }
+  </script>
 <!DOCTYPE html>
 <html>
 <head>

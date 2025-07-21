@@ -36,10 +36,13 @@ window.onload = function() {
                     <div class="images">
                         <a href="/LimitedGames/ShowDetails?id=${gioco.id}">
                             <img src="/LimitedGames/images/${gioco.immagine}?v=${Date.now()}" alt="${gioco.titolo}">
+                            <div class="info">
+	                        ${gioco.titolo} ${gioco.edizione} Edition<br/>
+	                        ${sconto !== 0 ? `<s>${prezzo.toFixed(2)}</s>` : ""}
+	                        ${prezzoScontato} €<br/>
+	                        </div>
                         </a>
-                        ${gioco.titolo} ${gioco.edizione} Edition<br/>
-                        ${sconto !== 0 ? `<s>${prezzo.toFixed(2)}</s>` : ""}
-                        ${prezzoScontato} €<br/>
+                        
                     </div>
                 `;
                 catalogo.innerHTML += giocoHTML;

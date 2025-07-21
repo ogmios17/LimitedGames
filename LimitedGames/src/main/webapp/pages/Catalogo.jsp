@@ -56,12 +56,13 @@
 
   <div id="Griglia">
   
-<div class="Ordina"> 
+<div class="Ordina" id="ordina"> 
 <form action="<%= request.getContextPath() %>/giochi" method="POST">
     <label for="sort">Ordina per:</label>
     <select name="sort" id="sort">
         <option value="titolo">Titolo</option>
         <option value="prezzo">Prezzo</option>
+        <option value="Data_uscita">Data</option>
     </select>
     <input type="submit" value="Ordina" />
 </form>

@@ -12,29 +12,10 @@
 <body>
 
 <jsp:include page="/pages/header.jsp" flush="true" />
-
-  <% String success = request.getParameter("success"); %>
-
-<% if (success != null) { %>
-  <div id="popup-message" class="popup">
-    <% if ("true".equals(success)) { %>
-      Informazioni aggiornate!
-    <% } }%>
-  </div>
-
-  <script>
-    setTimeout(() => {
-      const popup = document.getElementById("popup-message");
-      if (popup) {
-        popup.style.opacity = "0";
-        setTimeout(() => popup.remove(), 500);
-      }
-    }, 1000); 
-  </script>
   
   <% 
 	ArrayList<Cartable> products = (ArrayList<Cartable>) request.getAttribute("cartables");
-	if(products == null || products==null){
+	if(products == null || products.isEmpty()){
 		response.sendRedirect(request.getContextPath()+"/ShowDetails?id="+request.getParameter("id")+"&admin=yes");
 		return;
 	}  
@@ -61,6 +42,7 @@
 				%>
 
 		</select>
+		<input type="hidden" name="platformSelected" value="true">
 		<input type="submit" value="Seleziona">
 	 </form>
 	<% if(selected!=null){ %>

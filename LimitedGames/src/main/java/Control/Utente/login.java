@@ -68,9 +68,7 @@ public UtenteBean checkLogin(String username, String hashPassword) throws Except
 	
 	utente = model.doRetrieveByKey(username);
 	
-	System.out.println(Hasher.toHash(utente.getPassword())+"  "+ hashPassword);
 	if(username.equals(utente.getUsername())&& hashPassword.equals(utente.getPassword())) {
-		System.out.println("matching");
 	} else {
 		System.out.println("Fallimento");
 		throw new Exception("Login fallito");		
